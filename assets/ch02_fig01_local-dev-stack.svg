@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<style>
+    .bg { fill:#f8fafc; }
+    .title { font: 700 26px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#0f172a; }
+    .sub { font: 500 14px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#475569; }
+    .box { fill:#ffffff; stroke:#cbd5e1; stroke-width:2; rx:16; ry:16; }
+    .box2 { fill:#eff6ff; stroke:#93c5fd; stroke-width:2; rx:16; ry:16; }
+    .box3 { fill:#f0fdf4; stroke:#86efac; stroke-width:2; rx:16; ry:16; }
+    .box4 { fill:#fefce8; stroke:#fde047; stroke-width:2; rx:16; ry:16; }
+    .label { font: 700 16px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#0f172a; }
+    .text { font: 500 13px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#334155; }
+    .small { font: 500 12px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#475569; }
+    .arrow { stroke:#64748b; stroke-width:3; fill:none; marker-end:url(#arrow); }
+</style>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+  </marker>
+</defs>
+<rect class="bg" x="0" y="0" width="1200" height="760" rx="24" ry="24"/>
+<text x="48" y="60" class="title">개발 환경은 코드·연결·엔진·실행 경로의 조합이다</text><text x="48" y="92" class="sub">dbt 프로젝트를 안정적으로 움직이려면 설치보다 구조를 먼저 이해해야 한다.</text><rect x="60" y="150" width="250" height="170" class="box2"/><text x="78" y="182" class="label">코드와 메타데이터</text><text x="78" y="208" class="text">models/ · tests/ · snapshots/ · macros/</text><text x="78" y="230" class="text">dbt_project.yml · selectors.yml · packages.yml</text><rect x="340" y="150" width="250" height="170" class="box3"/><text x="358" y="182" class="label">연결 정보</text><text x="358" y="208" class="text">profiles.yml</text><text x="358" y="230" class="text">target / schema / warehouse / account /</text><text x="358" y="252" class="text">host / dataset / keyfile / secrets</text><rect x="620" y="150" width="250" height="170" class="box4"/><text x="638" y="182" class="label">실행 엔진</text><text x="638" y="208" class="text">dbt Core CLI</text><text x="638" y="230" class="text">Fusion engine</text><text x="638" y="252" class="text">dbt platform jobs</text><rect x="900" y="150" width="250" height="170" class="box"/><text x="918" y="182" class="label">실행/관찰 경로</text><text x="918" y="208" class="text">debug → parse → ls → compile → run/build → test → docs</text><text x="918" y="230" class="text"> target/ · logs/ · artifacts</text><path d="M310 235 L340 235" class="arrow"/><path d="M590 235 L620 235" class="arrow"/><path d="M870 235 L900 235" class="arrow"/><rect x="110" y="400" width="300" height="130" class="box"/><text x="128" y="434" class="label">핵심 1</text><text x="128" y="462" class="text">환경은 “설치”가 아니라</text><text x="128" y="484" class="text">프로젝트 전체가 어떤 경로로</text><text x="128" y="506" class="text">움직이는지의 문제다.</text><rect x="450" y="400" width="300" height="130" class="box"/><text x="468" y="434" class="label">핵심 2</text><text x="468" y="462" class="text">문제가 생기면 SQL부터 보지 말고</text><text x="468" y="484" class="text">연결·구조·범위·컴파일 순으로</text><text x="468" y="506" class="text">좁혀 들어간다.</text><rect x="790" y="400" width="300" height="130" class="box"/><text x="808" y="434" class="label">핵심 3</text><text x="808" y="462" class="text">DuckDB는 출발점일 뿐이다.</text><text x="808" y="484" class="text">이 장의 구조는 MySQL · Postgres ·</text><text x="808" y="506" class="text">BigQuery · Snowflake · Trino로도 이어진다.</text><text x="48" y="620" class="small">실무적으로는 이 네 층이 함께 맞아야 한다. 코드만 있어도 안 되고, 연결만 되어도 안 되며, 명령 흐름과 artifacts를 볼 줄 알아야 프로젝트가 안정된다.</text></svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="840" viewBox="0 0 1200 840">
+<style>
+    .bg { fill:#f8fafc; }
+    .title { font: 700 26px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#0f172a; }
+    .sub { font: 500 14px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#475569; }
+    .box { fill:#ffffff; stroke:#cbd5e1; stroke-width:2; rx:16; ry:16; }
+    .box2 { fill:#eff6ff; stroke:#93c5fd; stroke-width:2; rx:16; ry:16; }
+    .box3 { fill:#f0fdf4; stroke:#86efac; stroke-width:2; rx:16; ry:16; }
+    .box4 { fill:#fefce8; stroke:#fde047; stroke-width:2; rx:16; ry:16; }
+    .label { font: 700 16px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#0f172a; }
+    .text { font: 500 13px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#334155; }
+    .small { font: 500 12px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#475569; }
+    .arrow { stroke:#64748b; stroke-width:3; fill:none; marker-end:url(#arrow); }
+</style>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+  </marker>
+</defs>
+<rect class="bg" x="0" y="0" width="1200" height="840" rx="24" ry="24"/>
+<text x="48" y="60" class="title">companion 프로젝트를 네 축으로 읽는 방법</text><text x="48" y="92" class="sub">파일이 많아 보여도 먼저 봐야 할 역할은 뚜렷하다.</text><rect x="50" y="140" width="520" height="630" class="box"/><text x="72" y="175" class="label">repository / 실행 프로젝트 뼈대</text><text x="72" y="210" class="text">chapters/</text><text x="72" y="238" class="text">assets/</text><text x="72" y="266" class="text">codes/01_duckdb_runnable_project/</text><text x="72" y="294" class="text">  ├─ bootstrap/</text><text x="72" y="322" class="text">  ├─ raw_csv/</text><text x="72" y="350" class="text">  ├─ expected/</text><text x="72" y="378" class="text">  └─ dbt_all_in_one_lab/</text><text x="72" y="406" class="text">      ├─ dbt_project.yml</text><text x="72" y="434" class="text">      ├─ packages.yml</text><text x="72" y="462" class="text">      ├─ selectors.yml</text><text x="72" y="490" class="text">      ├─ models/</text><text x="72" y="518" class="text">      ├─ snapshots/</text><text x="72" y="546" class="text">      ├─ tests/</text><text x="72" y="574" class="text">      └─ macros/</text><text x="72" y="602" class="text">codes/03_platform_bootstrap/</text><text x="72" y="630" class="text">  ├─ retail/  ├─ events/  └─ subscription/</text><text x="72" y="658" class="text">  └─ nosql_sql_layer_mongodb_via_trino/</text><rect x="630" y="160" width="500" height="120" class="box2"/><text x="648" y="192" class="label">운영 규칙</text><text x="648" y="218" class="text">dbt_project.yml · packages.yml · selectors.yml</text><text x="648" y="240" class="text">폴더별 기본 materialization, tags, vars, 선택 규칙을 관리한다.</text><rect x="630" y="310" width="500" height="120" class="box3"/><text x="648" y="342" class="label">연결 정보</text><text x="648" y="368" class="text">profiles.yml</text><text x="648" y="390" class="text">어느 플랫폼에 어떤 자격 증명으로 연결할지 정의한다.</text><rect x="630" y="460" width="500" height="140" class="box4"/><text x="648" y="492" class="label">변환 로직</text><text x="648" y="518" class="text">models/ · tests/ · snapshots/ · macros/ · seeds/</text><text x="648" y="540" class="text">실제 비즈니스 로직, 품질 규칙, 상태 이력, 재사용 함수를 담는다.</text><rect x="630" y="640" width="500" height="100" class="box"/><text x="648" y="672" class="label">관찰 결과</text><text x="648" y="698" class="text">target/ · logs/</text><text x="648" y="720" class="text">compiled SQL, manifest, run_results, dbt.log를 통해 실행 결과를 읽는다.</text><path d="M570 230 L630 220" class="arrow"/><path d="M570 350 L630 370" class="arrow"/><path d="M570 500 L630 530" class="arrow"/><path d="M570 690 L630 690" class="arrow"/></svg>

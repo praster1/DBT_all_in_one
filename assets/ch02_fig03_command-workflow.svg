@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<style>
+    .bg { fill:#f8fafc; }
+    .title { font: 700 26px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#0f172a; }
+    .sub { font: 500 14px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#475569; }
+    .box { fill:#ffffff; stroke:#cbd5e1; stroke-width:2; rx:16; ry:16; }
+    .box2 { fill:#eff6ff; stroke:#93c5fd; stroke-width:2; rx:16; ry:16; }
+    .box3 { fill:#f0fdf4; stroke:#86efac; stroke-width:2; rx:16; ry:16; }
+    .box4 { fill:#fefce8; stroke:#fde047; stroke-width:2; rx:16; ry:16; }
+    .label { font: 700 16px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#0f172a; }
+    .text { font: 500 13px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#334155; }
+    .small { font: 500 12px 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif; fill:#475569; }
+    .arrow { stroke:#64748b; stroke-width:3; fill:none; marker-end:url(#arrow); }
+</style>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+  </marker>
+</defs>
+<rect class="bg" x="0" y="0" width="1200" height="700" rx="24" ry="24"/>
+<text x="48" y="60" class="title">초보자가 먼저 익혀야 하는 명령 흐름</text><text x="48" y="92" class="sub">환경 → 구조 → 범위 → 컴파일 → 실행 → 검증 → 문서화의 순서로 보면 문제가 훨씬 잘 좁혀진다.</text><rect x="60" y="180" width="120" height="80" class="box2"/><text x="76" y="212" class="label">debug</text><text x="76" y="238" class="text">연결/설치</text><path d="M180 220 L220 220" class="arrow"/><rect x="220" y="180" width="120" height="80" class="box2"/><text x="236" y="212" class="label">parse</text><text x="236" y="238" class="text">구조/문법</text><path d="M340 220 L380 220" class="arrow"/><rect x="380" y="180" width="120" height="80" class="box3"/><text x="396" y="212" class="label">ls</text><text x="396" y="238" class="text">선택 범위</text><path d="M500 220 L540 220" class="arrow"/><rect x="540" y="180" width="140" height="80" class="box3"/><text x="556" y="212" class="label">compile</text><text x="556" y="238" class="text">compiled SQL</text><path d="M680 220 L720 220" class="arrow"/><rect x="720" y="180" width="150" height="80" class="box4"/><text x="736" y="212" class="label">run / build</text><text x="736" y="238" class="text">실행</text><path d="M870 220 L910 220" class="arrow"/><rect x="910" y="180" width="120" height="80" class="box4"/><text x="926" y="212" class="label">test</text><text x="926" y="238" class="text">검증</text><path d="M1030 220 L1060 220" class="arrow"/><rect x="1060" y="180" width="100" height="80" class="box"/><text x="1076" y="212" class="label">docs</text><text x="1076" y="238" class="text">문서</text><rect x="90" y="360" width="1020" height="210" class="box"/><text x="112" y="395" class="label">이 흐름을 왜 먼저 몸에 넣어야 하는가</text><text x="112" y="430" class="text">• debug : 연결 문제와 SQL 문제를 섞지 않기 위해</text><text x="112" y="458" class="text">• parse : YAML/Jinja 구조 오류를 실제 실행 전에 걸러내기 위해</text><text x="112" y="486" class="text">• ls : 무엇이 실행될지 먼저 확인해 과도한 재실행을 줄이기 위해</text><text x="112" y="514" class="text">• compile : source()/ref()/macro가 실제 SQL로 어떻게 풀리는지 보기 위해</text><text x="112" y="542" class="text">• run/build/test : 필요한 범위를 좁게 실행하고 검증하기 위해</text><text x="112" y="570" class="text">• docs : lineage와 설명을 한 번에 탐색해 프로젝트를 '읽을 수 있게' 만들기 위해</text></svg>
