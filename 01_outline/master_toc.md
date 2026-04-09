@@ -1,79 +1,49 @@
-# 🧭 DBT All In One 확장 목차
+# DBT All In One · Master TOC
 
-> **편성 원칙**: Part 8개 중심 · 번호 깊이 최대 4단계(`1. / 1.1. / 1.1.1. / 1.1.1.1.`).
+## Part 구성
 
----
+## PART I · 핵심 개념과 기본기
 
-## Part 1. 왜 dbt 올인원인가
-### 1.1 데이터팀의 반복 문제를 구조로 푸는 이유
-### 1.2 이 책의 학습 경로와 도달점
-### 1.3 범위/비범위와 Companion ZIP 사용법
+dbt를 데이터 스택의 어디에 놓아야 하는지, 세 가지 연속 예제를 어떤 관점으로 읽어야 하는지, 그리고 모델링과 품질의 기본을 어디까지 가져갈지부터 잡는다.
 
-## Part 2. 핵심 개념과 최소 실행
-### 2.1 dbt 프로젝트의 최소 골격
-### 2.2 source → staging → intermediate → marts
-### 2.3 첫 실행: DuckDB 기반 end-to-end
-### 2.4 실패를 일부러 만들고 복구하기
+- **1.** [DBT의 전체 그림과 세 가지 연속 예제](../chapters/ch01_dbt의-전체-그림과-세-가지-연속-예제.md)
+- **2.** [개발 환경, 프로젝트 구조, DBT 명령어와 Jinja, 첫 실행](../chapters/ch02_개발-환경-프로젝트-구조-dbt-명령어와-jinja-첫-실행.md)
+- **3.** [source/ref, selectors, layered modeling, grain, materializations](../chapters/ch03_sourceref-selectors-layered-modeling-grain-materializations.md)
+- **4.** [Tests, Seeds, Snapshots, Documentation, Macros, Packages](../chapters/ch04_tests-seeds-snapshots-documentation-macros-packages.md)
 
-## Part 3. 모델링 원리와 설계 판단
-### 3.1 모델 경계 설정과 재사용 전략
-### 3.2 증분/전체 갱신 선택 기준
-### 3.3 스냅샷과 상태 변화 추적
-### 3.4 안티패턴: 거대 모델/중복 로직/암묵 규칙
+## PART II · 신뢰성·운영·확장
 
-## Part 4. 테스트 · 문서화 · 품질 운영
-### 4.1 기본 테스트와 커스텀 테스트 설계
-### 4.2 데이터 계약(Contracts)과 문서 메타데이터
-### 4.3 선택 실행(selector)과 변경 영향 최소화
-### 4.4 실패 재현 데이터셋과 디버깅 플레이북
+디버깅, 배포, 거버넌스, semantic layer, mesh, performance처럼 실제 운영에서 프로젝트를 오래 살리는 기능을 묶는다.
 
-## Part 5. 예제 Casebook (A/B/C 관통)
-### 5.1 Casebook I: Retail Orders
-#### 5.1.1 day1 구축
-#### 5.1.2 day2 변화 반영
-#### 5.1.3 품질 이슈 주입 및 복구
-### 5.2 Casebook II: Event Stream
-#### 5.2.1 세션화 규칙
-#### 5.2.2 DAU 검증
-#### 5.2.3 마이크로배치 패턴
-### 5.3 Casebook III: Subscription & Billing
-#### 5.3.1 MRR 모델링
-#### 5.3.2 스냅샷 기반 상태 이력
-#### 5.3.3 음수/누락/중복 청구 실패 재현
+- **5.** [디버깅, artifacts, runbook, anti-patterns](../chapters/ch05_디버깅-artifacts-runbook-anti-patterns.md)
+- **6.** [운영, CI/CD, state/defer/clone, vars/env/hooks, 업그레이드](../chapters/ch06_운영-cicd-statedeferclone-varsenvhooks-업그레이드.md)
+- **7.** [Governance, Contracts, Versions, Grants, Quality Metadata](../chapters/ch07_governance-contracts-versions-grants-quality-metadata.md)
+- **8.** [Semantic Layer, Python/UDF, Mesh, Performance, dbt platform, AI](../chapters/ch08_semantic-layer-pythonudf-mesh-performance-dbt-platform-ai.md)
 
-## Part 6. Platform Playbooks
-### 6.1 DuckDB
-### 6.2 PostgreSQL
-### 6.3 BigQuery
-### 6.4 Snowflake
-### 6.5 ClickHouse
-### 6.6 Trino
-### 6.7 NoSQL + SQL Layer (MongoDB + Trino)
+## PART III · 예제 케이스북
 
-> 📌 **각 플랫폼 챕터 고정 구조**  
-> 1) 잘 맞는 워크로드 → 2) 연결/셋업 → 3) day1/day2 로드 → 4) A/B/C 실행 → 5) 성능/비용/제약 → 6) 실수/주의점
+세 가지 연속 예제를 각각 하나의 독립 사례로 따라가며, 앞에서 배운 개념이 실제 도메인에서 어떤 순서로 자라나는지 보여 준다.
 
-## Part 7. 실무 운영 확장
-### 7.1 릴리스 트랙과 업그레이드 체크리스트
-### 7.2 CI/CD와 슬림 CI 운영
-### 7.3 Mesh/의존성 관리
-### 7.4 팀 온보딩 문서화 템플릿
+- **9.** [Casebook I · Retail Orders](../chapters/ch09_casebook-i-retail-orders.md)
+- **10.** [Casebook II · Event Stream](../chapters/ch10_casebook-ii-event-stream.md)
+- **11.** [Casebook III · Subscription & Billing](../chapters/ch11_casebook-iii-subscription-billing.md)
 
-## Part 8. 부록
-### A. 레퍼런스
-#### A.1 명령어 레퍼런스
-#### A.2 Jinja/SQL 패턴
-#### A.3 용어집
+## PART IV · 플랫폼 플레이북
 
-### B. 부트스트랩
-#### B.1 플랫폼별 profile 예시
-#### B.2 초기 데이터 로더
+플랫폼마다 달라지는 profile, raw bootstrap, materialization, 성능·비용·제약을 실제 실행 맥락으로 정리한다.
 
-### C. 트러블슈팅
-#### C.1 증상별 진단 체크리스트
-#### C.2 실패 재현 시나리오 모음
+- **12.** [Platform Playbook · DuckDB](../chapters/ch12_platform-playbook-duckdb.md)
+- **13.** [Platform Playbook · MySQL](../chapters/ch13_platform-playbook-mysql.md)
+- **14.** [Platform Playbook · PostgreSQL](../chapters/ch14_platform-playbook-postgresql.md)
+- **15.** [Platform Playbook · BigQuery](../chapters/ch15_platform-playbook-bigquery.md)
+- **16.** [Platform Playbook · ClickHouse](../chapters/ch16_platform-playbook-clickhouse.md)
+- **17.** [Platform Playbook · Snowflake](../chapters/ch17_platform-playbook-snowflake.md)
+- **18.** [Platform Playbook · Trino](../chapters/ch18_platform-playbook-trino.md)
+- **19.** [Platform Playbook · NoSQL + SQL Layer](../chapters/ch19_platform-playbook-nosql-sql-layer.md)
 
-### D. 템플릿/운영 문서
-#### D.1 PR 템플릿
-#### D.2 테스트 설계서 템플릿
-#### D.3 데이터 계약 템플릿
+## Appendices
+
+- [APPENDIX A · Companion Pack, Example Data, Bootstrap, Answer Keys](../chapters/app_a_companion-pack-example-data-bootstrap-answer-keys.md)
+- [APPENDIX B · DBT 명령어 레퍼런스](../chapters/app_b_dbt-명령어-레퍼런스.md)
+- [APPENDIX C · Jinja, Macro, Extensibility Reference](../chapters/app_c_jinja-macro-extensibility-reference.md)
+- [APPENDIX D · Troubleshooting, Decision Guides, Glossary, Official Sources, Support Matrix](../chapters/app_d_troubleshooting-decision-guides-glossary-official-sources-support-matrix.md)
