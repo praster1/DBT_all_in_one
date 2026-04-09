@@ -30,11 +30,11 @@ flowchart LR
 
 *그림 12-1. 문제를 좁히는 순서를 먼저 고정하면 불필요한 재실행이 크게 줄어든다*
 
-12-1. 디버깅은 명령 순서가 핵심이다
+### 12-1. 디버깅은 명령 순서가 핵심이다
 
 초보자가 가장 많이 시간을 잃는 순간은 설치 문제, YAML 문제, SQL 문제를 한 번에 잡으려 할 때다. 그래서 디버깅은 정답을 맞히는 기술보다 순서를 지키는 습관에 가깝다. debug는 연결, parse는 구조, ls는 선택 범위, compile은 SQL, run/build는 실제 실행이라는 계단을 만든다.
 
-12-2. target과 logs, artifacts를 구분해 보기
+### 12-2. target과 logs, artifacts를 구분해 보기
 
 | 위치 | 무엇이 있나 | 언제 보나 |
 | --- | --- | --- |
@@ -159,8 +159,14 @@ F-3. 실패 증상 → 먼저 볼 곳 매트릭스
 | gross_revenue가 두 배 | int_order_lines vs fct_orders row count | grain 누락 / fanout | intermediate에서 line grain 고정 후 mart에서 집계한다 |
 | snapshot 행 수가 늘지 않음 | snapshots/orders_snapshot.yml | updated_at 또는 check_cols 설정 누락 | snapshot config를 다시 보고 day2 데이터를 재적재한다 |
 
-| BASHdbt debugdbt parsedbt ls -s fct_orders+dbt compile -s fct_ordersdbt build -s fct_orders+ |
-| --- |
+> **BASH**
+```bash
+dbt debug
+dbt parse
+dbt ls -s fct_orders+
+dbt compile -s fct_orders
+dbt build -s fct_orders+
+```
 
 초보자 안티패턴 아틀라스
 

@@ -109,8 +109,14 @@ F-3. 실패 증상 → 먼저 볼 곳 매트릭스
 | gross_revenue가 두 배 | int_order_lines vs fct_orders row count | grain 누락 / fanout | intermediate에서 line grain 고정 후 mart에서 집계한다 |
 | snapshot 행 수가 늘지 않음 | snapshots/orders_snapshot.yml | updated_at 또는 check_cols 설정 누락 | snapshot config를 다시 보고 day2 데이터를 재적재한다 |
 
-| BASHdbt debugdbt parsedbt ls -s fct_orders+dbt compile -s fct_ordersdbt build -s fct_orders+ |
-| --- |
+> **BASH**
+```bash
+dbt debug
+dbt parse
+dbt ls -s fct_orders+
+dbt compile -s fct_orders
+dbt build -s fct_orders+
+```
 
 장별 미션 빠른 정답 가이드
 
