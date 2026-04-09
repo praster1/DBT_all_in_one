@@ -1,11 +1,12 @@
-CHAPTER 04
+# 📘 CHAPTER 04 · Tests, Seeds, Snapshots, Documentation, Macros, Packages
 
-Tests, Seeds, Snapshots, Documentation, Macros, Packages
+> 신뢰 가능한 프로젝트를 만드는 품질 계층을 한 챕터로 묶는다.
 
-신뢰 가능한 프로젝트를 만드는 품질 계층을 한 챕터로 묶는다.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 좋은 dbt 프로젝트는 SQL만 있는 저장소가 아니라, 품질과 의미가 함께 저장된 프로젝트다. generic·singular·unit test는 데이터와 로직의 가정을 고정하고, seed와 snapshot은 프로젝트 내부의 작은 기준표와 상태 이력을 다루게 해 주며, 문서화와 macro와 package는 반복성과 가독성을 함께 챙기게 만든다.
 
@@ -19,7 +20,7 @@ generic·singular·unit test
 | 이 장에서 배우는 것 • generic data test, singular data test, unit test의 차이를 이해한다. • 어떤 테스트를 models/.yml에 두고 어떤 테스트를 tests/ 폴더에 두는지 구분한다. • 실패 메시지를 보고 데이터 문제와 로직 문제를 나눠 보는 법을 익힌다. | 완료 기준 • 핵심 키 컬럼에 기본 generic test를 붙일 수 있다. • singular test 한 개를 직접 작성할 수 있다. • unit test로 계산 로직을 작게 검증하는 이유를 설명할 수 있다. |
 | --- | --- |
 
-9-1. 테스트는 모델의 일부다
+### 9-1. 테스트는 모델의 일부다
 
 dbt를 쓰는 큰 이유 중 하나는 검증 규칙을 모델 옆에 남길 수 있다는 점이다. 눈으로 결과를 보는 확인은 한번은 할 수 있지만, 매 배치마다 똑같이 하기 어렵다. 테스트는 그 반복 가능한 확인을 프로젝트 안에 남기는 장치다.
 
@@ -29,32 +30,56 @@ dbt를 쓰는 큰 이유 중 하나는 검증 규칙을 모델 옆에 남길 수
 | singular data test | 실패 행을 직접 SQL로 정의 | 음수 금액, 조인 불일치 행 찾기 | tests/*.sql |
 | unit test | 작은 입력 → 기대 출력 | 할인 계산, 취소 주문 처리 | models/*.yml |
 
-9-2. generic test는 가장 먼저 붙이는 안전망
+### 9-2. generic test는 가장 먼저 붙이는 안전망
 
-| YAML · marts.yml 일부 version: 2 models: - name: fct_orders columns: - name: order_id data_tests: - not_null - unique - name: customer_id data_tests: - relationships: to: ref('dim_customers') field: customer_id |
-| --- |
+> **YAML** · `marts.yml`
+```yaml
+일부 version: 2 models:
+- name: fct_orders columns:
+- name: order_id data_tests:
+- not_null
+- unique
+- name: customer_id data_tests:
+- relationships: to: ref('dim_customers') field: customer_id
+```
 
 order_id, customer_id, order_date처럼 모델의 정체성을 이루는 컬럼에는 generic test를 먼저 붙이자. 초보자에게는 이것만으로도 많은 문제를 조기에 발견할 수 있다.
 
-9-3. singular test는 자유 SQL로 실패 행을 찾는다
+### 9-3. singular test는 자유 SQL로 실패 행을 찾는다
 
-| SQL · tests/assert_no_negative_order_amount.sql select * from {{ ref('fct_orders') }} where order_amount < 0 |
-| --- |
+> **SQL** · `tests/assert_no_negative_order_amount.sql`
+```sql
+select *
+from {{ ref('fct_orders') }}
+where order_amount < 0
+```
 
 singular test의 요점은 ‘실패 행을 반환하는 SQL’을 직접 쓴다는 데 있다. 복잡한 규칙이 generic test로는 표현되지 않을 때 특히 유용하다. tests/ 디렉터리가 바로 이 자유도를 위한 공간이다.
 
-9-4. unit test는 계산 로직을 작은 입력으로 고정한다
+### 9-4. unit test는 계산 로직을 작은 입력으로 고정한다
 
-| YAML · unit test 예시 unit_tests: - name: fct_orders_sums_line_amount model: fct_orders given: - input: ref('int_order_lines') rows: - {order_id: 1, customer_id: 10, order_date: '2026-01-01', line_amount: 100, quantity: 1} - {order_id: 1, customer_id: 10, order_date: '2026-01-01', line_amount: 40, quantity: 2} expect: rows: - {order_id: 1, customer_id: 10, order_date: '2026-01-01', gross_revenue: 140, item_count: 3} |
-| --- |
+> **YAML**
+```yaml
+test 예시 unit_tests:
+- name: fct_orders_sums_line_amount model: fct_orders given:
+- input: ref('int_order_lines') rows:
+- {order_id: 1, customer_id: 10, order_date: '2026-01-01', line_amount: 100, quantity: 1}
+- {order_id: 1, customer_id: 10, order_date: '2026-01-01', line_amount: 40, quantity: 2} expect: rows:
+- {order_id: 1, customer_id: 10, order_date: '2026-01-01', gross_revenue: 140, item_count: 3}
+```
 
 | 5003 주문을 UNIT TEST 과제로 바꾸기 day2의 5003 주문을 cancelled로 바꿨을 때 order_amount를 0으로 볼지 16.0으로 볼지는 business rule이다. 이 규칙은 사람 머릿속이 아니라 unit test로 남겨 두어야 다음 수정에서 흔들리지 않는다. |
 | --- |
 
-9-5. 테스트 선택과 실패 해석
+### 9-5. 테스트 선택과 실패 해석
 
-| BASH dbt test --select test_type:generic dbt test --select test_type:singular dbt test --select test_type:unit dbt build --select fct_orders+ |
-| --- |
+> **BASH**
+```bash
+dbt test --select test_type:generic
+dbt test --select test_type:singular
+dbt test --select test_type:unit
+dbt build --select fct_orders+
+```
 
 | 실패 유형 | 먼저 생각할 질문 | 다음 행동 |
 | --- | --- | --- |
@@ -79,24 +104,31 @@ Seeds와 Snapshots
 | 이 장에서 배우는 것 • seed의 적합한 용도와 한계를 이해한다. • snapshot을 current-state 테이블의 이력 보존 장치로 해석한다. • YAML 기반 snapshot 구성이 현재 기본 안내라는 점을 익힌다. | 완료 기준 • seed, source, snapshot의 차이를 한 표로 설명할 수 있다. • day1/day2 데이터로 5003 주문 상태 이력을 추적할 수 있다. • snapshot 결과에서 ‘중복처럼 보이는 행’이 왜 생기는지 이해한다. |
 | --- | --- |
 
-10-1. seed는 작고 안정적인 참조 데이터다
+### 10-1. seed는 작고 안정적인 참조 데이터다
 
 seed는 원천 시스템의 대체물이 아니다. 국가 코드, 세그먼트 매핑, 작은 기준표처럼 ‘프로젝트 안에서 버전 관리하는 편이 오히려 명확한’ 데이터를 relation로 올리는 장치다. 크고 자주 바뀌는 원천 데이터를 seed로 들고 오기 시작하면 금세 관리가 어려워진다.
 
-| CSV · seeds/country_codes.csv country_code,country_name KR,South Korea US,United States JP,Japan |
-| --- |
+> **CSV** · `seeds/country_codes.csv`
+```csv
+country_code,country_name KR,South Korea US,United States JP,Japan
+```
 
-10-2. snapshot은 상태 변화의 버전을 남긴다
+### 10-2. snapshot은 상태 변화의 버전을 남긴다
 
 snapshot은 current-state 테이블에서 과거 상태를 되돌아보고 싶을 때 쓰는 장치다. 주문 상태가 paid → shipped → completed 또는 cancelled로 바뀌는데 원천이 마지막 상태만 남긴다면, 나중에 특정 날짜에 어떤 상태였는지 알기 어렵다. snapshot은 이 변화를 row version 형태로 보존한다.
 
-| YAML · snapshots/orders_snapshot.yml snapshots: - name: orders_snapshot relation: ref('stg_orders') config: schema: snapshots unique_key: order_id strategy: check check_cols: - order_status - total_amount updated_at: updated_at |
-| --- |
+> **YAML** · `snapshots/orders_snapshot.yml`
+```yaml
+snapshots:
+- name: orders_snapshot relation: ref('stg_orders') config: schema: snapshots unique_key: order_id strategy: check check_cols:
+- order_status
+- total_amount updated_at: updated_at
+```
 
 | 현재 권장 방식 신규 snapshot은 YAML 기반 구성을 먼저 생각하자. 과거에는 SQL 파일 안 config 블록을 많이 썼지만, 최신 안내는 YAML 구성을 기본으로 둔다. 교재는 비교를 위해 두 방식을 모두 설명하되, 실습은 YAML 기준으로 진행한다. |
 | --- |
 
-10-3. 레코드 추적: 5003의 day1 ↔ day2 변화
+### 10-3. 레코드 추적: 5003의 day1 ↔ day2 변화
 
 raw.orders 기준 5003의 상태 변화
 
@@ -115,7 +147,7 @@ snapshot을 해석하는 최소 감각
 | downstream은 뭘 읽어야 하지? | 현재 상태만 필요하면 current row만, 과거 분석이면 특정 시점 기준으로 본다 |
 | source에 CDC가 이미 있으면? | snapshot이 꼭 필수는 아니다. 원천 이력 테이블을 그대로 모델링해도 된다 |
 
-10-4. source / seed / snapshot을 한눈에 구분하기
+### 10-4. source / seed / snapshot을 한눈에 구분하기
 
 | 리소스 | 주된 용도 | 대표 예시 |
 | --- | --- | --- |
@@ -123,8 +155,14 @@ snapshot을 해석하는 최소 감각
 | seed | 작고 안정적인 참조 데이터 | country_codes.csv, segment_mapping.csv |
 | snapshot | 상태 변화 이력 보존 | orders_snapshot |
 
-| BASH · snapshot 데모 python scripts/load_raw_to_duckdb.py --database ./dbt_book_lab.duckdb --day day1 dbt snapshot python scripts/load_raw_to_duckdb.py --database ./dbt_book_lab.duckdb --day day2 dbt snapshot |
-| --- |
+> **BASH**
+```bash
+데모
+python scripts/load_raw_to_duckdb.py --database ./dbt_book_lab.duckdb --day day1
+dbt snapshot
+python scripts/load_raw_to_duckdb.py --database ./dbt_book_lab.duckdb --day day2
+dbt snapshot
+```
 
 | 안티패턴 원천 이력 전체를 seed로 관리하거나, snapshot을 ‘모든 이력 문제의 만능 해법’으로 생각하는 것. |
 | --- |
@@ -143,17 +181,26 @@ snapshot을 해석하는 최소 감각
 | 이 장에서 배우는 것 • dbt docs generate/serve의 역할을 이해한다. • Jinja의 기본 문법과 macro의 최소 용도를 익힌다. • package가 독립된 dbt 프로젝트라는 점과 dbt deps의 역할을 안다. | 완료 기준 • 모델 설명, 컬럼 설명, 테스트가 왜 함께 있어야 하는지 설명할 수 있다. • macro는 반복이 명확할 때만 도입해야 한다는 감각이 생긴다. • packages.yml과 dbt deps가 어떤 흐름인지 이해한다. |
 | --- | --- |
 
-11-1. 문서화는 나중 일이 아니다
+### 11-1. 문서화는 나중 일이 아니다
 
 좋은 dbt 모델은 SQL, 설명, 테스트가 따로 놀지 않는다. SQL은 계산을 말하고, 설명은 왜 존재하는지를 말하고, 테스트는 어떤 가정을 깨뜨리면 안 되는지를 말한다. 이 셋이 함께 있어야 팀원이 모델을 믿고 다시 쓸 수 있다.
 
-| YAML · 설명 예시 version: 2 models: - name: fct_orders description: "주문 단위 매출과 수량을 담는 사실 테이블" columns: - name: order_id description: "주문의 비즈니스 키" - name: gross_revenue description: "주문 라인 금액 합계 |
-| --- |
+> **YAML**
+```yaml
+예시 version: 2 models:
+- name: fct_orders description: "주문 단위 매출과 수량을 담는 사실 테이블" columns:
+- name: order_id description: "주문의 비즈니스 키"
+- name: gross_revenue description: "주문 라인 금액 합계
+```
 
-| BASH dbt build dbt docs generate dbt docs serve |
-| --- |
+> **BASH**
+```bash
+dbt build
+dbt docs generate
+dbt docs serve
+```
 
-11-2. Jinja는 SQL을 조금 더 유연하게 쓰게 해 준다
+### 11-2. Jinja는 SQL을 조금 더 유연하게 쓰게 해 준다
 
 | 표기 | 용도 | 예시 |
 | --- | --- | --- |
@@ -161,22 +208,29 @@ snapshot을 해석하는 최소 감각
 | {% ... %} | 조건문, 반복문, 제어 흐름 | {% if is_incremental() %} |
 | {# ... #} | 주석 | {# this is a comment #} |
 
-11-3. macro는 언제 쓰고 언제 미루나
+### 11-3. macro는 언제 쓰고 언제 미루나
 
 같은 SQL 조각이 여러 모델에서 반복되고, 함께 바뀌어야 한다면 macro 후보가 된다. 하지만 초보자가 너무 이르게 macro로 추상화하면 오히려 compiled SQL을 읽기 어려워지고, 팀원이 코드를 따라가기 힘들어진다. 먼저 명확한 모델을 만들고, 반복이 세 번 이상 보일 때 도입해도 늦지 않다.
 
-| SQL · macros/normalize_blank.sql {% macro normalize_blank(column_name) %} case when trim({{ column_name }}) = '' then null else {{ column_name }} end {% endmacro %} |
-| --- |
+> **SQL** · `macros/normalize_blank.sql`
+```sql
+{% macro normalize_blank(column_name) %} case when trim({{ column_name }}) = '' then null else {{ column_name }} end {% endmacro %}
+```
 
-11-4. package는 다른 dbt 프로젝트를 가져오는 것이다
+### 11-4. package는 다른 dbt 프로젝트를 가져오는 것이다
 
 package는 단순 라이브러리가 아니라, models·macros·tests 등을 가진 독립된 dbt 프로젝트다. 그래서 package를 추가하면 그 리소스가 내 프로젝트의 일부처럼 동작한다. 유용하지만, 초보자에게는 ‘왜 이 코드가 갑자기 생겼지?’라는 혼란을 줄 수도 있으므로 남용하지 않는 편이 좋다.
 
-| YAML · packages.example.yml packages: - package: dbt-labs/dbt_utils version: [">=1.1.0", "<2.0.0"] |
-| --- |
+> **YAML** · `packages.example.yml`
+```yaml
+packages:
+- package: dbt-labs/dbt_utils version: [">=1.1.0", "<2.0.0"]
+```
 
-| BASH dbt deps |
-| --- |
+> **BASH**
+```bash
+dbt deps
+```
 
 | 패키지 팁 • 처음에는 package 없이도 충분히 배울 수 있다. • 패키지를 쓸 때는 버전 범위를 명시하고, 왜 들여왔는지 README에 적어 두자. • 나중에 Fusion으로 옮길 가능성이 있다면 호환 여부와 require-dbt-version을 확인하는 습관이 좋다. |
 | --- |

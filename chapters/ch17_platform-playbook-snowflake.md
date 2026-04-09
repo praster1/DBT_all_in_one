@@ -1,11 +1,12 @@
-CHAPTER 17
+# 📘 CHAPTER 17 · Platform Playbook · Snowflake
 
-Platform Playbook · Snowflake
+> 엔터프라이즈 DW에서 권한, warehouse, refresh 전략을 함께 관리하는 법.
 
-엔터프라이즈 DW에서 권한, warehouse, refresh 전략을 함께 관리하는 법.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 Snowflake는 역할, warehouse, database, schema, task/dynamic table 같은 운영 요소가 비교적 명료하게 분리된 엔터프라이즈 DW다. 따라서 dbt를 통한 변환 운영뿐 아니라 dev/prod 격리, grants, contracts, semantic layer, governed sharing 같은 주제를 함께 읽기 좋다.
 

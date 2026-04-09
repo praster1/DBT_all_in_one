@@ -1,11 +1,12 @@
-CHAPTER 09
+# 📘 CHAPTER 09 · Casebook I · Retail Orders
 
-Casebook I · Retail Orders
+> 소매 주문 DW를 source → marts → tests → snapshot → semantic → CI까지 단계적으로 확장한다.
 
-소매 주문 DW를 source → marts → tests → snapshot → semantic → CI까지 단계적으로 확장한다.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 Retail Orders는 이 책의 가장 기본적인 예제다. 주문, 주문상세, 고객, 상품이라는 익숙한 raw 구조를 가지고 source, staging, intermediate, fact/dimension 설계를 가장 뚜렷하게 보여 줄 수 있기 때문이다. 동시에 grain과 fanout, 주문 상태 변경, KPI 정의, semantic layer의 기초를 함께 실험하기에도 좋다.
 

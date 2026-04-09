@@ -1,11 +1,12 @@
-CHAPTER 06
+# 📘 CHAPTER 06 · 운영, CI/CD, state/defer/clone, vars/env/hooks, 업그레이드
 
-운영, CI/CD, state/defer/clone, vars/env/hooks, 업그레이드
+> 개인 실습을 팀 운영으로 끌고 갈 때 필요한 실행 전략을 한 흐름으로 묶는다.
 
-개인 실습을 팀 운영으로 끌고 갈 때 필요한 실행 전략을 한 흐름으로 묶는다.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 dbt 프로젝트가 팀 단위로 커지기 시작하면 “좋은 모델”만으로는 충분하지 않다. dev/prod 분리, PR 검증, slim CI, state selector, defer, clone, env_var, hooks, run-operation, release track 같은 운영 요소가 함께 들어와야 프로젝트가 계속 살아남는다.
 
@@ -27,34 +28,37 @@ flowchart LR
 
 *그림 13-1. 로컬 검증은 좁게, PR은 빠르게, 배포는 안정적으로*
 
-13-1. 개인 실습과 팀 운영의 가장 큰 차이
+### 13-1. 개인 실습과 팀 운영의 가장 큰 차이
 
 혼자 배울 때는 모델이 돌아가기만 해도 충분히 기쁘다. 하지만 팀 프로젝트에서는 반복 가능성, 리뷰 가능성, 배포 안정성이 더 중요해진다. 따라서 일정 수준을 넘기면 좋은 SQL만으로는 부족하고, 브랜치 전략, PR 리뷰, 환경 분리, 문서 유지가 함께 들어온다.
 
-13-2. dev / prod를 머릿속에서 먼저 분리하자
+### 13-2. dev / prod를 머릿속에서 먼저 분리하자
 
 | 환경 | 목적 | 권장 습관 |
 | --- | --- | --- |
 | dev | 개인 실험과 빠른 수정 | 개인 schema를 쓰고 선택 실행 위주로 개발 |
 | prod | 공용 분석 자산 제공 | 더 엄격한 테스트와 권한 정책 적용 |
 
-13-3. slim CI를 너무 어렵게 생각하지 않기
+### 13-3. slim CI를 너무 어렵게 생각하지 않기
 
 slim CI의 핵심은 ‘바뀐 영역만 빠르게 검증한다’는 데 있다. state:modified+는 현재 프로젝트와 기준 manifest를 비교해 새로 추가되거나 변경된 리소스를 찾고, --defer는 현재 환경에 없는 upstream 모델을 기준 환경의 relation로 참조하게 해 준다.
 
-| BASH dbt parse dbt build --select state:modified+ --defer --state ./state_artifacts |
-| --- |
+> **BASH**
+```bash
+dbt parse
+dbt build --select state:modified+ --defer --state ./state_artifacts
+```
 
 프로젝트가 작을 때는 이 패턴이 과하게 느껴질 수 있다. 그 경우에는 핵심 mart나 변경 도메인만 고르는 단순한 CI로 시작해도 된다. 중요한 것은 ‘PR 단계의 목적은 빠른 피드백’이라는 점이다.
 
-13-4. dbt clone과 dbt retry는 언제 떠올리나
+### 13-4. dbt clone과 dbt retry는 언제 떠올리나
 
 | 명령 | 언제 유용한가 | 초보자 한 줄 해석 |
 | --- | --- | --- |
 | dbt clone | 큰 테이블을 CI/dev 환경으로 빠르게 가져오고 싶을 때 | 실제 재생성 대신 clone materialization을 활용한다 |
 | dbt retry | 직전 실행의 실패 노드만 다시 돌리고 싶을 때 | 대형 배치에서 복구 시간을 줄여 준다 |
 
-13-5. 운영 초기에 먼저 정할 규칙
+### 13-5. 운영 초기에 먼저 정할 규칙
 
 • 원천을 읽는 첫 모델은 source()를 쓴다.
 
@@ -86,7 +90,7 @@ Artifacts · State · Slim CI
 | --- | --- | --- | --- |
 | 장 16 | state selection, defer, clone, retry 가능 | state-aware orchestration, CI jobs, job metadata와 연결됨 | 같은 개념이 로컬과 플랫폼에서 모두 쓰이지만 자동화 강도는 플랫폼 쪽이 더 높다. |
 
-16-1. artifacts를 읽으면 dbt가 “무슨 생각을 했는지” 보인다
+### 16-1. artifacts를 읽으면 dbt가 “무슨 생각을 했는지” 보인다
 
 dbt는 실행할 때마다 프로젝트 상태를 artifacts로 남긴다. 입문 단계에서는 target/compiled만 보아도 도움이 되지만, 팀 운영 단계로 넘어가면 manifest.json, run_results.json, sources.json, catalog.json을 함께 보는 편이 훨씬 강력하다. 이 파일들은 단순 부산물이 아니라, state comparison, docs, source freshness, CI 재시도와 같은 기능의 기반이 된다.
 
@@ -99,21 +103,21 @@ dbt는 실행할 때마다 프로젝트 상태를 artifacts로 남긴다. 입문
 | sources.json | source freshness 결과와 source_status selector의 입력 |
 | catalog.json | dbt docs에서 relation/column 메타데이터 탐색에 사용 |
 
-16-2. state selector는 “무엇이 바뀌었는가”를 코드 기준으로 좁힌다
+### 16-2. state selector는 “무엇이 바뀌었는가”를 코드 기준으로 좁힌다
 
 state selection은 현재 프로젝트를 이전 manifest와 비교해 새로 생기거나 수정된 리소스를 찾는 기능이다. 로컬 개발에서는 “내가 지금 바꾼 것만 빠르게 검증”하는 데 쓰고, CI에서는 modified 영역과 그 downstream만 빌드하는 slim CI의 핵심이 된다. 다만 vars나 env_var 값의 변경처럼 정적 비교로 완전히 잡히지 않는 경우가 있으므로, state만 맹신하지 말고 도메인 상식과 selector를 함께 써야 한다.
 
 | dbt ls --select state:modified+dbt build --select state:modified+dbt build --select source_status:fresher+# prod artifact를 비교 기준으로 사용할 때# dbt build --select state:modified+ --state path/to/prod_artifacts |
 | --- |
 
-16-3. defer, clone, retry는 큰 프로젝트의 체감 속도를 바꾼다
+### 16-3. defer, clone, retry는 큰 프로젝트의 체감 속도를 바꾼다
 
 defer는 현재 환경에 없는 upstream relation을 비교 기준 환경의 relation로 대신 참조하게 하여, 일부 모델만 샌드박스에서 검증하도록 돕는다. clone은 선택한 노드를 state 기준 환경에서 대상 schema로 복제해, 무거운 incremental/table 모델을 굳이 재계산하지 않고도 테스트 환경을 빠르게 마련하게 해 준다. retry는 마지막 명령이 node 일부를 실행한 뒤 중간에서 실패했을 때, 실패 지점부터 다시 이어서 실행하도록 도와 준다.
 
 | dbt build --select state:modified+ --defer --state path/to/prod_artifactsdbt clone --select tag:heavy --state path/to/prod_artifactsdbt retry |
 | --- |
 
-16-4. selectors.yml로 팀의 공용 실행 패턴을 코드화한다
+### 16-4. selectors.yml로 팀의 공용 실행 패턴을 코드화한다
 
 selector 문법을 매번 CLI에 길게 적는 대신 selectors.yml에 “slim_ci”, “nightly_heavy”, “semantic_refresh” 같은 이름으로 저장하면 팀 공통 실행 패턴을 코드처럼 관리할 수 있다. 이렇게 해 두면 리뷰와 운영 지식이 사람이 아니라 저장소 안에 남는다. beginner 단계에서는 --select를 손으로 익히고, intermediate 이후부터는 공용 selector로 승격하는 식이 가장 자연스럽다.
 
@@ -128,35 +132,35 @@ Vars · Env · Hooks · Operations · Packages
 | --- | --- | --- | --- |
 | 장 17 | var, env_var, run-operation, packages 가능 | dbt CLI와 Studio IDE에서도 같은 개념을 사용 | packages는 어디서나 쓰지만 project dependencies는 다음 장의 별도 제약을 따른다. |
 
-17-1. var, env_var, target: “환경별로 다르다”를 프로젝트 안에 선언하는 세 가지 축
+### 17-1. var, env_var, target: “환경별로 다르다”를 프로젝트 안에 선언하는 세 가지 축
 
 var()는 프로젝트 기본값과 실행 시점 오버라이드를 연결하고, env_var()는 비밀값과 환경별 설정을 외부에서 주입하며, target은 현재 연결된 환경의 database/schema/warehouse 정보를 읽게 해 준다. beginner 단계에서는 profile과 schema 이름 정도만 다루지만, intermediate 이후에는 샘플 기간, feature flag, semantic refresh 여부 같은 것도 var로 제어하는 편이 유용하다.
 
 | {{ config(schema=target.schema) }}where order_date >= {{ var('start_date', '2026-01-01') }}password: "{{ env_var('DBT_ENV_SECRET_SNOWFLAKE_PASSWORD') }}" |
 | --- |
 
-17-2. hook는 강력하지만, 먼저 built-in config로 해결할 수 없는지 확인한다
+### 17-2. hook는 강력하지만, 먼저 built-in config로 해결할 수 없는지 확인한다
 
 pre-hook, post-hook, on-run-start, on-run-end는 표준 materialization과 config만으로 표현하기 어려운 작업을 붙일 때 유용하다. 다만 grants, persist_docs, contracts처럼 이미 dbt가 공식 설정을 제공하는 영역은 hook보다 built-in config를 우선하는 편이 유지보수에 좋다. hook는 “dbt 바깥의 작업을 억지로 우겨 넣는 마법”이 아니라, 꼭 필요한 warehouse-specific 작업을 최소 범위로 수행하는 도구라고 보는 편이 안전하다.
 
 | models:  my_project:    marts:      +post-hook:        - "analyze table {{ this }} compute statistics"on-run-end:  - "{% for schema in schemas %}grant usage on schema {{ schema }} to role reporter;{% endfor %}" |
 | --- |
 
-17-3. run-operation은 “모델이 아닌 작업”을 위한 도어다
+### 17-3. run-operation은 “모델이 아닌 작업”을 위한 도어다
 
 run-operation은 매크로를 직접 호출해 maintenance SQL이나 관리 작업을 실행할 때 쓴다. 예를 들어 오래된 schema 정리, warehouse 통계 수집, audit 테이블 기록, 버전 전환용 view 재생성 같은 작업이 여기에 해당한다. 모델과 테스트의 책임을 흐리지 않고도 운영 작업을 코드로 남길 수 있다는 점이 장점이다.
 
 | dbt run-operation grant_reporter_access --args '{role: reporter}'dbt run-operation cleanup_old_schemas --args '{prefix: dbt_}' |
 | --- |
 
-17-4. packages.yml과 dependencies.yml을 구분해 생각한다
+### 17-4. packages.yml과 dependencies.yml을 구분해 생각한다
 
 packages는 재사용 가능한 독립 dbt 프로젝트를 가져와 모델·매크로·tests를 내 프로젝트의 일부처럼 쓰게 해 준다. 반면 project dependencies는 mesh나 cross-project ref처럼 다른 프로젝트를 “소비”하는 관계를 표현하는 데 더 적합하다. 작은 팀에서는 packages만으로도 충분하지만, 프로젝트가 커져 ownership 경계가 생기기 시작하면 dependencies.yml을 고려할 시점이 온다.
 
 | packages:  - package: dbt-labs/dbt_utils    version: [">=1.2.0", "<2.0.0"]# dependencies.yml 예시projects:  - name: finance_core    version: ">=1.0.0" |
 | --- |
 
-17-5. 패키지·매크로·UDF·모델의 경계를 어떻게 잡을까
+### 17-5. 패키지·매크로·UDF·모델의 경계를 어떻게 잡을까
 
 같은 SQL 조각이 세 번 반복되면 macro 후보, 여러 도구에서 반복 사용할 계산이면 UDF 후보, 결과 relation 자체를 재사용해야 하면 모델 후보, 여러 프로젝트가 함께 써야 하면 package 후보라고 보면 출발점으로 충분하다. “공유할 것”을 무엇으로 공유할지 분류하는 감각이 생기면 프로젝트가 덜 꼬인다.
 

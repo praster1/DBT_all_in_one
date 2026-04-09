@@ -1,11 +1,12 @@
-CHAPTER 05
+# 📘 CHAPTER 05 · 디버깅, artifacts, runbook, anti-patterns
 
-디버깅, artifacts, runbook, anti-patterns
+> 문제를 좁히는 순서, 실패 실험, 정답표와 워크북, 반복되는 실수까지 한 번에 묶는다.
 
-문제를 좁히는 순서, 실패 실험, 정답표와 워크북, 반복되는 실수까지 한 번에 묶는다.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 실무에서 가장 큰 차이를 만드는 것은 “정답을 미리 아는 능력”보다 “문제를 빨리 좁히는 순서”를 갖는 능력이다. dbt는 debug, parse, ls, compile, build라는 관찰 명령을 따로 제공하고, target과 logs와 artifacts를 분리해서 남기기 때문에, 이 구조를 이해하면 같은 실패도 훨씬 빠르게 다룰 수 있다.
 
@@ -29,11 +30,11 @@ flowchart LR
 
 *그림 12-1. 문제를 좁히는 순서를 먼저 고정하면 불필요한 재실행이 크게 줄어든다*
 
-12-1. 디버깅은 명령 순서가 핵심이다
+### 12-1. 디버깅은 명령 순서가 핵심이다
 
 초보자가 가장 많이 시간을 잃는 순간은 설치 문제, YAML 문제, SQL 문제를 한 번에 잡으려 할 때다. 그래서 디버깅은 정답을 맞히는 기술보다 순서를 지키는 습관에 가깝다. debug는 연결, parse는 구조, ls는 선택 범위, compile은 SQL, run/build는 실제 실행이라는 계단을 만든다.
 
-12-2. target과 logs, artifacts를 구분해 보기
+### 12-2. target과 logs, artifacts를 구분해 보기
 
 | 위치 | 무엇이 있나 | 언제 보나 |
 | --- | --- | --- |
@@ -158,8 +159,14 @@ F-3. 실패 증상 → 먼저 볼 곳 매트릭스
 | gross_revenue가 두 배 | int_order_lines vs fct_orders row count | grain 누락 / fanout | intermediate에서 line grain 고정 후 mart에서 집계한다 |
 | snapshot 행 수가 늘지 않음 | snapshots/orders_snapshot.yml | updated_at 또는 check_cols 설정 누락 | snapshot config를 다시 보고 day2 데이터를 재적재한다 |
 
-| BASHdbt debugdbt parsedbt ls -s fct_orders+dbt compile -s fct_ordersdbt build -s fct_orders+ |
-| --- |
+> **BASH**
+```bash
+dbt debug
+dbt parse
+dbt ls -s fct_orders+
+dbt compile -s fct_orders
+dbt build -s fct_orders+
+```
 
 초보자 안티패턴 아틀라스
 

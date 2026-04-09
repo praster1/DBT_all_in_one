@@ -1,10 +1,13 @@
-# 챕터별 분할 문서
+# 📚 챕터별 분할 문서 인덱스
+
+> 본 디렉터리는 본문(00 + CH01~18)과 부록(APP A~D)을 챕터 단위로 분리해 관리합니다.
+
+## 🗂️ 목차 파일
 
 - [00_intro_and_toc.md](./00_intro_and_toc.md)
-- [app_a_companion-pack-example-data-bootstrap-answer-keys.md](./app_a_companion-pack-example-data-bootstrap-answer-keys.md)
-- [app_b_dbt-명령어-레퍼런스.md](./app_b_dbt-명령어-레퍼런스.md)
-- [app_c_jinja-macro-extensibility-reference.md](./app_c_jinja-macro-extensibility-reference.md)
-- [app_d_troubleshooting-decision-guides-glossary-official-sources-support-matrix.md](./app_d_troubleshooting-decision-guides-glossary-official-sources-support-matrix.md)
+
+## 📖 본문 챕터 (CH01~CH18)
+
 - [ch01_dbt의-전체-그림과-세-가지-연속-예제.md](./ch01_dbt의-전체-그림과-세-가지-연속-예제.md)
 - [ch02_개발-환경-프로젝트-구조-dbt-명령어와-jinja-첫-실행.md](./ch02_개발-환경-프로젝트-구조-dbt-명령어와-jinja-첫-실행.md)
 - [ch03_sourceref-selectors-layered-modeling-grain-materializations.md](./ch03_sourceref-selectors-layered-modeling-grain-materializations.md)
@@ -23,3 +26,17 @@
 - [ch16_platform-playbook-clickhouse.md](./ch16_platform-playbook-clickhouse.md)
 - [ch17_platform-playbook-snowflake.md](./ch17_platform-playbook-snowflake.md)
 - [ch18_platform-playbook-trino와-nosql-sql-layer.md](./ch18_platform-playbook-trino와-nosql-sql-layer.md)
+
+## 📎 부록 (APP A~D)
+
+- [app_a_companion-pack-example-data-bootstrap-answer-keys.md](./app_a_companion-pack-example-data-bootstrap-answer-keys.md)
+- [app_b_dbt-명령어-레퍼런스.md](./app_b_dbt-명령어-레퍼런스.md)
+- [app_c_jinja-macro-extensibility-reference.md](./app_c_jinja-macro-extensibility-reference.md)
+- [app_d_troubleshooting-decision-guides-glossary-official-sources-support-matrix.md](./app_d_troubleshooting-decision-guides-glossary-official-sources-support-matrix.md)
+
+---
+
+### 🔍 탐색 팁
+
+- 책의 전체 구조를 먼저 보려면 `../01_outline/master_toc.md`를 함께 확인하세요.
+- 실행형 자료는 `../codes/README.md`에서 트랙별로 연결할 수 있습니다.
