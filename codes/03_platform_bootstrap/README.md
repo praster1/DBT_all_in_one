@@ -1,26 +1,33 @@
-# Platform bootstrap pack
+# 🏗️ Platform Bootstrap Pack
 
-This folder contains raw-data bootstrap assets for all three companion examples:
+This directory provides raw-data bootstrap assets for all three companion examples.
 
-- retail
-- events
-- subscription
+## Included example tracks
 
-Each SQL platform folder contains:
-- `setup_day1.sql` — create the raw schema/tables and load the initial day1 state
-- `apply_day2.sql` — replace the mutable raw table with the day2 state used for snapshot/incremental labs
+- `retail`
+- `events`
+- `subscription`
 
-Supported SQL targets in this pack:
+## What each SQL platform folder contains
+
+- `setup_day1.sql` — create raw schema/tables and load the initial day1 state
+- `apply_day2.sql` — replace mutable raw tables with the day2 state for snapshot/incremental labs
+
+## Supported SQL targets
+
 - duckdb
 - mysql
 - postgres
 - bigquery
 - clickhouse
 - snowflake
-- trino (using the `memory` catalog for a fast local trial)
+- trino (`memory` catalog for a fast local trial)
 
-NoSQL + SQL layer path:
-- `nosql_sql_layer_mongodb_via_trino/` contains JSONL files plus `mongoimport` helpers
-- `trino_catalog_examples/` contains example Trino catalog properties for `memory`, `mongodb`, and `elasticsearch`
+## NoSQL + SQL Layer path
 
-The SQL scripts are intentionally small and explicit. They favor readability over bulk-load performance so that the same example can be inspected, edited, and debugged while following the book.
+- `nosql_sql_layer_mongodb_via_trino/` — JSONL files + `mongoimport` helpers
+- `trino_catalog_examples/` — sample Trino catalog properties (`memory`, `mongodb`, `elasticsearch`)
+
+---
+
+The SQL scripts are intentionally compact and explicit. They prioritize readability over bulk-load performance so examples are easy to inspect, edit, and debug while following the book.
