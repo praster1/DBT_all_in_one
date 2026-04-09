@@ -1,11 +1,12 @@
-CHAPTER C
+# 📘 CHAPTER C · Jinja, Macro, Extensibility Reference
 
-Jinja, Macro, Extensibility Reference
+> 템플릿 문법, helper, macro 패턴, custom test와 package author 관점을 하나로 묶는다.
 
-템플릿 문법, helper, macro 패턴, custom test와 package author 관점을 하나로 묶는다.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 Jinja는 문법만 외우면 되는 영역이 아니라, 가독성을 해치지 않으면서 반복성을 얻는 기술이다. 이 부록은 delimiter, helper, macro 기본형부터 custom generic test, materialization, package author 관점까지를 한 자리에서 다시 보게 해 준다.
 

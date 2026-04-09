@@ -1,11 +1,12 @@
-CHAPTER 07
+# 📘 CHAPTER 07 · Governance, Contracts, Versions, Grants, Quality Metadata
 
-Governance, Contracts, Versions, Grants, Quality Metadata
+> 프로젝트를 공용 API처럼 다듬고, 누가 무엇을 믿고 참조해도 되는지 코드로 남기는 단계.
 
-프로젝트를 공용 API처럼 다듬고, 누가 무엇을 믿고 참조해도 되는지 코드로 남기는 단계.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 거버넌스는 관리 부서의 절차가 아니라 모델을 공용 API처럼 다루기 위한 기술적 장치다. tests와 contracts와 constraints의 역할은 다르고, access/group/version/grant/meta는 서로 겹치지 않는다. 이 차이를 잘 이해하면 “이 모델은 믿고 써도 되는가”라는 질문에 프로젝트 코드만으로 답할 수 있다.
 

@@ -1,11 +1,12 @@
-CHAPTER 16
+# 📘 CHAPTER 16 · Platform Playbook · ClickHouse
 
-Platform Playbook · ClickHouse
+> 컬럼 지향 분석 엔진에서 물리 설계와 dbt 모델링을 함께 보는 법.
 
-컬럼 지향 분석 엔진에서 물리 설계와 dbt 모델링을 함께 보는 법.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 ClickHouse에서는 단순한 SQL 번역만으로는 충분하지 않다. engine, order_by, partition_by 같은 물리 설계가 모델 성능과 비용에 직접 영향을 주기 때문이다. 따라서 ClickHouse 챕터는 materialization을 storage design과 함께 읽는 연습에 가깝다.
 

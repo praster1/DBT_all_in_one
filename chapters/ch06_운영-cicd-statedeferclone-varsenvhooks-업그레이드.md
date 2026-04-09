@@ -1,11 +1,12 @@
-CHAPTER 06
+# 📘 CHAPTER 06 · 운영, CI/CD, state/defer/clone, vars/env/hooks, 업그레이드
 
-운영, CI/CD, state/defer/clone, vars/env/hooks, 업그레이드
+> 개인 실습을 팀 운영으로 끌고 갈 때 필요한 실행 전략을 한 흐름으로 묶는다.
 
-개인 실습을 팀 운영으로 끌고 갈 때 필요한 실행 전략을 한 흐름으로 묶는다.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 dbt 프로젝트가 팀 단위로 커지기 시작하면 “좋은 모델”만으로는 충분하지 않다. dev/prod 분리, PR 검증, slim CI, state selector, defer, clone, env_var, hooks, run-operation, release track 같은 운영 요소가 함께 들어와야 프로젝트가 계속 살아남는다.
 

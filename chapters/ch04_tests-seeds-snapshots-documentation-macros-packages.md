@@ -1,11 +1,12 @@
-CHAPTER 04
+# 📘 CHAPTER 04 · Tests, Seeds, Snapshots, Documentation, Macros, Packages
 
-Tests, Seeds, Snapshots, Documentation, Macros, Packages
+> 신뢰 가능한 프로젝트를 만드는 품질 계층을 한 챕터로 묶는다.
 
-신뢰 가능한 프로젝트를 만드는 품질 계층을 한 챕터로 묶는다.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 좋은 dbt 프로젝트는 SQL만 있는 저장소가 아니라, 품질과 의미가 함께 저장된 프로젝트다. generic·singular·unit test는 데이터와 로직의 가정을 고정하고, seed와 snapshot은 프로젝트 내부의 작은 기준표와 상태 이력을 다루게 해 주며, 문서화와 macro와 package는 반복성과 가독성을 함께 챙기게 만든다.
 

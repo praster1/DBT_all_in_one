@@ -1,11 +1,12 @@
-CHAPTER 10
+# 📘 CHAPTER 10 · Casebook II · Event Stream
 
-Casebook II · Event Stream
+> append-only 이벤트 데이터를 incremental, session, DAU, cache, cost 관점으로 확장한다.
 
-append-only 이벤트 데이터를 incremental, session, DAU, cache, cost 관점으로 확장한다.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 Event Stream은 Retail Orders와 달리 append-only 성격이 강하고, 시간 축과 세션화가 핵심이 되는 예제다. 이 예제를 통해 incremental이 왜 필요한지, late-arriving data가 어떤 문제를 만드는지, saved query나 cache가 언제 가치가 생기는지 훨씬 선명하게 볼 수 있다.
 

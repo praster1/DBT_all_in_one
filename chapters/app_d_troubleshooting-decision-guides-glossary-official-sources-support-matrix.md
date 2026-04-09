@@ -1,11 +1,12 @@
-CHAPTER D
+# 📘 CHAPTER D · Troubleshooting, Decision Guides, Glossary, Official Sources, Support Matrix
 
-Troubleshooting, Decision Guides, Glossary, Official Sources, Support Matrix
+> 실패를 좁히는 체크리스트부터 공식 자료, 용어집, 의사결정 표, 지원 매트릭스까지 책의 백맵 역할을 하는 부록.
 
-실패를 좁히는 체크리스트부터 공식 자료, 용어집, 의사결정 표, 지원 매트릭스까지 책의 백맵 역할을 하는 부록.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 실무에서 자주 꺼내 보는 정보는 대체로 두 종류다. 막혔을 때 어디부터 볼지 알려 주는 정보와, 지금 하려는 선택이 맞는지 판별하는 기준이다. 마지막 부록은 그 두 종류를 하나로 모아 책 전체를 다시 참조할 수 있게 구성했다.
 

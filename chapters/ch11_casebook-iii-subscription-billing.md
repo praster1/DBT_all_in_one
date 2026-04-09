@@ -1,11 +1,12 @@
-CHAPTER 11
+# 📘 CHAPTER 11 · Casebook III · Subscription & Billing
 
-Casebook III · Subscription & Billing
+> 상태 변화와 계약을 다루는 구독 도메인으로 snapshot, versions, contracts, metric layer를 입체적으로 본다.
 
-상태 변화와 계약을 다루는 구독 도메인으로 snapshot, versions, contracts, metric layer를 입체적으로 본다.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 Subscription & Billing 예제는 상태 변화와 공용 정의가 중요한 도메인을 보여 준다. 구독의 상태는 시간에 따라 바뀌고, 취소와 trialing과 active의 의미는 metric에 직접 영향을 주며, MRR 같은 지표는 정의가 조금만 흔들려도 실무에 큰 혼선을 만든다.
 
