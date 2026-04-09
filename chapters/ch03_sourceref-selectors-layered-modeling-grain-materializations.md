@@ -1,11 +1,12 @@
-CHAPTER 03
+# 📘 CHAPTER 03 · source/ref, selectors, layered modeling, grain, materializations
 
-source/ref, selectors, layered modeling, grain, materializations
+> 모델 간 계약, DAG 제어, 레이어 설계, fanout 방지, incremental 판단까지 변환의 핵심 설계를 묶어 본다.
 
-모델 간 계약, DAG 제어, 레이어 설계, fanout 방지, incremental 판단까지 변환의 핵심 설계를 묶어 본다.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 dbt의 핵심은 source()와 ref()로 DAG를 만드는 데서 끝나지 않는다. 그 DAG 위에 어떤 grain의 모델을 놓을지, 어떤 selector로 개발 범위를 줄일지, 어디까지를 staging으로 두고 어디서부터 비즈니스 로직을 묶을지, 어떤 materialization으로 저장할지를 함께 결정해야 비로소 프로젝트가 안정된다.
 

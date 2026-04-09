@@ -1,11 +1,12 @@
-CHAPTER 18
+# 📘 CHAPTER 18 · Platform Playbook · Trino와 NoSQL + SQL Layer
 
-Platform Playbook · Trino와 NoSQL + SQL Layer
+> 저장소를 하나 더 고르는 대신 SQL 레이어를 어떻게 다룰지부터 생각해야 하는 환경.
 
-저장소를 하나 더 고르는 대신 SQL 레이어를 어떻게 다룰지부터 생각해야 하는 환경.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 Trino는 단일 저장소라기보다 여러 catalog 위에서 SQL을 실행하고 조합하는 query engine에 가깝다. 따라서 dbt 관점에서도 “어디에 읽고 어디에 쓸 것인가”가 첫 번째 질문이 된다. write 가능한 catalog를 정하고, materialization이 만들어질 위치를 명확히 해야 하고, connector가 보장하는 타입과 성능 특성을 함께 봐야 한다.
 

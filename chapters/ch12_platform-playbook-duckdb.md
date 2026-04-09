@@ -1,11 +1,12 @@
-CHAPTER 12
+# 📘 CHAPTER 12 · Platform Playbook · DuckDB
 
-Platform Playbook · DuckDB
+> 가장 빠른 학습 환경이자 companion runnable project의 기준점.
 
-가장 빠른 학습 환경이자 companion runnable project의 기준점.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 DuckDB는 이 책의 기본 출발점이다. 로컬에서 빠르게 반복 실행할 수 있고, 비용과 권한 문제를 거의 신경 쓰지 않으면서도 source, model, test, snapshot, docs, semantic starter까지 대부분의 기본기를 연습할 수 있기 때문이다.
 

@@ -1,11 +1,12 @@
-CHAPTER A
+# 📘 CHAPTER A · Companion Pack, Example Data, Bootstrap, Answer Keys
 
-Companion Pack, Example Data, Bootstrap, Answer Keys
+> companion ZIP을 교재처럼 따라갈 때 필요한 runbook, dataset 설명, bootstrap 경로, 빠른 정답 기준을 한 곳에 묶는다.
 
-companion ZIP을 교재처럼 따라갈 때 필요한 runbook, dataset 설명, bootstrap 경로, 빠른 정답 기준을 한 곳에 묶는다.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 이 부록은 ZIP을 단순 파일 묶음이 아니라 실습 교재로 쓰기 위한 안내서다. 세 예제 데이터가 무엇을 보여 주는지, day1/day2를 어떻게 올리는지, 어디서 expected result를 비교하는지, 어떤 디렉터리부터 열어야 하는지를 한 번에 찾을 수 있게 했다.
 

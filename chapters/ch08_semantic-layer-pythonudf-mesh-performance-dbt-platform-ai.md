@@ -1,11 +1,12 @@
-CHAPTER 08
+# 📘 CHAPTER 08 · Semantic Layer, Python/UDF, Mesh, Performance, dbt platform, AI
 
-Semantic Layer, Python/UDF, Mesh, Performance, dbt platform, AI
+> 고급 기능을 따로따로 배우기보다, 공용 분석 API와 확장 가능한 운영 면으로 묶어서 이해한다.
 
-고급 기능을 따로따로 배우기보다, 공용 분석 API와 확장 가능한 운영 면으로 묶어서 이해한다.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 이 장에서 다루는 기능들은 각각 고급 주제처럼 보이지만, 사실은 모두 하나의 질문으로 연결된다. “모델 위에 어떤 안정적인 분석 API를 얹을 것인가, 그리고 그것을 여러 팀과 여러 도구와 여러 실행 환경에 어떻게 확장할 것인가.” semantic model, metric, saved query, Python model, UDF, mesh, performance tuning, dbt platform, AI surface는 모두 그 질문의 서로 다른 측면이다.
 

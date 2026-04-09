@@ -1,11 +1,12 @@
-CHAPTER 15
+# 📘 CHAPTER 15 · Platform Playbook · BigQuery
 
-Platform Playbook · BigQuery
+> 서버리스 DW에서 cost-aware하게 dbt를 운영하는 법.
 
-서버리스 DW에서 cost-aware하게 dbt를 운영하는 법.
-
-| 핵심 개념 → 사례 → 운영 기준 | 설명을 먼저 충분히 풀고, 이후 장에서 예제 케이스북과 플랫폼 플레이북으로 다시 가져간다. |
+| 구분 | 내용 |
 | --- | --- |
+| 문서 역할 | 핵심 개념 → 사례 → 운영 기준 |
+
+---
 
 BigQuery에서는 쿼리 비용과 파티셔닝 전략이 설계의 일부다. 따라서 같은 dbt 개념이라도 BigQuery에서는 “가능한가”보다 “얼마를 스캔하는가”를 먼저 생각해야 할 때가 많다.
 
