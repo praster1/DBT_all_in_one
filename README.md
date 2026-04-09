@@ -1,4 +1,4 @@
-# DBT_all_in_one_by_Codex
+# DBT_all_in_one
 
 > `DBT All In One` 원고와 Companion Pack을 GitHub에서 바로 읽기 좋은 Markdown 구조로 정리한 저장소입니다.
 
@@ -19,8 +19,3 @@
 2. [master_toc](./01_outline/master_toc.md)
 3. [chapters/00_intro_and_toc.md](./chapters/00_intro_and_toc.md)
 4. 필요한 챕터와 [codes/README.md](./codes/README.md)를 병행
-
-## 메모
-
-- 이 저장소는 PDF에서 Markdown으로 옮긴 내용을 **GitHub 리뷰/탐색에 맞게 다시 편집**한 버전입니다.
-- 연속 읽기는 `book_from_pdf.md`, 실제 리뷰와 수정은 `chapters/`를 기준으로 진행하는 것을 권장합니다.
