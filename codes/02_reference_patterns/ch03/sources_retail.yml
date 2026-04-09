@@ -1,0 +1,26 @@
+version: 2
+sources:
+  - name: raw
+    description: "소매 주문 예제의 원천 입력"
+    schema: raw
+    loaded_at_field: ingested_at
+    freshness:
+      warn_after: {count: 6, period: hour}
+      error_after: {count: 24, period: hour}
+    tables:
+      - name: customers
+        columns:
+          - name: customer_id
+            data_tests: [not_null, unique]
+      - name: orders
+        columns:
+          - name: order_id
+            data_tests: [not_null, unique]
+      - name: order_items
+        columns:
+          - name: order_item_id
+            data_tests: [not_null, unique]
+      - name: products
+        columns:
+          - name: product_id
+            data_tests: [not_null, unique]

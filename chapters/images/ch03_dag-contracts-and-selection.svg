@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <style>
+      .bg{fill:#f8fafc}.title{font:700 30px 'Arial'; fill:#0f172a}.sub{font:600 18px 'Arial'; fill:#334155}
+      .box{fill:#ffffff; stroke:#cbd5e1; stroke-width:2; rx:18; ry:18}
+      .head{font:700 22px 'Arial'; fill:#111827}.body{font:500 16px 'Arial'; fill:#334155}
+      .arrow{stroke:#0ea5e9; stroke-width:4; fill:none; marker-end:url(#m)}
+      .dashed{stroke:#94a3b8; stroke-width:3; fill:none; stroke-dasharray:10 8; marker-end:url(#m2)}
+      .pill{fill:#e0f2fe; stroke:#7dd3fc; stroke-width:1.5; rx:16; ry:16}
+      .pilltext{font:600 15px 'Arial'; fill:#0c4a6e}
+    </style>
+    <marker id="m" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0ea5e9"/>
+    </marker>
+    <marker id="m2" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1200" height="700"/>
+  <text x="60" y="60" class="title">CH03 설계 지도: 계약 → 선택 범위 → 레이어 → 저장 전략</text>
+  <text x="60" y="95" class="sub">source/ref, selector, grain, materialization은 따로 배우는 기능이 아니라 한 프로젝트를 안정화하는 연속된 의사결정이다.</text>
+
+  <rect class="box" x="70" y="150" width="220" height="140"/>
+  <text x="95" y="185" class="head">1. 입력 계약</text>
+  <text x="95" y="220" class="body">• source()</text>
+  <text x="95" y="250" class="body">• freshness</text>
+  <text x="95" y="280" class="body">• source-level tests</text>
+
+  <rect class="box" x="350" y="150" width="220" height="140"/>
+  <text x="375" y="185" class="head">2. 내부 계약</text>
+  <text x="375" y="220" class="body">• ref()</text>
+  <text x="375" y="250" class="body">• DAG lineage</text>
+  <text x="375" y="280" class="body">• selector 가능</text>
+
+  <rect class="box" x="630" y="150" width="220" height="140"/>
+  <text x="655" y="185" class="head">3. 모델 구조</text>
+  <text x="655" y="220" class="body">• staging</text>
+  <text x="655" y="250" class="body">• intermediate</text>
+  <text x="655" y="280" class="body">• marts / grain</text>
+
+  <rect class="box" x="910" y="150" width="220" height="140"/>
+  <text x="935" y="185" class="head">4. 저장 전략</text>
+  <text x="935" y="220" class="body">• view / table</text>
+  <text x="935" y="250" class="body">• incremental</text>
+  <text x="935" y="280" class="body">• full-refresh</text>
+
+  <path class="arrow" d="M290 220 L350 220"/>
+  <path class="arrow" d="M570 220 L630 220"/>
+  <path class="arrow" d="M850 220 L910 220"/>
+
+  <rect class="box" x="70" y="390" width="1060" height="220"/>
+  <text x="95" y="430" class="head">실전에서 이 흐름이 왜 같이 움직이는가</text>
+  <text x="95" y="470" class="body">• source 선언이 약하면 raw rename, freshness, lineage, docs가 동시에 약해진다.</text>
+  <text x="95" y="505" class="body">• ref 계약이 약하면 selector와 영향 범위 통제가 흔들린다.</text>
+  <text x="95" y="540" class="body">• grain을 적지 않으면 join은 되더라도 fanout으로 금액·수량이 부풀어 오를 수 있다.</text>
+  <text x="95" y="575" class="body">• materialization은 문법이 아니라 운영 선택이다. 구조가 흔들릴 때 incremental을 먼저 붙이면 조용히 틀릴 수 있다.</text>
+
+  <rect class="pill" x="150" y="330" width="180" height="38"/>
+  <text x="176" y="355" class="pilltext">Retail Orders</text>
+  <rect class="pill" x="505" y="330" width="180" height="38"/>
+  <text x="535" y="355" class="pilltext">Event Stream</text>
+  <rect class="pill" x="860" y="330" width="220" height="38"/>
+  <text x="885" y="355" class="pilltext">Subscription &amp; Billing</text>
+
+  <path class="dashed" d="M240 290 L240 330"/>
+  <path class="dashed" d="M595 290 L595 330"/>
+  <path class="dashed" d="M1020 290 L1020 330"/>
+</svg>

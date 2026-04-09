@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820">
+  <defs>
+    <style>
+      .bg{fill:#fcfcfd}.title{font:700 30px 'Arial'; fill:#111827}.sub{font:600 18px 'Arial'; fill:#475569}
+      .track{fill:#ffffff; stroke:#dbe4ee; stroke-width:2; rx:18; ry:18}
+      .h{font:700 22px 'Arial'; fill:#0f172a}.t{font:500 15px 'Arial'; fill:#334155}
+      .node{fill:#eff6ff; stroke:#93c5fd; stroke-width:1.5; rx:14; ry:14}
+      .node2{fill:#ecfeff; stroke:#67e8f9; stroke-width:1.5; rx:14; ry:14}
+      .node3{fill:#f5f3ff; stroke:#c4b5fd; stroke-width:1.5; rx:14; ry:14}
+      .nh{font:700 17px 'Arial'; fill:#1e293b}.nt{font:500 13px 'Arial'; fill:#475569}
+      .arrow{stroke:#64748b; stroke-width:3; fill:none; marker-end:url(#m)}
+      .warn{fill:#fff7ed; stroke:#fdba74; stroke-width:1.5; rx:12; ry:12}
+      .wt{font:600 13px 'Arial'; fill:#9a3412}
+    </style>
+    <marker id="m" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1200" height="820"/>
+  <text x="55" y="60" class="title">세 트랙의 grain 변화와 materialization 기본 선택</text>
+  <text x="55" y="95" class="sub">같은 dbt 기능을 써도 트랙마다 행의 단위와 저장 전략이 다르다.</text>
+
+  <rect class="track" x="50" y="130" width="1100" height="190"/>
+  <text x="75" y="165" class="h">Retail Orders</text>
+  <rect class="node" x="120" y="205" width="180" height="72"/>
+  <text x="145" y="230" class="nh">stg_orders</text>
+  <text x="145" y="255" class="nt">grain: 주문 1행</text>
+  <rect class="node" x="370" y="205" width="200" height="72"/>
+  <text x="395" y="230" class="nh">int_order_lines</text>
+  <text x="395" y="255" class="nt">grain: 주문상품 1행</text>
+  <rect class="node" x="650" y="205" width="180" height="72"/>
+  <text x="690" y="230" class="nh">fct_orders</text>
+  <text x="678" y="255" class="nt">grain: 주문 1행</text>
+  <rect class="warn" x="900" y="200" width="180" height="82"/>
+  <text x="926" y="230" class="wt">권장 출발점</text>
+  <text x="926" y="255" class="wt">staging=view</text>
+  <text x="926" y="275" class="wt">marts=table</text>
+  <path class="arrow" d="M300 241 L370 241"/>
+  <path class="arrow" d="M570 241 L650 241"/>
+
+  <rect class="track" x="50" y="350" width="1100" height="190"/>
+  <text x="75" y="385" class="h">Event Stream</text>
+  <rect class="node2" x="120" y="425" width="180" height="72"/>
+  <text x="145" y="450" class="nh">stg_events</text>
+  <text x="145" y="475" class="nt">grain: 이벤트 1행</text>
+  <rect class="node2" x="370" y="425" width="200" height="72"/>
+  <text x="408" y="450" class="nh">int_sessions</text>
+  <text x="394" y="475" class="nt">grain: 세션 또는 이벤트</text>
+  <rect class="node2" x="650" y="425" width="220" height="72"/>
+  <text x="673" y="450" class="nh">fct_events_daily</text>
+  <text x="690" y="475" class="nt">grain: 날짜×유형</text>
+  <rect class="warn" x="900" y="420" width="210" height="82"/>
+  <text x="926" y="450" class="wt">증가 시점이 빠름</text>
+  <text x="926" y="475" class="wt">incremental + backfill</text>
+  <text x="926" y="495" class="wt">window 설계 필요</text>
+  <path class="arrow" d="M300 461 L370 461"/>
+  <path class="arrow" d="M570 461 L650 461"/>
+
+  <rect class="track" x="50" y="570" width="1100" height="190"/>
+  <text x="75" y="605" class="h">Subscription &amp; Billing</text>
+  <rect class="node3" x="120" y="645" width="220" height="72"/>
+  <text x="145" y="670" class="nh">stg_subscription_events</text>
+  <text x="145" y="695" class="nt">grain: 상태 변화 이벤트 1행</text>
+  <rect class="node3" x="410" y="645" width="240" height="72"/>
+  <text x="440" y="670" class="nh">int_subscription_changes</text>
+  <text x="446" y="695" class="nt">grain: 구독×변화시점 1행</text>
+  <rect class="node3" x="720" y="645" width="220" height="72"/>
+  <text x="744" y="670" class="nh">fct_subscription_daily</text>
+  <text x="760" y="695" class="nt">grain: 날짜×구독</text>
+  <rect class="warn" x="980" y="640" width="135" height="82"/>
+  <text x="1002" y="670" class="wt">정확성 우선</text>
+  <text x="1002" y="695" class="wt">grain 안정 후</text>
+  <text x="1002" y="715" class="wt">incremental</text>
+  <path class="arrow" d="M340 681 L410 681"/>
+  <path class="arrow" d="M650 681 L720 681"/>
+</svg>

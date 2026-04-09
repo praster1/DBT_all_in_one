@@ -1,0 +1,21 @@
+selectors:
+  - name: retail_marts_plus_tests
+    definition:
+      union:
+        - method: path
+          value: models/retail/marts
+        - method: test_type
+          value: generic
+
+  - name: changed_core_models
+    definition:
+      method: state
+      value: modified+
+
+  - name: event_incremental_focus
+    definition:
+      intersection:
+        - method: path
+          value: models/events
+        - method: tag
+          value: incremental
