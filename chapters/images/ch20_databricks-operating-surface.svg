@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+<style>
+    .title{font:700 28px 'Arial',sans-serif;fill:#122230}
+    .sub{font:600 18px 'Arial',sans-serif;fill:#24415c}
+    .body{font:16px 'Arial',sans-serif;fill:#203647}
+    .small{font:14px 'Arial',sans-serif;fill:#304b60}
+    .box{fill:#f6f9fc;stroke:#476a86;stroke-width:2;rx:18;ry:18}
+    .box2{fill:#eef5fb;stroke:#3b7ddd;stroke-width:2;rx:18;ry:18}
+    .box3{fill:#f5f0ff;stroke:#7856c6;stroke-width:2;rx:18;ry:18}
+    .box4{fill:#edf9f3;stroke:#2f8f5b;stroke-width:2;rx:18;ry:18}
+    .arrow{stroke:#496173;stroke-width:3;marker-end:url(#m)}
+    .label{font:700 16px 'Arial',sans-serif;fill:#16324f}
+</style>
+<defs>
+  <marker id="m" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L10,3 L0,6 z" fill="#496173"/>
+  </marker>
+</defs>
+<text x="60" y="55" class="title">CH20 · Databricks Operating Surface</text>
+<text x="60" y="88" class="sub">Unity Catalog · SQL Warehouse · Clusters · Delta / Iceberg · Python · MV / Streaming Table</text>
+
+<rect x="70" y="130" width="260" height="170" class="box"/>
+<text x="95" y="165" class="label">Governance Plane</text>
+<text x="95" y="198" class="body">Unity Catalog</text>
+<text x="95" y="225" class="small">• bronze: raw source (read-only)</text>
+<text x="95" y="250" class="small">• dev: personal schemas</text>
+<text x="95" y="275" class="small">• prod: published marts</text>
+
+<rect x="410" y="130" width="330" height="170" class="box2"/>
+<text x="435" y="165" class="label">Default SQL Plane</text>
+<text x="435" y="198" class="body">SQL Warehouse / databricks_compute</text>
+<text x="435" y="225" class="small">• SQL models</text>
+<text x="435" y="250" class="small">• tests / snapshots / source freshness</text>
+<text x="435" y="275" class="small">• merge / microbatch / metadata collection</text>
+
+<rect x="820" y="130" width="300" height="170" class="box3"/>
+<text x="845" y="165" class="label">Python Plane</text>
+<text x="845" y="198" class="body">all-purpose / job / serverless cluster</text>
+<text x="845" y="225" class="small">• Python model execution</text>
+<text x="845" y="250" class="small">• notebook upload / job orchestration</text>
+<text x="845" y="275" class="small">• PySpark-heavy transforms</text>
+
+<rect x="70" y="390" width="310" height="220" class="box4"/>
+<text x="95" y="425" class="label">Storage / Table Surface</text>
+<text x="95" y="458" class="body">Delta default</text>
+<text x="95" y="485" class="small">• table / incremental / snapshot</text>
+<text x="95" y="510" class="small">• partition_by / liquid_clustered_by</text>
+<text x="95" y="535" class="small">• tblproperties / tags / comments</text>
+<text x="95" y="560" class="small">• optional table_format='iceberg'</text>
+
+<rect x="440" y="390" width="310" height="220" class="box2"/>
+<text x="465" y="425" class="label">Refresh Surface</text>
+<text x="465" y="458" class="body">table / incremental / microbatch</text>
+<text x="465" y="485" class="small">• Retail Orders → merge</text>
+<text x="465" y="510" class="small">• Event Stream → microbatch / Python</text>
+<text x="465" y="535" class="small">• Subscription → stable contract marts</text>
+<text x="465" y="560" class="small">• current-state surface → MV / ST</text>
+
+<rect x="810" y="390" width="310" height="220" class="box3"/>
+<text x="835" y="425" class="label">Published Surface</text>
+<text x="835" y="458" class="body">materialized_view / streaming_table</text>
+<text x="835" y="485" class="small">• requires Unity Catalog</text>
+<text x="835" y="510" class="small">• requires serverless SQL Warehouse</text>
+<text x="835" y="535" class="small">• schedule / tags / tblproperties</text>
+<text x="835" y="560" class="small">• semantic-ready serving layer</text>
+
+<line x1="330" y1="215" x2="410" y2="215" class="arrow"/>
+<line x1="740" y1="215" x2="820" y2="215" class="arrow"/>
+<line x1="575" y1="300" x2="575" y2="390" class="arrow"/>
+<line x1="975" y1="300" x2="975" y2="390" class="arrow"/>
+<line x1="380" y1="500" x2="440" y2="500" class="arrow"/>
+<line x1="750" y1="500" x2="810" y2="500" class="arrow"/>
+</svg>

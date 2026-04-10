@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<style>
+.title{font:700 28px Arial,sans-serif;fill:#11283b}
+.sub{font:600 18px Arial,sans-serif;fill:#37556d}
+.body{font:15px Arial,sans-serif;fill:#22394a}
+.label{font:700 18px Arial,sans-serif;fill:#16324f}
+.box1{fill:#eff7ff;stroke:#2f7bd8;stroke-width:2;rx:18;ry:18}
+.box2{fill:#f4f0ff;stroke:#7a58c7;stroke-width:2;rx:18;ry:18}
+.box3{fill:#edf8f0;stroke:#2d8c58;stroke-width:2;rx:18;ry:18}
+.arrow{stroke:#476273;stroke-width:3;marker-end:url(#m)}
+</style>
+<defs><marker id="m" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 z" fill="#476273"/></marker></defs>
+<text x="60" y="56" class="title">Three Casebooks on Databricks</text>
+<text x="60" y="88" class="sub">Same platform, different pressure points</text>
+
+<rect x="80" y="150" width="310" height="480" class="box1"/>
+<text x="110" y="190" class="label">Retail Orders</text>
+<text x="110" y="225" class="body">Best default Databricks casebook</text>
+<text x="110" y="260" class="body">• bronze source → staging → int → marts</text>
+<text x="110" y="290" class="body">• Delta merge on order_id</text>
+<text x="110" y="320" class="body">• optional partition_by(order_date)</text>
+<text x="110" y="350" class="body">• contracts on published marts</text>
+<text x="110" y="395" class="body">Good for:</text>
+<text x="110" y="425" class="body">• establishing baseline SQL workflow</text>
+<text x="110" y="455" class="body">• validating Unity Catalog design</text>
+<text x="110" y="485" class="body">• teaching merge without over-complexity</text>
+
+<rect x="445" y="150" width="310" height="480" class="box2"/>
+<text x="475" y="190" class="label">Event Stream</text>
+<text x="475" y="225" class="body">Most Databricks-native casebook</text>
+<text x="475" y="260" class="body">• append-only raw events</text>
+<text x="475" y="290" class="body">• microbatch by event_time</text>
+<text x="475" y="320" class="body">• optional Python sessionization</text>
+<text x="475" y="350" class="body">• possible MV / ST serving layer</text>
+<text x="475" y="395" class="body">Good for:</text>
+<text x="475" y="425" class="body">• time-series scaling</text>
+<text x="475" y="455" class="body">• late-arriving data handling</text>
+<text x="475" y="485" class="body">• compute split between SQL and Python</text>
+
+<rect x="810" y="150" width="310" height="480" class="box3"/>
+<text x="840" y="190" class="label">Subscription & Billing</text>
+<text x="840" y="225" class="body">Stable API + current-state publishing</text>
+<text x="840" y="260" class="body">• stateful source models</text>
+<text x="840" y="290" class="body">• contract-driven fct_mrr</text>
+<text x="840" y="320" class="body">• current surface as MV candidate</text>
+<text x="840" y="350" class="body">• finance-friendly query tags / docs</text>
+<text x="840" y="395" class="body">Good for:</text>
+<text x="840" y="425" class="body">• public surface design</text>
+<text x="840" y="455" class="body">• semantic-ready marts</text>
+<text x="840" y="485" class="body">• governed refresh and publish patterns</text>
+</svg>

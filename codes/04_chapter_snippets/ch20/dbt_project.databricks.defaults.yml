@@ -1,0 +1,16 @@
+models:
+  +file_format: delta
+  +databricks_compute: WH_TRANSFORM
+  +query_tags:
+    team: analytics
+    project: dbt_all_in_one
+
+snapshots:
+  +file_format: delta
+  +databricks_compute: WH_TRANSFORM
+
+seeds:
+  +file_format: delta
+
+flags:
+  use_user_folder_for_python: true

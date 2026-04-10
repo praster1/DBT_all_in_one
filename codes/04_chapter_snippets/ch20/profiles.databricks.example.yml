@@ -1,0 +1,32 @@
+databricks_all_in_one:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      host: dbc-xxxxxxxx.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/aaaaaaaaaaaaaaaa
+      token: "{{ env_var('DBT_ENV_SECRET_DATABRICKS_TOKEN') }}"
+      catalog: dev
+      schema: analytics_jkim
+      threads: 8
+      query_tags: '{"team": "analytics", "project": "dbt_all_in_one", "env": "dev"}'
+      compute:
+        WH_TRANSFORM:
+          http_path: /sql/1.0/warehouses/bbbbbbbbbbbbbbbb
+        WH_BI:
+          http_path: /sql/1.0/warehouses/cccccccccccccccc
+
+    prod:
+      type: databricks
+      host: dbc-xxxxxxxx.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/dddddddddddddddd
+      token: "{{ env_var('DBT_ENV_SECRET_DATABRICKS_TOKEN') }}"
+      catalog: prod
+      schema: analytics
+      threads: 8
+      query_tags: '{"team": "analytics", "project": "dbt_all_in_one", "env": "prod"}'
+      compute:
+        WH_TRANSFORM:
+          http_path: /sql/1.0/warehouses/eeeeeeeeeeeeeeee
+        WH_BI:
+          http_path: /sql/1.0/warehouses/ffffffffffffffff
