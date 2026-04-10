@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<style>
+    .bg{fill:#fbfaf7}.title{font:700 30px 'Arial';fill:#183153}.txt{font:400 18px 'Arial';fill:#183153}
+    .small{font:400 15px 'Arial';fill:#31456a}.box{fill:#ffffff;stroke:#c9d3e4;stroke-width:2}
+    .accent{fill:#eaf2ff;stroke:#7aa2e3;stroke-width:2}.good{fill:#eef8f1;stroke:#7db28a;stroke-width:2}
+    .warn{fill:#fff7e8;stroke:#d8a84a;stroke-width:2}.arrow{stroke:#7aa2e3;stroke-width:3;marker-end:url(#a)}
+</style>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 z" fill="#7aa2e3"/></marker></defs>
+<rect class="bg" width="1200" height="700"/>
+<text x="60" y="60" class="title">DuckDB local development loop</text>
+<rect x="70" y="120" rx="18" ry="18" width="250" height="110" class="box"/>
+<text x="95" y="165" class="txt">dbt project</text>
+<text x="95" y="195" class="small">models / snapshots / macros</text>
+<text x="95" y="220" class="small">profiles, expected CSV, bootstrap SQL</text>
+
+<rect x="380" y="120" rx="18" ry="18" width="220" height="110" class="accent"/>
+<text x="405" y="165" class="txt">profiles.yml</text>
+<text x="405" y="195" class="small">type: duckdb</text>
+<text x="405" y="220" class="small">path: ./lab.duckdb</text>
+
+<rect x="660" y="120" rx="18" ry="18" width="230" height="110" class="good"/>
+<text x="688" y="165" class="txt">lab.duckdb</text>
+<text x="688" y="195" class="small">local persisted state</text>
+<text x="688" y="220" class="small">easy reset, easy inspection</text>
+
+<rect x="940" y="120" rx="18" ry="18" width="190" height="110" class="warn"/>
+<text x="967" y="165" class="txt">expected</text>
+<text x="967" y="195" class="small">CSV / trace / answer key</text>
+
+<line x1="320" y1="175" x2="380" y2="175" class="arrow"/>
+<line x1="600" y1="175" x2="660" y2="175" class="arrow"/>
+<line x1="890" y1="175" x2="940" y2="175" class="arrow"/>
+
+<rect x="120" y="330" rx="18" ry="18" width="250" height="90" class="box"/>
+<text x="145" y="378" class="txt">dbt debug / parse</text>
+<text x="145" y="405" class="small">profile and structure check</text>
+
+<rect x="470" y="330" rx="18" ry="18" width="250" height="90" class="box"/>
+<text x="495" y="378" class="txt">dbt build / snapshot</text>
+<text x="495" y="405" class="small">materialize, test, state changes</text>
+
+<rect x="820" y="330" rx="18" ry="18" width="250" height="90" class="box"/>
+<text x="845" y="378" class="txt">duckdb CLI + SQL</text>
+<text x="845" y="405" class="small">inspect marts and snapshots</text>
+
+<line x1="370" y1="375" x2="470" y2="375" class="arrow"/>
+<line x1="720" y1="375" x2="820" y2="375" class="arrow"/>
+
+<text x="120" y="520" class="txt">Why it matters</text>
+<text x="120" y="555" class="small">• fastest place to validate source → model → test → snapshot loop</text>
+<text x="120" y="585" class="small">• easiest platform to compare day1/day2 data with expected results</text>
+<text x="120" y="615" class="small">• best sandbox before moving to BigQuery, Snowflake, ClickHouse, Trino</text>
+</svg>

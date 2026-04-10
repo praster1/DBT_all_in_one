@@ -1,0 +1,42 @@
+dbt_all_in_one_lab:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ./lab.duckdb
+      schema: main
+      threads: 4
+
+      extensions:
+        - httpfs
+        - parquet
+
+      settings:
+        timezone: Asia/Seoul
+
+      filesystems:
+        - fs: s3
+          anon: false
+          key: "{{ env_var('S3_ACCESS_KEY_ID') }}"
+          secret: "{{ env_var('S3_SECRET_ACCESS_KEY') }}"
+
+      secrets:
+        - type: s3
+          provider: credential_chain
+
+      attach:
+        - path: ./raw.duckdb
+          alias: rawdb
+          read_only: true
+        - path: ./audit.sqlite
+          alias: auditdb
+          type: sqlite
+
+      plugins:
+        - module: sqlalchemy
+          alias: sql
+          config:
+            connection_url: "{{ env_var('DBT_ENV_SECRET_SQLALCHEMY_URI') }}"
+
+      module_paths:
+        - ./python_modules

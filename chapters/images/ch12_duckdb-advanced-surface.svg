@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="740" viewBox="0 0 1200 740">
+<style>
+.bg{fill:#fbfaf7}.title{font:700 30px Arial;fill:#183153}.txt{font:700 18px Arial;fill:#183153}
+.small{font:400 15px Arial;fill:#31456a}.box{fill:#fff;stroke:#c9d3e4;stroke-width:2}.accent{fill:#eef5ff;stroke:#7aa2e3;stroke-width:2}
+.arrow{stroke:#7aa2e3;stroke-width:3;marker-end:url(#a)}
+</style>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 z" fill="#7aa2e3"/></marker></defs>
+<rect class="bg" width="1200" height="740"/>
+<text x="60" y="60" class="title">DuckDB advanced surface</text>
+
+<rect x="90" y="130" width="220" height="100" rx="18" ry="18" class="accent"/>
+<text x="120" y="175" class="txt">extensions</text>
+<text x="120" y="205" class="small">httpfs, parquet, iceberg, spatial...</text>
+
+<rect x="360" y="130" width="220" height="100" rx="18" ry="18" class="accent"/>
+<text x="390" y="175" class="txt">filesystems / secrets</text>
+<text x="390" y="205" class="small">S3, GCS, Azure, credential chain</text>
+
+<rect x="630" y="130" width="220" height="100" rx="18" ry="18" class="accent"/>
+<text x="660" y="175" class="txt">attach</text>
+<text x="660" y="205" class="small">duckdb, sqlite, read-only sources</text>
+
+<rect x="900" y="130" width="220" height="100" rx="18" ry="18" class="accent"/>
+<text x="930" y="175" class="txt">plugins</text>
+<text x="930" y="205" class="small">gsheet, sqlalchemy, custom UDF</text>
+
+<rect x="225" y="350" width="300" height="130" rx="18" ry="18" class="box"/>
+<text x="255" y="395" class="txt">external source / materialization</text>
+<text x="255" y="425" class="small">Parquet/CSV/JSON backed models</text>
+<text x="255" y="452" class="small">register external upstream when needed</text>
+
+<rect x="675" y="350" width="300" height="130" rx="18" ry="18" class="box"/>
+<text x="705" y="395" class="txt">Python models in same process</text>
+<text x="705" y="425" class="small">Pandas, Polars, Arrow, helper modules</text>
+<text x="705" y="452" class="small">great for learning, watch memory footprint</text>
+
+<line x1="200" y1="230" x2="350" y2="350" class="arrow"/>
+<line x1="470" y1="230" x2="410" y2="350" class="arrow"/>
+<line x1="740" y1="230" x2="790" y2="350" class="arrow"/>
+<line x1="1010" y1="230" x2="850" y2="350" class="arrow"/>
+
+<text x="90" y="610" class="small">Rule of thumb: start with a simple local file profile first. Add advanced surface area only when a concrete need appears.</text>
+</svg>

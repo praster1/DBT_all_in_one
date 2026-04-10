@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<style>
+.bg{fill:#fbfaf7}.title{font:700 30px Arial;fill:#183153}.txt{font:700 20px Arial;fill:#183153}
+.small{font:400 16px Arial;fill:#31456a}.box{fill:#fff;stroke:#c9d3e4;stroke-width:2}.arrow{stroke:#7aa2e3;stroke-width:3;marker-end:url(#a)}
+.r{fill:#eef5ff;stroke:#7aa2e3;stroke-width:2}.e{fill:#eef8f1;stroke:#7db28a;stroke-width:2}.s{fill:#fff3ee;stroke:#d98a6b;stroke-width:2}
+</style>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 z" fill="#7aa2e3"/></marker></defs>
+<rect class="bg" width="1200" height="760"/>
+<text x="60" y="60" class="title">Three casebooks on DuckDB</text>
+
+<rect x="70" y="120" rx="18" ry="18" width="300" height="170" class="r"/>
+<text x="95" y="165" class="txt">Retail Orders</text>
+<text x="95" y="200" class="small">• order vs order_items grain</text>
+<text x="95" y="230" class="small">• fanout detection</text>
+<text x="95" y="260" class="small">• order_id = 5003 trace</text>
+
+<rect x="450" y="120" rx="18" ry="18" width="300" height="170" class="e"/>
+<text x="475" y="165" class="txt">Event Stream</text>
+<text x="475" y="200" class="small">• event → session → daily grain</text>
+<text x="475" y="230" class="small">• late-arriving data</text>
+<text x="475" y="260" class="small">• lookback / incremental experiments</text>
+
+<rect x="830" y="120" rx="18" ry="18" width="300" height="170" class="s"/>
+<text x="855" y="165" class="txt">Subscription &amp; Billing</text>
+<text x="855" y="200" class="small">• status history and snapshot</text>
+<text x="855" y="230" class="small">• current MRR vs billed amount</text>
+<text x="855" y="260" class="small">• versioned mart API</text>
+
+<rect x="260" y="400" rx="18" ry="18" width="680" height="210" class="box"/>
+<text x="285" y="445" class="txt">Common DuckDB strengths</text>
+<text x="285" y="485" class="small">• bootstrap day1/day2 quickly with local SQL scripts</text>
+<text x="285" y="515" class="small">• inspect raw/staging/marts directly in one local file</text>
+<text x="285" y="545" class="small">• compare actual results with expected CSV and trace rows</text>
+<text x="285" y="575" class="small">• reset and rerun with minimal cost</text>
+
+<line x1="220" y1="290" x2="430" y2="400" class="arrow"/>
+<line x1="600" y1="290" x2="600" y2="400" class="arrow"/>
+<line x1="980" y1="290" x2="770" y2="400" class="arrow"/>
+</svg>

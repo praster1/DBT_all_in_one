@@ -1,0 +1,2 @@
+on-run-start:
+  - "{{ register_upstream_external_models() }}"

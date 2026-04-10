@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: external_sales
+    tables:
+      - name: retail_orders_parquet
+        config:
+          external_location: "read_parquet('data/retail/orders_day1.parquet')"
+      - name: event_stream_csv
+        config:
+          external_location: "read_csv('data/events/day1.csv', header=true)"
+          formatter: oldstyle
