@@ -1,0 +1,17 @@
+models:
+  dbt_all_in_one:
+    +transient: true
+    +copy_grants: false
+    marts:
+      +materialized: table
+      +snowflake_warehouse: TRANSFORMING_XS
+    events:
+      +snowflake_warehouse: TRANSFORMING_L
+
+data_tests:
+  +snowflake_warehouse: TRANSFORMING_XS
+
+snapshots:
+  +snowflake_warehouse: TRANSFORMING_M
+
+query-comment: "{{ target.name }}::{{ invocation_id }}"

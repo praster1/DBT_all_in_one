@@ -1,0 +1,28 @@
+acme_snowflake:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: acme.ap-northeast-2
+      user: analytics_user
+      password: "{{ env_var('DBT_ENV_SECRET_SNOWFLAKE_PASSWORD') }}"
+      role: TRANSFORMER
+      database: ANALYTICS_DEV
+      warehouse: TRANSFORMING_XS
+      schema: dbt_jkim
+      threads: 8
+      client_session_keep_alive: false
+      query_tag: dbt_local_dev
+
+    prod:
+      type: snowflake
+      account: acme.ap-northeast-2
+      user: dbt_prod
+      private_key_path: /opt/dbt/keys/dbt_prod.p8
+      role: DBT_PROD
+      database: ANALYTICS
+      warehouse: TRANSFORMING_M
+      schema: MART_CORE
+      threads: 12
+      client_session_keep_alive: false
+      query_tag: dbt_prod_deploy

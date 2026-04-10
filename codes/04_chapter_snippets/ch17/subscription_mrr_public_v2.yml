@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: fct_mrr_public_v2
+    latest_version: 2
+    access: public
+    versions:
+      - v: 1
+        config:
+          alias: fct_mrr_public_v1
+      - v: 2
+        config:
+          alias: fct_mrr_public_v2
+          copy_grants: true
+          snowflake_warehouse: TRANSFORMING_XS
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: account_id
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: month_start
+        data_type: date
+        data_tests:
+          - not_null
+      - name: mrr_amount
+        data_type: number(18,2)
+        data_tests:
+          - not_null
