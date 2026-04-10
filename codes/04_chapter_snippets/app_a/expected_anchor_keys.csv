@@ -1,0 +1,10 @@
+track,anchor,phase,expected_key,expected_value,notes
+Retail Orders,order_id=5003,day1,order_status,paid,raw->staging 상태 표준화 확인
+Retail Orders,order_id=5003,day1,gross_revenue,16.0,int_order_lines 2행을 주문 grain 1행으로 다시 집계
+Retail Orders,order_id=5003,day2,order_status,cancelled,day2 변경 주입 후 snapshot/mart 차이 해석
+Event Stream,event_id=e1010 / event_date=2026-04-01,day1,dau,2,late event가 아직 없음
+Event Stream,event_id=e1010 / event_date=2026-04-01,day2,dau,3,late-arriving event e1010 반영
+Event Stream,event_id=e1010,day2,event_ingested_at,2026-04-03 09:40:00,event_at와 ingested_at를 구분해서 해석
+Subscription & Billing,subscription_id=sub_2003,day1,subscription_status,trialing,active MRR에는 아직 직접 포함되지 않음
+Subscription & Billing,subscription_id=sub_2003,day2,subscription_status,active,status transition 확인
+Subscription & Billing,subscription_id=sub_2003,day2,contributes_to_active_mrr,true,semantic-ready/public surface에서 의미가 커짐

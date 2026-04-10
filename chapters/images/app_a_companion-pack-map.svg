@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+<rect width="1200" height="720" fill="#ffffff"/>
+<text x="70" y="70" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">Companion Pack의 세 표면</text>
+<text x="70" y="105" font-family="Arial, sans-serif" font-size="18" fill="#4b5563">실행 · 참조 · 부트스트랩을 분리해서 읽으면 codes/ 전체가 훨씬 명확해진다.</text>
+
+<rect x="70" y="160" rx="18" ry="18" width="300" height="220" fill="#eff6ff" stroke="#60a5fa" stroke-width="3"/>
+<text x="95" y="205" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#1d4ed8">01_duckdb_runnable_project</text>
+<text x="95" y="245" font-family="Arial, sans-serif" font-size="19" fill="#1f2937">• 가장 빠른 완주 경로</text>
+<text x="95" y="278" font-family="Arial, sans-serif" font-size="19" fill="#1f2937">• source → staging → marts</text>
+<text x="95" y="311" font-family="Arial, sans-serif" font-size="19" fill="#1f2937">• tests · snapshot · docs</text>
+<text x="95" y="344" font-family="Arial, sans-serif" font-size="19" fill="#1f2937">• Appendix A의 기본 기준선</text>
+
+<rect x="450" y="160" rx="18" ry="18" width="300" height="220" fill="#f0fdf4" stroke="#4ade80" stroke-width="3"/>
+<text x="475" y="205" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#15803d">02_reference_patterns</text>
+<text x="475" y="245" font-family="Arial, sans-serif" font-size="19" fill="#1f2937">• semantic · governance · mesh</text>
+<text x="475" y="278" font-family="Arial, sans-serif" font-size="19" fill="#1f2937">• command / Jinja reference</text>
+<text x="475" y="311" font-family="Arial, sans-serif" font-size="19" fill="#1f2937">• version / engine 확인용</text>
+<text x="475" y="344" font-family="Arial, sans-serif" font-size="19" fill="#1f2937">• 바로 복붙보다 해석이 중요</text>
+
+<rect x="830" y="160" rx="18" ry="18" width="300" height="220" fill="#fff7ed" stroke="#fb923c" stroke-width="3"/>
+<text x="855" y="205" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#c2410c">03_platform_bootstrap</text>
+<text x="855" y="245" font-family="Arial, sans-serif" font-size="19" fill="#1f2937">• raw day1 / day2 상태 생성</text>
+<text x="855" y="278" font-family="Arial, sans-serif" font-size="19" fill="#1f2937">• DuckDB / MySQL / Postgres</text>
+<text x="855" y="311" font-family="Arial, sans-serif" font-size="19" fill="#1f2937">• BigQuery / ClickHouse / Snowflake / Trino</text>
+<text x="855" y="344" font-family="Arial, sans-serif" font-size="19" fill="#1f2937">• NoSQL + SQL Layer 별도 경로</text>
+
+<line x1="220" y1="430" x2="220" y2="515" stroke="#9ca3af" stroke-width="4"/>
+<line x1="600" y1="430" x2="600" y2="515" stroke="#9ca3af" stroke-width="4"/>
+<line x1="980" y1="430" x2="980" y2="515" stroke="#9ca3af" stroke-width="4"/>
+
+<rect x="120" y="520" rx="18" ry="18" width="960" height="140" fill="#111827"/>
+<text x="150" y="565" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#ffffff">읽는 순서</text>
+<text x="150" y="603" font-family="Arial, sans-serif" font-size="21" fill="#e5e7eb">1) DuckDB runnable project로 한 예제를 완주한다.</text>
+<text x="150" y="634" font-family="Arial, sans-serif" font-size="21" fill="#e5e7eb">2) platform bootstrap으로 같은 raw 상태를 다른 엔진에 다시 만든다.</text>
+<text x="150" y="665" font-family="Arial, sans-serif" font-size="21" fill="#e5e7eb">3) reference patterns는 version/engine 차이를 확인하며 선택적으로 확장한다.</text>
+</svg>

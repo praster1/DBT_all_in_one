@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+<rect width="1200" height="560" fill="#ffffff"/>
+<text x="60" y="70" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">day1 → build → day2 학습 루프</text>
+<text x="60" y="105" font-family="Arial, sans-serif" font-size="18" fill="#4b5563">플랫폼이 바뀌어도 학습 리듬은 바뀌지 않는다.</text>
+
+<rect x="70" y="180" width="180" height="110" rx="18" fill="#eff6ff" stroke="#60a5fa" stroke-width="3"/>
+<text x="105" y="225" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1d4ed8">1. day1 raw</text>
+<text x="100" y="260" font-family="Arial, sans-serif" font-size="18" fill="#1f2937">setup_day1.sql</text>
+
+<rect x="290" y="180" width="180" height="110" rx="18" fill="#f0fdf4" stroke="#4ade80" stroke-width="3"/>
+<text x="335" y="225" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#15803d">2. build</text>
+<text x="315" y="260" font-family="Arial, sans-serif" font-size="18" fill="#1f2937">debug → seed → build</text>
+
+<rect x="510" y="180" width="180" height="110" rx="18" fill="#fefce8" stroke="#facc15" stroke-width="3"/>
+<text x="547" y="225" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#a16207">3. compare</text>
+<text x="536" y="260" font-family="Arial, sans-serif" font-size="18" fill="#1f2937">answer keys</text>
+
+<rect x="730" y="180" width="180" height="110" rx="18" fill="#fff7ed" stroke="#fb923c" stroke-width="3"/>
+<text x="770" y="225" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#c2410c">4. day2 raw</text>
+<text x="760" y="260" font-family="Arial, sans-serif" font-size="18" fill="#1f2937">apply_day2.sql</text>
+
+<rect x="950" y="180" width="180" height="110" rx="18" fill="#faf5ff" stroke="#c084fc" stroke-width="3"/>
+<text x="972" y="225" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#7e22ce">5. snapshot / incr</text>
+<text x="980" y="260" font-family="Arial, sans-serif" font-size="18" fill="#1f2937">difference 해석</text>
+
+<line x1="250" y1="235" x2="290" y2="235" stroke="#6b7280" stroke-width="4"/>
+<polygon points="290,235 278,229 278,241" fill="#6b7280"/>
+<line x1="470" y1="235" x2="510" y2="235" stroke="#6b7280" stroke-width="4"/>
+<polygon points="510,235 498,229 498,241" fill="#6b7280"/>
+<line x1="690" y1="235" x2="730" y2="235" stroke="#6b7280" stroke-width="4"/>
+<polygon points="730,235 718,229 718,241" fill="#6b7280"/>
+<line x1="910" y1="235" x2="950" y2="235" stroke="#6b7280" stroke-width="4"/>
+<polygon points="950,235 938,229 938,241" fill="#6b7280"/>
+
+<rect x="120" y="360" rx="18" ry="18" width="960" height="130" fill="#111827"/>
+<text x="150" y="405" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">이 루프에서 반드시 보는 기준점</text>
+<text x="150" y="440" font-family="Arial, sans-serif" font-size="20" fill="#e5e7eb">• Retail Orders: order_id = 5003</text>
+<text x="470" y="440" font-family="Arial, sans-serif" font-size="20" fill="#e5e7eb">• Event Stream: event_id = e1010 / 2026-04-01 DAU</text>
+<text x="860" y="440" font-family="Arial, sans-serif" font-size="20" fill="#e5e7eb" text-anchor="end">• Subscription &amp; Billing: sub_2003</text>
+<text x="150" y="472" font-family="Arial, sans-serif" font-size="20" fill="#e5e7eb">• 값이 다르면 raw 상태 → staging grain → mart 집계 → snapshot 설정 순서로 되짚는다.</text>
+</svg>

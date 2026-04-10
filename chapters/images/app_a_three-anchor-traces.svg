@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660">
+<rect width="1200" height="660" fill="#ffffff"/>
+<text x="60" y="70" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">세 기준 레코드로 정답 비교하기</text>
+<text x="60" y="105" font-family="Arial, sans-serif" font-size="18" fill="#4b5563">각 casebook를 끝까지 관통하는 anchor를 하나씩 고정해 두면 학습과 디버깅이 쉬워진다.</text>
+
+<rect x="70" y="160" rx="18" ry="18" width="320" height="410" fill="#eff6ff" stroke="#60a5fa" stroke-width="3"/>
+<text x="100" y="205" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#1d4ed8">Retail Orders</text>
+<text x="100" y="245" font-family="Arial, sans-serif" font-size="22" fill="#1f2937">anchor: order_id = 5003</text>
+<text x="100" y="295" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">day1 raw: paid / 18.5</text>
+<text x="100" y="330" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">staging: order_status=paid</text>
+<text x="100" y="365" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">intermediate: 2 line rows</text>
+<text x="100" y="400" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">mart: gross_revenue=16.0</text>
+<text x="100" y="435" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">day2 raw: cancelled</text>
+<text x="100" y="470" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">snapshot: 2 versions expected</text>
+<text x="100" y="520" font-family="Arial, sans-serif" font-size="18" fill="#374151">fanout과 business rule 차이를 보기 가장 좋다.</text>
+
+<rect x="440" y="160" rx="18" ry="18" width="320" height="410" fill="#f0fdf4" stroke="#4ade80" stroke-width="3"/>
+<text x="470" y="205" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#15803d">Event Stream</text>
+<text x="470" y="245" font-family="Arial, sans-serif" font-size="22" fill="#1f2937">anchor: e1010 + DAU(2026-04-01)</text>
+<text x="470" y="295" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">day1 DAU(2026-04-01)=2</text>
+<text x="470" y="330" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">day2: e1010 late arrival</text>
+<text x="470" y="365" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">event_at=2026-04-01 23:50</text>
+<text x="470" y="400" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">ingested_at=2026-04-03 09:40</text>
+<text x="470" y="435" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">day2 DAU(2026-04-01)=3</text>
+<text x="470" y="470" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">lookback / microbatch 해석</text>
+<text x="470" y="520" font-family="Arial, sans-serif" font-size="18" fill="#374151">late-arriving data가 왜 과거 집계를 다시 바꾸는지 보여 준다.</text>
+
+<rect x="810" y="160" rx="18" ry="18" width="320" height="410" fill="#fff7ed" stroke="#fb923c" stroke-width="3"/>
+<text x="840" y="205" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#c2410c">Subscription &amp; Billing</text>
+<text x="840" y="245" font-family="Arial, sans-serif" font-size="22" fill="#1f2937">anchor: subscription_id = sub_2003</text>
+<text x="840" y="295" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">day1 status=trialing</text>
+<text x="840" y="330" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">day1 active MRR = false</text>
+<text x="840" y="365" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">day2 status=active</text>
+<text x="840" y="400" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">day2 active MRR = true</text>
+<text x="840" y="435" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">snapshot: status history expands</text>
+<text x="840" y="470" font-family="Arial, sans-serif" font-size="20" fill="#1f2937">contracts / versions / semantic-ready</text>
+<text x="840" y="520" font-family="Arial, sans-serif" font-size="18" fill="#374151">상태 변화와 지표 정의 충돌을 함께 보여 주는 기준점이다.</text>
+</svg>
