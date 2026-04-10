@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#07111f"/>
+  <text x="60" y="70" fill="#f8fafc" font-size="34" font-family="Arial" font-weight="700">order_id = 5003 lifecycle</text>
+  <text x="60" y="110" fill="#cbd5e1" font-size="18" font-family="Arial">A single record traced from raw to staging, line grain, mart, and snapshot</text>
+
+  <rect x="70" y="180" width="180" height="110" rx="14" fill="#1d4ed8"/>
+  <text x="95" y="220" fill="white" font-size="24" font-family="Arial" font-weight="700">day1 raw</text>
+  <text x="95" y="252" fill="#dbeafe" font-size="18" font-family="Arial">5003 / paid</text>
+  <text x="95" y="278" fill="#dbeafe" font-size="18" font-family="Arial">210.00</text>
+
+  <rect x="310" y="180" width="180" height="110" rx="14" fill="#0f766e"/>
+  <text x="335" y="220" fill="white" font-size="24" font-family="Arial" font-weight="700">stg_orders</text>
+  <text x="335" y="252" fill="#ccfbf1" font-size="18" font-family="Arial">status normalized</text>
+  <text x="335" y="278" fill="#ccfbf1" font-size="18" font-family="Arial">updated_at typed</text>
+
+  <rect x="550" y="180" width="230" height="110" rx="14" fill="#7c3aed"/>
+  <text x="575" y="220" fill="white" font-size="24" font-family="Arial" font-weight="700">int_order_lines</text>
+  <text x="575" y="252" fill="#ede9fe" font-size="18" font-family="Arial">5003 expands to 2 lines</text>
+  <text x="575" y="278" fill="#ede9fe" font-size="18" font-family="Arial">line_amount becomes safe sum input</text>
+
+  <rect x="840" y="180" width="220" height="110" rx="14" fill="#b45309"/>
+  <text x="865" y="220" fill="white" font-size="24" font-family="Arial" font-weight="700">fct_orders</text>
+  <text x="865" y="252" fill="#ffedd5" font-size="18" font-family="Arial">back to order grain</text>
+  <text x="865" y="278" fill="#ffedd5" font-size="18" font-family="Arial">gross_revenue / item_count</text>
+
+  <path d="M250 235 L310 235" stroke="#94a3b8" stroke-width="5"/>
+  <path d="M490 235 L550 235" stroke="#94a3b8" stroke-width="5"/>
+  <path d="M780 235 L840 235" stroke="#94a3b8" stroke-width="5"/>
+
+  <rect x="120" y="410" width="220" height="120" rx="14" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="145" y="450" fill="#f8fafc" font-size="24" font-family="Arial" font-weight="700">day2 change</text>
+  <text x="145" y="485" fill="#cbd5e1" font-size="18" font-family="Arial">status: paid → shipped</text>
+  <text x="145" y="512" fill="#cbd5e1" font-size="18" font-family="Arial">amount: 210 → 230</text>
+
+  <rect x="430" y="410" width="270" height="120" rx="14" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="455" y="450" fill="#f8fafc" font-size="24" font-family="Arial" font-weight="700">snapshot result</text>
+  <text x="455" y="485" fill="#cbd5e1" font-size="18" font-family="Arial">old version remains</text>
+  <text x="455" y="512" fill="#cbd5e1" font-size="18" font-family="Arial">new current row is added</text>
+
+  <rect x="780" y="410" width="290" height="120" rx="14" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="805" y="450" fill="#f8fafc" font-size="24" font-family="Arial" font-weight="700">operational meaning</text>
+  <text x="805" y="485" fill="#cbd5e1" font-size="18" font-family="Arial">tests say the value is valid now</text>
+  <text x="805" y="512" fill="#cbd5e1" font-size="18" font-family="Arial">snapshot says what changed when</text>
+
+  <path d="M230 290 L230 410" stroke="#64748b" stroke-width="4"/>
+  <path d="M650 290 L560 410" stroke="#64748b" stroke-width="4"/>
+  <path d="M950 290 L920 410" stroke="#64748b" stroke-width="4"/>
+
+  <rect x="70" y="600" width="1060" height="90" rx="14" fill="#0b1325" stroke="#1e293b" stroke-width="2"/>
+  <text x="100" y="650" fill="#e2e8f0" font-size="20" font-family="Arial">The point of tracking 5003 is not the number itself. It is to show how one business fact acquires lineage, grain, quality checks, history, and metric meaning inside a dbt project.</text>
+</svg>

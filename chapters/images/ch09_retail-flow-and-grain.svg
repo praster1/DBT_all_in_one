@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#0b1020"/>
+  <text x="60" y="70" fill="#f3f4f6" font-size="34" font-family="Arial, Helvetica, sans-serif" font-weight="700">Retail Orders · data shape, grain, and growth path</text>
+  <text x="60" y="110" fill="#cbd5e1" font-size="18" font-family="Arial, Helvetica, sans-serif">raw → staging → intermediate → marts → quality → state/history → semantic/public surface</text>
+
+  <rect x="60" y="160" rx="16" ry="16" width="220" height="120" fill="#1d4ed8"/>
+  <text x="90" y="205" fill="white" font-size="26" font-family="Arial" font-weight="700">raw_retail</text>
+  <text x="90" y="242" fill="#dbeafe" font-size="18" font-family="Arial">customers</text>
+  <text x="90" y="268" fill="#dbeafe" font-size="18" font-family="Arial">products · orders · order_items</text>
+
+  <rect x="340" y="160" rx="16" ry="16" width="220" height="120" fill="#0f766e"/>
+  <text x="370" y="205" fill="white" font-size="26" font-family="Arial" font-weight="700">staging</text>
+  <text x="370" y="242" fill="#ccfbf1" font-size="18" font-family="Arial">rename · cast · normalize</text>
+  <text x="370" y="268" fill="#ccfbf1" font-size="18" font-family="Arial">grain stays explicit</text>
+
+  <rect x="620" y="160" rx="16" ry="16" width="220" height="120" fill="#7c3aed"/>
+  <text x="650" y="205" fill="white" font-size="26" font-family="Arial" font-weight="700">intermediate</text>
+  <text x="650" y="242" fill="#ede9fe" font-size="18" font-family="Arial">int_order_lines</text>
+  <text x="650" y="268" fill="#ede9fe" font-size="18" font-family="Arial">line grain · fanout control</text>
+
+  <rect x="900" y="160" rx="16" ry="16" width="220" height="120" fill="#b45309"/>
+  <text x="930" y="205" fill="white" font-size="26" font-family="Arial" font-weight="700">marts</text>
+  <text x="930" y="242" fill="#ffedd5" font-size="18" font-family="Arial">fct_orders · dim_customers</text>
+  <text x="930" y="268" fill="#ffedd5" font-size="18" font-family="Arial">public KPI surface</text>
+
+  <path d="M280 220 L340 220" stroke="#94a3b8" stroke-width="5"/>
+  <path d="M560 220 L620 220" stroke="#94a3b8" stroke-width="5"/>
+  <path d="M840 220 L900 220" stroke="#94a3b8" stroke-width="5"/>
+
+  <rect x="120" y="370" rx="14" ry="14" width="240" height="120" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="145" y="410" fill="#f8fafc" font-size="24" font-family="Arial" font-weight="700">quality layer</text>
+  <text x="145" y="445" fill="#cbd5e1" font-size="18" font-family="Arial">generic tests</text>
+  <text x="145" y="472" fill="#cbd5e1" font-size="18" font-family="Arial">singular tests · freshness</text>
+
+  <rect x="420" y="370" rx="14" ry="14" width="240" height="120" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="445" y="410" fill="#f8fafc" font-size="24" font-family="Arial" font-weight="700">state/history</text>
+  <text x="445" y="445" fill="#cbd5e1" font-size="18" font-family="Arial">day1 / day2</text>
+  <text x="445" y="472" fill="#cbd5e1" font-size="18" font-family="Arial">snapshot for order 5003</text>
+
+  <rect x="720" y="370" rx="14" ry="14" width="320" height="120" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="745" y="410" fill="#f8fafc" font-size="24" font-family="Arial" font-weight="700">public surface</text>
+  <text x="745" y="445" fill="#cbd5e1" font-size="18" font-family="Arial">contracts · semantic starter</text>
+  <text x="745" y="472" fill="#cbd5e1" font-size="18" font-family="Arial">selectors · CI handoff</text>
+
+  <path d="M230 280 L230 370" stroke="#64748b" stroke-width="4"/>
+  <path d="M730 280 L540 370" stroke="#64748b" stroke-width="4"/>
+  <path d="M1010 280 L880 370" stroke="#64748b" stroke-width="4"/>
+
+  <rect x="60" y="570" rx="14" ry="14" width="1060" height="120" fill="#091224" stroke="#1e293b" stroke-width="2"/>
+  <text x="90" y="615" fill="#f8fafc" font-size="24" font-family="Arial" font-weight="700">Key discipline</text>
+  <text x="260" y="615" fill="#cbd5e1" font-size="20" font-family="Arial">Keep order grain and line grain separate, then grow from stable marts to history and metrics.</text>
+  <text x="90" y="652" fill="#94a3b8" font-size="18" font-family="Arial">This casebook is not just a demo dataset. It is the baseline project where modeling, quality, state change, and semantic definitions first connect end-to-end.</text>
+</svg>

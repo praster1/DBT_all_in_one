@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: fct_orders
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: order_id
+        data_type: integer
+      - name: customer_id
+        data_type: integer
+      - name: order_date
+        data_type: date
+      - name: gross_revenue
+        data_type: numeric
+      - name: item_count
+        data_type: integer
