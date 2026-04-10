@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<style>
+  .title { font: 700 34px 'Arial'; fill: #17203a; }
+  .subtitle { font: 400 18px 'Arial'; fill: #4b5563; }
+  .box { fill: #ffffff; stroke: #c7d2fe; stroke-width: 2; rx: 18; }
+  .good { fill: #ecfdf5; stroke: #10b981; stroke-width: 2; rx: 18; }
+  .warn { fill: #fff7ed; stroke: #f97316; stroke-width: 2; rx: 18; }
+  .bad { fill: #fef2f2; stroke: #ef4444; stroke-width: 2; rx: 18; }
+  .h { font: 700 24px 'Arial'; fill: #17203a; }
+  .b { font: 400 18px 'Arial'; fill: #1f2937; }
+  .small { font: 400 16px 'Arial'; fill: #374151; }
+  .arrow { stroke: #94a3b8; stroke-width: 3; fill: none; marker-end: url(#m); }
+</style>
+<defs><marker id="m" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#94a3b8"/></marker></defs>
+<rect width="1200" height="760" fill="#f8fafc"/>
+<text x="60" y="70" class="title">PostgreSQL suitability envelope</text>
+<text x="60" y="105" class="subtitle">DuckDB 다음 단계에서 운영 감각을 익히기 좋은 플랫폼이지만, 분석 전용 MPP를 완전히 대체하지는 않는다.</text>
+
+<rect x="70" y="150" width="320" height="180" class="good"/>
+<text x="95" y="190" class="h">매우 잘 맞음</text>
+<text x="95" y="225" class="b">• 작고 명료한 내부 DW/마트</text>
+<text x="95" y="255" class="b">• fact/dim + snapshot + contracts</text>
+<text x="95" y="285" class="b">• schema / role / transaction 학습</text>
+<text x="95" y="315" class="b">• 팀 공용 분석 API surface</text>
+
+<rect x="440" y="150" width="320" height="180" class="warn"/>
+<text x="465" y="190" class="h">조건부로 적합</text>
+<text x="465" y="225" class="b">• 소형 Event Stream</text>
+<text x="465" y="255" class="b">• 최근 구간 incremental / microbatch</text>
+<text x="465" y="285" class="b">• 야간 배치 / 읽기 복제본</text>
+<text x="465" y="315" class="b">• 인덱스 / refresh 계획 필수</text>
+
+<rect x="810" y="150" width="320" height="180" class="bad"/>
+<text x="835" y="190" class="h">한계가 빨리 오는 영역</text>
+<text x="835" y="225" class="b">• 대규모 append-only 이벤트</text>
+<text x="835" y="255" class="b">• 잦은 heavy backfill</text>
+<text x="835" y="285" class="b">• BI + batch + OLTP 동시 부하</text>
+<text x="835" y="315" class="b">• 장기 대형 시계열 분석</text>
+
+<path d="M390 240 L438 240" class="arrow"/>
+<path d="M760 240 L808 240" class="arrow"/>
+
+<rect x="120" y="430" width="960" height="220" class="box"/>
+<text x="150" y="475" class="h">판단 기준</text>
+<text x="150" y="515" class="b">1. 데이터가 작고 구조가 명확하다면 PostgreSQL은 매우 좋은 운영형 학습 플랫폼이다.</text>
+<text x="150" y="550" class="b">2. 인덱스, 역할 분리, refresh 운영을 직접 체감하게 해 준다는 점이 큰 장점이다.</text>
+<text x="150" y="585" class="b">3. Event Stream이 커질수록 columnar / MPP 플랫폼으로의 전환 시점을 함께 설계해야 한다.</text>
+<text x="150" y="620" class="b">4. '된다'보다 '얼마나 오래 두는 것이 좋은가'를 묻는 것이 Postgres 플레이북의 핵심이다.</text>
+</svg>

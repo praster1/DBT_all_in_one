@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<style>
+  .title { font: 700 34px 'Arial'; fill: #17203a; }
+  .subtitle { font: 400 18px 'Arial'; fill: #4b5563; }
+  .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 18; }
+  .head { font: 700 24px 'Arial'; fill: #17203a; }
+  .body { font: 400 18px 'Arial'; fill: #1f2937; }
+  .label { font: 700 18px 'Arial'; fill: #334155; }
+  .arrow { stroke: #94a3b8; stroke-width: 3; fill: none; marker-end: url(#m); }
+</style>
+<defs><marker id="m" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#94a3b8"/></marker></defs>
+<rect width="1200" height="760" fill="#f8fafc"/>
+<text x="60" y="70" class="title">PostgreSQL on the three casebooks</text>
+<text x="60" y="105" class="subtitle">같은 Postgres라도 세 도메인은 서로 다른 운영 압력을 만든다.</text>
+
+<rect x="70" y="160" width="310" height="470" class="box"/>
+<text x="95" y="205" class="head">Retail Orders</text>
+<text x="95" y="245" class="body">• 가장 자연스럽게 올라감</text>
+<text x="95" y="280" class="body">• fact/dim + snapshot + tests</text>
+<text x="95" y="315" class="body">• order_id / customer_id / order_date</text>
+<text x="95" y="350" class="body">  인덱스 후보가 명확</text>
+<text x="95" y="400" class="label">권장</text>
+<text x="95" y="435" class="body">staging:view</text>
+<text x="95" y="470" class="body">marts:table</text>
+<text x="95" y="505" class="body">snapshot: 상태 이력</text>
+
+<rect x="445" y="160" width="310" height="470" class="box"/>
+<text x="470" y="205" class="head">Event Stream</text>
+<text x="470" y="245" class="body">• 가능하지만 제한이 필요</text>
+<text x="470" y="280" class="body">• recent window 중심 incremental</text>
+<text x="470" y="315" class="body">• event_time / user_id 인덱스</text>
+<text x="470" y="350" class="body">• heavy backfill은 위험</text>
+<text x="470" y="400" class="label">권장</text>
+<text x="470" y="435" class="body">recent slice + microbatch</text>
+<text x="470" y="470" class="body">session / daily marts 분리</text>
+<text x="470" y="505" class="body">야간 실행 / read replica 권장</text>
+
+<rect x="820" y="160" width="310" height="470" class="box"/>
+<text x="845" y="205" class="head">Subscription & Billing</text>
+<text x="845" y="245" class="body">• 상태 변화와 계약형 surface에 적합</text>
+<text x="845" y="280" class="body">• snapshot으로 lifecycle 추적</text>
+<text x="845" y="315" class="body">• MRR surface + contract/version</text>
+<text x="845" y="350" class="body">• materialized view serving 가능</text>
+<text x="845" y="400" class="label">권장</text>
+<text x="845" y="435" class="body">mart:table</text>
+<text x="845" y="470" class="body">snapshot: history</text>
+<text x="845" y="505" class="body">mview: serving layer</text>
+
+<path d="M380 395 L445 395" class="arrow"/>
+<path d="M755 395 L820 395" class="arrow"/>
+</svg>
