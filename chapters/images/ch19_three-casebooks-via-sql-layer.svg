@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780">
+<style>
+    .title { font: 700 28px 'Arial', sans-serif; fill:#12213a; }
+    .subtitle { font: 400 15px 'Arial', sans-serif; fill:#374151; }
+    .h { font: 700 20px 'Arial', sans-serif; fill:#111827; }
+    .t { font: 400 16px 'Arial', sans-serif; fill:#374151; }
+    .box1 { fill:#eff6ff; stroke:#2563eb; stroke-width:2; rx:18; ry:18; }
+    .box2 { fill:#fefce8; stroke:#ca8a04; stroke-width:2; rx:18; ry:18; }
+    .box3 { fill:#f5f3ff; stroke:#7c3aed; stroke-width:2; rx:18; ry:18; }
+    .common { fill:#f8fafc; stroke:#94a3b8; stroke-width:2; rx:18; ry:18; }
+</style>
+<rect width="1200" height="780" fill="#ffffff"/>
+<text x="60" y="60" class="title">Three casebooks through a SQL layer</text>
+<text x="60" y="92" class="subtitle">The pattern is shared, but each casebook stresses a different modeling problem.</text>
+
+<rect x="70" y="150" width="320" height="250" class="box1"/>
+<text x="100" y="195" class="h">Retail Orders</text>
+<text x="100" y="230" class="t">Source shape: order docs + item arrays</text>
+<text x="100" y="260" class="t">Main risk: fanout after explode</text>
+<text x="100" y="290" class="t">Key decision: raw _id vs sale_id</text>
+<text x="100" y="320" class="t">Best first exercise for NoSQL source</text>
+
+<rect x="440" y="150" width="320" height="250" class="box2"/>
+<text x="470" y="195" class="h">Event Stream</text>
+<text x="470" y="230" class="t">Source shape: search/event documents</text>
+<text x="470" y="260" class="t">Main risk: event_ts vs ingest_ts confusion</text>
+<text x="470" y="290" class="t">Key decision: event grain vs session/day grain</text>
+<text x="470" y="320" class="t">Most operationally demanding example</text>
+
+<rect x="810" y="150" width="320" height="250" class="box3"/>
+<text x="840" y="195" class="h">Subscription &amp; Billing</text>
+<text x="840" y="230" class="t">Source shape: current-state documents</text>
+<text x="840" y="260" class="t">Main risk: losing status history</text>
+<text x="840" y="290" class="t">Key decision: current vs historical surface</text>
+<text x="840" y="320" class="t">Most contract-sensitive example</text>
+
+<rect x="210" y="500" width="780" height="170" class="common"/>
+<text x="240" y="545" class="h">Shared pattern</text>
+<text x="240" y="580" class="t">SQL layer source -&gt; staging normalization wall -&gt; intermediate grain split -&gt; marts in writable analytic catalog.</text>
+<text x="240" y="615" class="t">The engine can vary. The modeling obligations do not.</text>
+</svg>

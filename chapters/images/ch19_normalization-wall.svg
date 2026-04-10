@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<style>
+    .title { font: 700 28px 'Arial', sans-serif; fill:#12213a; }
+    .subtitle { font: 400 15px 'Arial', sans-serif; fill:#374151; }
+    .h { font: 700 22px 'Arial', sans-serif; fill:#111827; }
+    .t { font: 400 16px 'Arial', sans-serif; fill:#374151; }
+    .small { font: 400 14px 'Arial', sans-serif; fill:#4b5563; }
+    .raw { fill:#fef2f2; stroke:#dc2626; stroke-width:2; rx:18; ry:18; }
+    .stage { fill:#eff6ff; stroke:#2563eb; stroke-width:2; rx:18; ry:18; }
+    .mart { fill:#ecfdf5; stroke:#16a34a; stroke-width:2; rx:18; ry:18; }
+    .box { fill:#f8fafc; stroke:#94a3b8; stroke-width:2; rx:18; ry:18; }
+    .arrow { stroke:#475569; stroke-width:3; fill:none; marker-end:url(#m); }
+</style>
+<defs>
+  <marker id="m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+  </marker>
+</defs>
+<rect width="1200" height="760" fill="#ffffff"/>
+<text x="60" y="60" class="title">Normalization wall</text>
+<text x="60" y="92" class="subtitle">Staging is where loose document/search structures become a stable analytic contract.</text>
+
+<rect x="60" y="170" width="280" height="250" class="raw"/>
+<text x="90" y="215" class="h">Raw document/search source</text>
+<text x="90" y="250" class="t">• nested objects</text>
+<text x="90" y="280" class="t">• optional fields</text>
+<text x="90" y="310" class="t">• arrays that change grain</text>
+<text x="90" y="340" class="t">• mixed types</text>
+<text x="90" y="370" class="t">• internal _id + business key together</text>
+
+<rect x="430" y="140" width="340" height="310" class="stage"/>
+<text x="460" y="185" class="h">Staging / normalization wall</text>
+<text x="460" y="220" class="t">1) choose business key</text>
+<text x="460" y="250" class="t">2) keep raw identity separately</text>
+<text x="460" y="280" class="t">3) cast critical fields strongly</text>
+<text x="460" y="310" class="t">4) flatten only necessary subfields</text>
+<text x="460" y="340" class="t">5) preserve loaded_at / ingest_ts</text>
+<text x="460" y="370" class="t">6) leave missing fields as null + test</text>
+<text x="460" y="405" class="small">Result: stable event/order/subscription surface</text>
+
+<rect x="860" y="170" width="280" height="250" class="mart"/>
+<text x="890" y="215" class="h">Intermediate / marts</text>
+<text x="890" y="250" class="t">• split grain explicitly</text>
+<text x="890" y="280" class="t">• build facts / dimensions</text>
+<text x="890" y="310" class="t">• attach tests / contracts / metrics</text>
+<text x="890" y="340" class="t">• publish semantic-ready tables</text>
+
+<rect x="250" y="520" width="700" height="140" class="box"/>
+<text x="280" y="565" class="h">Rule of thumb</text>
+<text x="280" y="600" class="t">Early flatten only what is needed. Every ARRAY implies a possible grain shift. Every missing field should be treated as a testable contract question.</text>
+
+<path d="M 340 295 L 430 295" class="arrow"/>
+<path d="M 770 295 L 860 295" class="arrow"/>
+</svg>

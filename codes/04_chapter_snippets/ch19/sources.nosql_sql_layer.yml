@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: nosql_retail
+    database: mongodb
+    schema: raw_retail
+    tables:
+      - name: orders
+        description: "Retail order documents via SQL layer"
+        config:
+          freshness:
+            warn_after: {count: 2, period: hour}
+            error_after: {count: 6, period: hour}
+          loaded_at_field: "loaded_at_ts"
+
+  - name: search_events
+    database: elasticsearch
+    schema: default
+    tables:
+      - name: events_raw
+        description: "Event documents indexed in Elasticsearch/OpenSearch"
+        config:
+          freshness:
+            warn_after: {count: 30, period: minute}
+            error_after: {count: 90, period: minute}
+          loaded_at_field: "ingest_ts"
+
+  - name: nosql_subscription
+    database: mongodb
+    schema: raw_subscription
+    tables:
+      - name: subscriptions
+        description: "Subscription current-state documents via SQL layer"
+        config:
+          freshness:
+            warn_after: {count: 6, period: hour}
+            error_after: {count: 24, period: hour}
+          loaded_at_field: "loaded_at_ts"

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<style>
+    .title { font: 700 28px 'Arial', sans-serif; fill:#12213a; }
+    .subtitle { font: 400 15px 'Arial', sans-serif; fill:#374151; }
+    .h { font: 700 22px 'Arial', sans-serif; fill:#111827; }
+    .t { font: 400 16px 'Arial', sans-serif; fill:#374151; }
+    .small { font: 400 14px 'Arial', sans-serif; fill:#4b5563; }
+    .box { fill:#f8fafc; stroke:#94a3b8; stroke-width:2; rx:18; ry:18; }
+    .accent { fill:#e0f2fe; stroke:#0284c7; stroke-width:2; rx:18; ry:18; }
+    .accent2 { fill:#ecfccb; stroke:#65a30d; stroke-width:2; rx:18; ry:18; }
+    .accent3 { fill:#fef3c7; stroke:#d97706; stroke-width:2; rx:18; ry:18; }
+    .arrow { stroke:#475569; stroke-width:3; fill:none; marker-end:url(#m); }
+</style>
+<defs>
+  <marker id="m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+  </marker>
+</defs>
+<rect width="1200" height="760" fill="#ffffff"/>
+<text x="60" y="60" class="title">NoSQL + SQL Layer reference architecture</text>
+<text x="60" y="92" class="subtitle">NoSQL source is the read surface. dbt transforms against the SQL layer and publishes marts to a writable analytic catalog.</text>
+
+<rect x="60" y="160" width="250" height="180" class="accent"/>
+<text x="85" y="205" class="h">1. NoSQL sources</text>
+<text x="85" y="240" class="t">• MongoDB collections</text>
+<text x="85" y="270" class="t">• Elasticsearch / OpenSearch indices</text>
+<text x="85" y="300" class="t">• Nested objects, arrays, loose schemas</text>
+
+<rect x="360" y="130" width="300" height="240" class="accent3"/>
+<text x="390" y="175" class="h">2. SQL layer</text>
+<text x="390" y="210" class="t">• Catalog/connector exposes sources</text>
+<text x="390" y="240" class="t">• Source contracts start here</text>
+<text x="390" y="270" class="t">• Freshness uses loaded_at field/query</text>
+<text x="390" y="300" class="t">• dbt reads source() from this surface</text>
+<text x="390" y="330" class="small">Example: mongodb.raw_retail.orders</text>
+
+<rect x="720" y="160" width="250" height="180" class="accent2"/>
+<text x="750" y="205" class="h">3. dbt transform</text>
+<text x="750" y="240" class="t">• staging = normalization wall</text>
+<text x="750" y="270" class="t">• intermediate = grain separation</text>
+<text x="750" y="300" class="t">• marts = contracts / metrics / docs</text>
+
+<rect x="850" y="440" width="280" height="170" class="box"/>
+<text x="880" y="485" class="h">4. Writable analytic catalog</text>
+<text x="880" y="520" class="t">• Iceberg / Hive / warehouse tables</text>
+<text x="880" y="550" class="t">• published fact / dim / mart</text>
+<text x="880" y="580" class="t">• snapshot / CI / semantic-ready surface</text>
+
+<rect x="60" y="440" width="300" height="190" class="box"/>
+<text x="90" y="485" class="h">Operational rule</text>
+<text x="90" y="520" class="t">Read side and write side must be separated.</text>
+<text x="90" y="550" class="t">Do not publish marts back into the raw NoSQL store.</text>
+<text x="90" y="580" class="t">Do not hide flattening logic inside giant SQL.</text>
+
+<rect x="410" y="440" width="340" height="190" class="box"/>
+<text x="440" y="485" class="h">Why this pattern works</text>
+<text x="440" y="520" class="t">• lineage and docs come back</text>
+<text x="440" y="550" class="t">• source freshness becomes measurable</text>
+<text x="440" y="580" class="t">• tests and contracts attach to stable SQL models</text>
+
+<path d="M 310 250 L 360 250" class="arrow"/>
+<path d="M 660 250 L 720 250" class="arrow"/>
+<path d="M 845 340 L 975 440" class="arrow"/>
+</svg>
