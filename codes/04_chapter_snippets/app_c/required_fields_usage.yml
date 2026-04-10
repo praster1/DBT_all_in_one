@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_subscription_docs
+    columns:
+      - name: field_name
+        data_tests:
+          - required_fields:
+              arguments:
+                required_values:
+                  - subscription_id
+                  - account_id
+                  - status

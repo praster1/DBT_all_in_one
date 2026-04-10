@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660">
+  <rect width="1200" height="660" fill="#0b1220"/>
+  <text x="60" y="70" fill="#f8fafc" font-size="34" font-family="Arial, sans-serif" font-weight="700">Jinja Compile Pipeline</text>
+  <text x="60" y="105" fill="#93c5fd" font-size="18" font-family="Arial, sans-serif">SQL 중심으로 읽되, compile 단계와 warehouse round-trip의 경계를 먼저 본다</text>
+
+  <rect x="60" y="160" width="220" height="120" rx="18" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="90" y="205" fill="#e5e7eb" font-size="22" font-family="Arial, sans-serif" font-weight="700">1. 모델 원본</text>
+  <text x="90" y="238" fill="#cbd5e1" font-size="18" font-family="Arial, sans-serif">SQL + Jinja</text>
+  <text x="90" y="264" fill="#cbd5e1" font-size="18" font-family="Arial, sans-serif">ref, source, var</text>
+
+  <rect x="350" y="160" width="220" height="120" rx="18" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="380" y="205" fill="#e5e7eb" font-size="22" font-family="Arial, sans-serif" font-weight="700">2. Compile</text>
+  <text x="380" y="238" fill="#cbd5e1" font-size="18" font-family="Arial, sans-serif">delimiter 평가</text>
+  <text x="380" y="264" fill="#cbd5e1" font-size="18" font-family="Arial, sans-serif">macro 확장</text>
+
+  <rect x="640" y="160" width="220" height="120" rx="18" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="670" y="205" fill="#e5e7eb" font-size="22" font-family="Arial, sans-serif" font-weight="700">3. Optional Query</text>
+  <text x="670" y="238" fill="#cbd5e1" font-size="18" font-family="Arial, sans-serif">run_query()</text>
+  <text x="670" y="264" fill="#cbd5e1" font-size="18" font-family="Arial, sans-serif">warehouse round-trip</text>
+
+  <rect x="930" y="160" width="220" height="120" rx="18" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="960" y="205" fill="#e5e7eb" font-size="22" font-family="Arial, sans-serif" font-weight="700">4. Compiled SQL</text>
+  <text x="960" y="238" fill="#cbd5e1" font-size="18" font-family="Arial, sans-serif">target/compiled</text>
+  <text x="960" y="264" fill="#cbd5e1" font-size="18" font-family="Arial, sans-serif">리뷰 가능 상태</text>
+
+  <rect x="350" y="380" width="500" height="160" rx="18" fill="#0f172a" stroke="#2563eb" stroke-width="2"/>
+  <text x="380" y="425" fill="#bfdbfe" font-size="24" font-family="Arial, sans-serif" font-weight="700">주의</text>
+  <text x="380" y="462" fill="#e5e7eb" font-size="20" font-family="Arial, sans-serif">run_query()는 live connection이 있는 compile/docs generate에서도</text>
+  <text x="380" y="490" fill="#e5e7eb" font-size="20" font-family="Arial, sans-serif">실행될 수 있다. execute만으로는 side effect를 막지 못한다.</text>
+  <text x="380" y="518" fill="#93c5fd" font-size="20" font-family="Arial, sans-serif">execute + flags.WHICH + run-operation 분리 원칙을 함께 본다.</text>
+
+  <line x1="280" y1="220" x2="350" y2="220" stroke="#60a5fa" stroke-width="4"/>
+  <polygon points="350,220 335,212 335,228" fill="#60a5fa"/>
+  <line x1="570" y1="220" x2="640" y2="220" stroke="#60a5fa" stroke-width="4"/>
+  <polygon points="640,220 625,212 625,228" fill="#60a5fa"/>
+  <line x1="860" y1="220" x2="930" y2="220" stroke="#60a5fa" stroke-width="4"/>
+  <polygon points="930,220 915,212 915,228" fill="#60a5fa"/>
+</svg>
