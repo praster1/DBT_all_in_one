@@ -1,38 +1,47 @@
 # Markdown Style System
 
-이 저장소는 PDF 원고를 그대로 덤프하지 않고, GitHub에서 읽기 쉬운 Markdown 구조를 기준으로 정리한다.
+이 저장소는 GitHub에서 읽기 쉬운 Markdown을 기준으로 관리한다.
 
-## 기본 규칙
+## 기본 원칙
 
-- 한 문단은 너무 길게 붙이지 않는다.
-- 제목은 `# / ## / ###`만 명확하게 사용한다.
-- 표는 가능한 한 pipe table로 유지한다.
-- 코드 블록은 fenced code block(````lang`)을 사용한다.
-- 노트/주의/안티패턴/직접 해보기는 굵은 제목 + 짧은 문단/리스트로 적는다.
+- 본문은 짧은 문단과 분명한 제목 구조를 우선한다.
+- 제목 체계는 `#`, `##`, `###` 세 수준을 기본으로 사용한다.
+- 코드 블록은 fenced code block과 언어 태그를 사용한다.
+- 표는 pipe table로 유지하되, 설명형 문장은 표보다 본문을 우선한다.
+- 링크와 경로는 상대 경로 기준으로 통일한다.
+
+## 파일 배치 규칙
+
+- 본문과 부록 Markdown은 `chapters/`에 둔다.
+- 본문과 부록에서 참조하는 그림은 모두 `chapters/images/`에 둔다.
+- 실행 가능한 예제, bootstrap, snippets는 `codes/`에 둔다.
+- 책의 범위와 구조 문서는 `00_meta/`, `01_outline/`에 둔다.
 
 ## 제목 체계
 
-- 책 앞머리: `#`
-- 챕터 파일 제목: `# CHAPTER N · 제목` 또는 `# APPENDIX X · 제목`
-- 장 안의 큰 절: `## 1.1. ...`
-- 절 안의 하위 항목: `### 1.1.1. ...`
+- 저장소 README: `#`
+- 챕터/부록 파일 제목: `# CHAPTER N` 또는 `# APPENDIX X`
+- 장 안의 큰 절: `##`
+- 절 안의 하위 항목: `###`
 
-## 코드 블록
+## 코드 블록 규칙
 
 - SQL: `sql`
-- Shell/Bash: `bash`
+- Bash/Shell: `bash`
 - YAML: `yaml`
 - JSON: `json`
+- Python: `python`
 - Text tree: `text`
-- Mermaid: `mermaid`
 
 ## 링크 규칙
 
-- 챕터 간 이동은 상대 경로 링크를 사용한다.
-- 루트 README는 `chapters/`, `01_outline/`, `codes/`를 우선 가리킨다.
-- 이미지 경로는 루트 `assets/`를 기준으로 한다.
+- 루트 README는 `chapters/`, `01_outline/`, `codes/`를 먼저 가리킨다.
+- 챕터 파일에서 그림은 `./images/<filename>` 경로를 사용한다.
+- 챕터 파일에서 코드 예시는 `../codes/...` 상대 경로를 사용한다.
+- 챕터와 부록 사이 이동은 상대 경로 링크를 사용한다.
 
-## GitHub 친화성
+## 편집 규칙
 
-- 너무 큰 단일 Markdown보다 챕터 단위 파일을 우선한다.
-- `book_from_pdf.md`는 전체 검색용/연속 읽기용으로 유지하되, 실제 편집과 리뷰는 `chapters/`에서 진행한다.
+- 굵게 강조 표시는 사용하지 않는다.
+- 같은 정보를 여러 파일에 중복으로 붙이지 않는다.
+- 잘게 쪼갠 요약 표보다 casebook, playbook, appendix 구조를 우선한다.

@@ -7,10 +7,10 @@
 - End of Life
 
 ## Release track heuristics
-- **Latest Fusion**: fastest access to engine changes
-- **Latest**: fastest general platform functionality
-- **Compatible**: better alignment with recent dbt Core OSS
-- **Extended / Fallback**: slower cadence for change-sensitive teams
+- Latest Fusion: fastest access to engine changes
+- Latest: fastest general platform functionality
+- Compatible: better alignment with recent dbt Core OSS
+- Extended / Fallback: slower cadence for change-sensitive teams
 
 ## Upgrade routine
 1. Start in dev.

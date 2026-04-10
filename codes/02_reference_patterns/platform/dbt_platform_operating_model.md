@@ -6,9 +6,9 @@
 - code version (branch / commit)
 
 ## Practical split
-- **Development**: each developer iterates safely without affecting production consumers.
-- **Deployment / Production**: durable metadata, scheduled jobs, trusted outputs.
-- **Deployment / Staging**: CI-like verification with production-like credentials but isolated objects.
+- Development: each developer iterates safely without affecting production consumers.
+- Deployment / Production: durable metadata, scheduled jobs, trusted outputs.
+- Deployment / Staging: CI-like verification with production-like credentials but isolated objects.
 
 ## Interfaces
 | Interface | Best for |
@@ -20,7 +20,7 @@
 | Canvas | Visual model authoring |
 
 ## Job design rule
-Think in terms of **frequency**, **scope**, and **consumer impact**.
+Think in terms of frequency, scope, and consumer impact.
 - CI: small and fast
 - Deploy: stable and trusted
 - Metadata / exports: consumer-oriented

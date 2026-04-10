@@ -1,45 +1,54 @@
-# 챕터별 분할 문서 인덱스
+# Chapters Index
 
-> 본 디렉터리는 GitHub에서 바로 읽기 좋도록 본문과 부록을 챕터 단위 Markdown으로 정리한 폴더입니다.
+이 디렉터리는 책 본문과 부록을 GitHub에서 바로 읽기 좋은 Markdown 단위로 정리한 곳이다.
 
-## 먼저 보면 좋은 문서
+## 먼저 열어볼 문서
 
-- [00_intro_and_toc.md](./00_intro_and_toc.md)
+- [00-introduction-and-reading-guide.md](./00-introduction-and-reading-guide.md)
 - [../01_outline/master_toc.md](../01_outline/master_toc.md)
 - [../codes/README.md](../codes/README.md)
 
-## 본문 챕터
+## Part 1 · 핵심 개념과 기본기
 
-### PART I · 핵심 개념과 기본기
-- [1. DBT의 전체 그림과 세 가지 연속 예제](./ch01_dbt의-전체-그림과-세-가지-연속-예제.md)
-- [2. 개발 환경, 프로젝트 구조, DBT 명령어와 Jinja, 첫 실행](./ch02_개발-환경-프로젝트-구조-dbt-명령어와-jinja-첫-실행.md)
-- [3. source/ref, selectors, layered modeling, grain, materializations](./ch03_sourceref-selectors-layered-modeling-grain-materializations.md)
-- [4. Tests, Seeds, Snapshots, Documentation, Macros, Packages](./ch04_tests-seeds-snapshots-documentation-macros-packages.md)
+- [01 · DBT overview and three example tracks](./01-dbt-overview-and-three-example-tracks.md)
+- [02 · Development environment, project structure, commands, and Jinja](./02-development-environment-project-structure-commands-and-jinja.md)
+- [03 · Source/ref, selectors, layered modeling, grain, and materializations](./03-source-ref-selectors-layered-modeling-grain-and-materializations.md)
+- [04 · Tests, seeds, snapshots, documentation, macros, and packages](./04-tests-seeds-snapshots-documentation-macros-and-packages.md)
 
-### PART II · 신뢰성·운영·확장
-- [5. 디버깅, artifacts, runbook, anti-patterns](./ch05_디버깅-artifacts-runbook-anti-patterns.md)
-- [6. 운영, CI/CD, state/defer/clone, vars/env/hooks, 업그레이드](./ch06_운영-cicd-statedeferclone-varsenvhooks-업그레이드.md)
-- [7. Governance, Contracts, Versions, Grants, Quality Metadata](./ch07_governance-contracts-versions-grants-quality-metadata.md)
-- [8. Semantic Layer, Python/UDF, Mesh, Performance, dbt platform, AI](./ch08_semantic-layer-pythonudf-mesh-performance-dbt-platform-ai.md)
+## Part 2 · 신뢰성, 운영, 거버넌스, 확장
 
-### PART III · 예제 케이스북
-- [9. Casebook I · Retail Orders](./ch09_casebook-i-retail-orders.md)
-- [10. Casebook II · Event Stream](./ch10_casebook-ii-event-stream.md)
-- [11. Casebook III · Subscription & Billing](./ch11_casebook-iii-subscription-billing.md)
+- [05 · Debugging, artifacts, runbook, and anti-patterns](./05-debugging-artifacts-runbook-and-anti-patterns.md)
+- [06 · Operations, CI/CD, state/defer/clone, vars/env/hooks, and upgrades](./06-operations-cicd-state-defer-clone-vars-env-hooks-and-upgrades.md)
+- [07 · Governance, contracts, versions, grants, quality, and metadata](./07-governance-contracts-versions-grants-quality-and-metadata.md)
+- [08 · Semantic layer, Python/UDF, mesh, performance, platform, and AI](./08-semantic-layer-python-udf-mesh-performance-platform-and-ai.md)
 
-### PART IV · 플랫폼 플레이북
-- [12. Platform Playbook · DuckDB](./ch12_platform-playbook-duckdb.md)
-- [13. Platform Playbook · MySQL](./ch13_platform-playbook-mysql.md)
-- [14. Platform Playbook · PostgreSQL](./ch14_platform-playbook-postgresql.md)
-- [15. Platform Playbook · BigQuery](./ch15_platform-playbook-bigquery.md)
-- [16. Platform Playbook · ClickHouse](./ch16_platform-playbook-clickhouse.md)
-- [17. Platform Playbook · Snowflake](./ch17_platform-playbook-snowflake.md)
-- [18. Platform Playbook · Trino](./ch18_platform-playbook-trino.md)
-- [19. Platform Playbook · NoSQL + SQL Layer](./ch19_platform-playbook-nosql-sql-layer.md)
+## Part 3 · Casebook
 
-## 부록
+- [09 · Retail Orders](./09-casebook-retail-orders.md)
+- [10 · Event Stream](./10-casebook-event-stream.md)
+- [11 · Subscription & Billing](./11-casebook-subscription-billing.md)
 
-- [APPENDIX A Companion Pack, Example Data, Bootstrap, Answer Keys](./app_a_companion-pack-example-data-bootstrap-answer-keys.md)
-- [APPENDIX B DBT 명령어 레퍼런스](./app_b_dbt-명령어-레퍼런스.md)
-- [APPENDIX C Jinja, Macro, Extensibility Reference](./app_c_jinja-macro-extensibility-reference.md)
-- [APPENDIX D Troubleshooting, Decision Guides, Glossary, Official Sources, Support Matrix](./app_d_troubleshooting-decision-guides-glossary-official-sources-support-matrix.md)
+## Part 4 · Platform Playbook
+
+- [12 · DuckDB](./12-platform-playbook-duckdb.md)
+- [13 · MySQL](./13-platform-playbook-mysql.md)
+- [14 · PostgreSQL](./14-platform-playbook-postgresql.md)
+- [15 · BigQuery](./15-platform-playbook-bigquery.md)
+- [16 · ClickHouse](./16-platform-playbook-clickhouse.md)
+- [17 · Snowflake](./17-platform-playbook-snowflake.md)
+- [18 · Trino](./18-platform-playbook-trino.md)
+- [19 · NoSQL + SQL Layer](./19-platform-playbook-nosql-sql-layer.md)
+- [20 · Databricks](./20-platform-playbook-databricks.md)
+
+## Appendix
+
+- [Appendix A · Companion pack, bootstrap, and answer keys](./appendix-a-companion-pack-bootstrap-and-answer-keys.md)
+- [Appendix B · dbt command reference](./appendix-b-dbt-command-reference.md)
+- [Appendix C · Jinja, macro, and extensibility reference](./appendix-c-jinja-macro-and-extensibility-reference.md)
+- [Appendix D · Troubleshooting, decision guides, glossary, and support matrix](./appendix-d-troubleshooting-decision-guides-glossary-and-support-matrix.md)
+
+## 경로 규칙
+
+- 그림은 `chapters/images/` 아래에 모아 둔다.
+- 본문과 부록에서 코드를 참조할 때는 `../codes/`를 기준으로 링크한다.
+- 새 파일을 추가할 때는 같은 규칙을 유지한다.

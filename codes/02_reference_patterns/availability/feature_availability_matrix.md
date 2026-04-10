@@ -3,11 +3,11 @@
 Use this matrix as a quick companion to the book's availability badges.
 
 ## Read this first
-- **Core**: Works in local dbt Core CLI workflows.
-- **Fusion**: Best experienced in Fusion CLI or Fusion-powered editors.
-- **dbt platform**: Gains extra value when used with Studio IDE, Jobs, Catalog, or dbt CLI connected to a platform account.
-- **Starter+ / Enterprise+**: Plan-gated experiences. Always re-check official docs before rollout.
-- **Adapter-specific**: Confirm current adapter support before implementation.
+- Core: Works in local dbt Core CLI workflows.
+- Fusion: Best experienced in Fusion CLI or Fusion-powered editors.
+- dbt platform: Gains extra value when used with Studio IDE, Jobs, Catalog, or dbt CLI connected to a platform account.
+- Starter+ / Enterprise+: Plan-gated experiences. Always re-check official docs before rollout.
+- Adapter-specific: Confirm current adapter support before implementation.
 
 ## Quick matrix
 | Capability | Core local | Fusion local | dbt platform | Note |

@@ -36,7 +36,7 @@
 <text x="470" y="505" class="body">야간 실행 / read replica 권장</text>
 
 <rect x="820" y="160" width="310" height="470" class="box"/>
-<text x="845" y="205" class="head">Subscription & Billing</text>
+<text x="845" y="205" class="head">Subscription &amp; Billing</text>
 <text x="845" y="245" class="body">• 상태 변화와 계약형 surface에 적합</text>
 <text x="845" y="280" class="body">• snapshot으로 lifecycle 추적</text>
 <text x="845" y="315" class="body">• MRR surface + contract/version</text>

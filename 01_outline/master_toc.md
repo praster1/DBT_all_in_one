@@ -1,49 +1,46 @@
-# DBT All In One · Master TOC
+# Master TOC
 
-## Part 구성
+## 0. 시작하기
 
-## PART I · 핵심 개념과 기본기
+0.1. [이 책을 읽는 방법](../chapters/00-introduction-and-reading-guide.md)  
+0.2. [Book Charter](../00_meta/book_charter.md)  
+0.3. [Companion Pack 안내](../codes/README.md)  
 
-dbt를 데이터 스택의 어디에 놓아야 하는지, 세 가지 연속 예제를 어떤 관점으로 읽어야 하는지, 그리고 모델링과 품질의 기본을 어디까지 가져갈지부터 잡는다.
+## 1. 핵심 개념과 기본기
 
-- **1.** [DBT의 전체 그림과 세 가지 연속 예제](../chapters/ch01_dbt의-전체-그림과-세-가지-연속-예제.md)
-- **2.** [개발 환경, 프로젝트 구조, DBT 명령어와 Jinja, 첫 실행](../chapters/ch02_개발-환경-프로젝트-구조-dbt-명령어와-jinja-첫-실행.md)
-- **3.** [source/ref, selectors, layered modeling, grain, materializations](../chapters/ch03_sourceref-selectors-layered-modeling-grain-materializations.md)
-- **4.** [Tests, Seeds, Snapshots, Documentation, Macros, Packages](../chapters/ch04_tests-seeds-snapshots-documentation-macros-packages.md)
+1.1. [Chapter 01 · DBT overview and three example tracks](../chapters/01-dbt-overview-and-three-example-tracks.md)  
+1.2. [Chapter 02 · Development environment, project structure, commands, and Jinja](../chapters/02-development-environment-project-structure-commands-and-jinja.md)  
+1.3. [Chapter 03 · Source/ref, selectors, layered modeling, grain, and materializations](../chapters/03-source-ref-selectors-layered-modeling-grain-and-materializations.md)  
+1.4. [Chapter 04 · Tests, seeds, snapshots, documentation, macros, and packages](../chapters/04-tests-seeds-snapshots-documentation-macros-and-packages.md)  
 
-## PART II · 신뢰성·운영·확장
+## 2. 신뢰성, 운영, 거버넌스, 확장
 
-디버깅, 배포, 거버넌스, semantic layer, mesh, performance처럼 실제 운영에서 프로젝트를 오래 살리는 기능을 묶는다.
+2.1. [Chapter 05 · Debugging, artifacts, runbook, and anti-patterns](../chapters/05-debugging-artifacts-runbook-and-anti-patterns.md)  
+2.2. [Chapter 06 · Operations, CI/CD, state/defer/clone, vars/env/hooks, and upgrades](../chapters/06-operations-cicd-state-defer-clone-vars-env-hooks-and-upgrades.md)  
+2.3. [Chapter 07 · Governance, contracts, versions, grants, quality, and metadata](../chapters/07-governance-contracts-versions-grants-quality-and-metadata.md)  
+2.4. [Chapter 08 · Semantic layer, Python/UDF, mesh, performance, platform, and AI](../chapters/08-semantic-layer-python-udf-mesh-performance-platform-and-ai.md)  
 
-- **5.** [디버깅, artifacts, runbook, anti-patterns](../chapters/ch05_디버깅-artifacts-runbook-anti-patterns.md)
-- **6.** [운영, CI/CD, state/defer/clone, vars/env/hooks, 업그레이드](../chapters/ch06_운영-cicd-statedeferclone-varsenvhooks-업그레이드.md)
-- **7.** [Governance, Contracts, Versions, Grants, Quality Metadata](../chapters/ch07_governance-contracts-versions-grants-quality-metadata.md)
-- **8.** [Semantic Layer, Python/UDF, Mesh, Performance, dbt platform, AI](../chapters/ch08_semantic-layer-pythonudf-mesh-performance-dbt-platform-ai.md)
+## 3. Casebook
 
-## PART III · 예제 케이스북
+3.1. [Chapter 09 · Retail Orders](../chapters/09-casebook-retail-orders.md)  
+3.2. [Chapter 10 · Event Stream](../chapters/10-casebook-event-stream.md)  
+3.3. [Chapter 11 · Subscription & Billing](../chapters/11-casebook-subscription-billing.md)  
 
-세 가지 연속 예제를 각각 하나의 독립 사례로 따라가며, 앞에서 배운 개념이 실제 도메인에서 어떤 순서로 자라나는지 보여 준다.
+## 4. Platform Playbook
 
-- **9.** [Casebook I · Retail Orders](../chapters/ch09_casebook-i-retail-orders.md)
-- **10.** [Casebook II · Event Stream](../chapters/ch10_casebook-ii-event-stream.md)
-- **11.** [Casebook III · Subscription & Billing](../chapters/ch11_casebook-iii-subscription-billing.md)
+4.1. [Chapter 12 · DuckDB](../chapters/12-platform-playbook-duckdb.md)  
+4.2. [Chapter 13 · MySQL](../chapters/13-platform-playbook-mysql.md)  
+4.3. [Chapter 14 · PostgreSQL](../chapters/14-platform-playbook-postgresql.md)  
+4.4. [Chapter 15 · BigQuery](../chapters/15-platform-playbook-bigquery.md)  
+4.5. [Chapter 16 · ClickHouse](../chapters/16-platform-playbook-clickhouse.md)  
+4.6. [Chapter 17 · Snowflake](../chapters/17-platform-playbook-snowflake.md)  
+4.7. [Chapter 18 · Trino](../chapters/18-platform-playbook-trino.md)  
+4.8. [Chapter 19 · NoSQL + SQL Layer](../chapters/19-platform-playbook-nosql-sql-layer.md)  
+4.9. [Chapter 20 · Databricks](../chapters/20-platform-playbook-databricks.md)  
 
-## PART IV · 플랫폼 플레이북
+## 5. Appendix
 
-플랫폼마다 달라지는 profile, raw bootstrap, materialization, 성능·비용·제약을 실제 실행 맥락으로 정리한다.
-
-- **12.** [Platform Playbook · DuckDB](../chapters/ch12_platform-playbook-duckdb.md)
-- **13.** [Platform Playbook · MySQL](../chapters/ch13_platform-playbook-mysql.md)
-- **14.** [Platform Playbook · PostgreSQL](../chapters/ch14_platform-playbook-postgresql.md)
-- **15.** [Platform Playbook · BigQuery](../chapters/ch15_platform-playbook-bigquery.md)
-- **16.** [Platform Playbook · ClickHouse](../chapters/ch16_platform-playbook-clickhouse.md)
-- **17.** [Platform Playbook · Snowflake](../chapters/ch17_platform-playbook-snowflake.md)
-- **18.** [Platform Playbook · Trino](../chapters/ch18_platform-playbook-trino.md)
-- **19.** [Platform Playbook · NoSQL + SQL Layer](../chapters/ch19_platform-playbook-nosql-sql-layer.md)
-
-## Appendices
-
-- [APPENDIX A · Companion Pack, Example Data, Bootstrap, Answer Keys](../chapters/app_a_companion-pack-example-data-bootstrap-answer-keys.md)
-- [APPENDIX B · DBT 명령어 레퍼런스](../chapters/app_b_dbt-명령어-레퍼런스.md)
-- [APPENDIX C · Jinja, Macro, Extensibility Reference](../chapters/app_c_jinja-macro-extensibility-reference.md)
-- [APPENDIX D · Troubleshooting, Decision Guides, Glossary, Official Sources, Support Matrix](../chapters/app_d_troubleshooting-decision-guides-glossary-official-sources-support-matrix.md)
+5.1. [Appendix A · Companion pack, bootstrap, and answer keys](../chapters/appendix-a-companion-pack-bootstrap-and-answer-keys.md)  
+5.2. [Appendix B · dbt command reference](../chapters/appendix-b-dbt-command-reference.md)  
+5.3. [Appendix C · Jinja, macro, and extensibility reference](../chapters/appendix-c-jinja-macro-and-extensibility-reference.md)  
+5.4. [Appendix D · Troubleshooting, decision guides, glossary, and support matrix](../chapters/appendix-d-troubleshooting-decision-guides-glossary-and-support-matrix.md)  
