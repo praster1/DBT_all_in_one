@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<rect width="1200" height="700" fill="#f8fafc"/>
+<text x="60" y="70" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0f172a">Governed API surface for Subscription &amp; Billing</text>
+<text x="60" y="110" font-family="Arial, sans-serif" font-size="18" fill="#334155">raw → staging → intermediate → mart → snapshot → contract/version → semantic consumers</text>
+
+<rect x="70" y="180" width="180" height="90" rx="18" ry="18" fill="#e2e8f0" stroke="#64748b" stroke-width="3"/>
+<text x="123" y="235" font-family="Arial" font-size="24" font-weight="700" fill="#334155">raw</text>
+
+<rect x="310" y="180" width="180" height="90" rx="18" ry="18" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="348" y="235" font-family="Arial" font-size="24" font-weight="700" fill="#1e3a8a">staging</text>
+
+<rect x="550" y="180" width="200" height="90" rx="18" ry="18" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+<text x="577" y="235" font-family="Arial" font-size="24" font-weight="700" fill="#14532d">intermediate</text>
+
+<rect x="820" y="180" width="180" height="90" rx="18" ry="18" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+<text x="873" y="235" font-family="Arial" font-size="24" font-weight="700" fill="#7c2d12">mart</text>
+
+<rect x="820" y="340" width="180" height="90" rx="18" ry="18" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+<text x="849" y="395" font-family="Arial" font-size="24" font-weight="700" fill="#5b21b6">snapshot</text>
+
+<rect x="560" y="500" width="230" height="110" rx="18" ry="18" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+<text x="590" y="545" font-family="Arial" font-size="24" font-weight="700" fill="#111827">contract + versions</text>
+<text x="590" y="580" font-family="Arial" font-size="18" fill="#334155">public model API</text>
+
+<rect x="860" y="500" width="250" height="110" rx="18" ry="18" fill="#fff1f2" stroke="#e11d48" stroke-width="3"/>
+<text x="905" y="545" font-family="Arial" font-size="24" font-weight="700" fill="#9f1239">semantic layer</text>
+<text x="905" y="580" font-family="Arial" font-size="18" fill="#334155">metrics / saved queries</text>
+
+<rect x="60" y="500" width="360" height="110" rx="18" ry="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="90" y="545" font-family="Arial" font-size="24" font-weight="700" fill="#111827">핵심 메시지</text>
+<text x="90" y="580" font-family="Arial" font-size="18" fill="#334155">정의가 자주 바뀌는 도메인일수록 versioned public surface가 필요하다</text>
+
+<path d="M250 225 L310 225" stroke="#475569" stroke-width="4"/><polygon points="298,214 316,225 298,236" fill="#475569"/>
+<path d="M490 225 L550 225" stroke="#475569" stroke-width="4"/><polygon points="538,214 556,225 538,236" fill="#475569"/>
+<path d="M750 225 L820 225" stroke="#475569" stroke-width="4"/><polygon points="808,214 826,225 808,236" fill="#475569"/>
+<path d="M910 270 L910 340" stroke="#475569" stroke-width="4"/><polygon points="899,328 910,346 921,328" fill="#475569"/>
+<path d="M910 430 C910 470, 860 500, 790 545" fill="none" stroke="#475569" stroke-width="4"/><polygon points="792,532 776,554 803,552" fill="#475569"/>
+<path d="M910 430 C930 470, 955 490, 970 500" fill="none" stroke="#475569" stroke-width="4"/><polygon points="959,490 981,507 952,510" fill="#475569"/>
+</svg>

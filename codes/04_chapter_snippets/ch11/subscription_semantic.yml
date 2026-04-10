@@ -1,0 +1,41 @@
+semantic_models:
+  - name: subscription_mrr
+    model: ref('fct_mrr_v2')
+    defaults:
+      agg_time_dimension: metric_date
+
+    entities:
+      - name: plan
+        type: primary
+        expr: plan_id
+
+    dimensions:
+      - name: metric_date
+        type: time
+        expr: metric_date
+        type_params:
+          time_granularity: day
+
+    measures:
+      - name: committed_mrr
+        agg: sum
+        expr: committed_mrr
+
+      - name: active_mrr
+        agg: sum
+        expr: active_mrr
+
+metrics:
+  - name: committed_mrr
+    label: Committed MRR
+    type: simple
+    type_params:
+      measure:
+        name: committed_mrr
+
+  - name: active_mrr
+    label: Active MRR
+    type: simple
+    type_params:
+      measure:
+        name: active_mrr

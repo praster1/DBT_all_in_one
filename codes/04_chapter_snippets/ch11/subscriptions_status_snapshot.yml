@@ -1,0 +1,11 @@
+snapshots:
+  - name: subscriptions_status_snapshot
+    relation: ref('stg_subscriptions')
+    config:
+      strategy: check
+      unique_key: subscription_id
+      check_cols:
+        - subscription_status
+        - plan_id
+        - monthly_amount
+      updated_at: updated_at

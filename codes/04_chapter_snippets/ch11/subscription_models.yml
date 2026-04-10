@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_subscriptions
+    columns:
+      - name: subscription_id
+        data_tests:
+          - not_null
+          - unique
+      - name: plan_id
+        data_tests:
+          - relationships:
+              to: ref('stg_plans')
+              field: plan_id
+      - name: subscription_status
+        data_tests:
+          - accepted_values:
+              values: ['trialing', 'active', 'canceled', 'past_due']
+
+  - name: fct_mrr
+    latest_version: 2
+    config:
+      access: public
+      group: finance
+
+    versions:
+      - v: 1
+      - v: 2
+        config:
+          contract:
+            enforced: true
+
+    columns:
+      - name: metric_date
+        data_type: date
+      - name: plan_id
+        data_type: string
+      - name: committed_subscription_count
+        data_type: bigint
+      - name: active_subscription_count
+        data_type: bigint
+      - name: committed_mrr
+        data_type: numeric
+      - name: active_mrr
+        data_type: numeric

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+<rect width="1200" height="620" fill="#f8fafc"/>
+<text x="60" y="70" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0f172a">subscription_id = sub_2003 lifecycle</text>
+<text x="60" y="110" font-family="Arial, sans-serif" font-size="18" fill="#334155">day1과 day2 사이 상태 변화가 snapshot · mart · metric에 어떤 영향을 주는지 추적한다</text>
+
+<line x1="130" y1="300" x2="1070" y2="300" stroke="#94a3b8" stroke-width="6"/>
+<circle cx="240" cy="300" r="22" fill="#f59e0b"/>
+<circle cx="600" cy="300" r="22" fill="#16a34a"/>
+<circle cx="930" cy="300" r="22" fill="#2563eb"/>
+
+<rect x="120" y="170" width="240" height="100" rx="18" ry="18" fill="#fff7ed" stroke="#f59e0b" stroke-width="3"/>
+<text x="150" y="210" font-family="Arial" font-size="24" font-weight="700" fill="#92400e">day1 raw</text>
+<text x="150" y="240" font-family="Arial" font-size="18" fill="#0f172a">trialing / plan_basic / 50</text>
+
+<rect x="470" y="170" width="260" height="100" rx="18" ry="18" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/>
+<text x="500" y="210" font-family="Arial" font-size="24" font-weight="700" fill="#166534">day2 raw</text>
+<text x="500" y="240" font-family="Arial" font-size="18" fill="#0f172a">active / plan_basic / 50</text>
+
+<rect x="810" y="170" width="250" height="100" rx="18" ry="18" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+<text x="840" y="210" font-family="Arial" font-size="24" font-weight="700" fill="#1d4ed8">snapshot</text>
+<text x="840" y="240" font-family="Arial" font-size="18" fill="#0f172a">trialing → active version rows</text>
+
+<rect x="90" y="360" width="320" height="170" rx="18" ry="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="120" y="400" font-family="Arial" font-size="24" font-weight="700" fill="#111827">intermediate 해석</text>
+<text x="120" y="436" font-family="Arial" font-size="18" fill="#334155">committed_mrr: 포함</text>
+<text x="120" y="466" font-family="Arial" font-size="18" fill="#334155">active_mrr: day1 제외 / day2 포함</text>
+<text x="120" y="496" font-family="Arial" font-size="18" fill="#334155">status change는 snapshot으로 보존</text>
+
+<rect x="470" y="360" width="290" height="170" rx="18" ry="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="500" y="400" font-family="Arial" font-size="24" font-weight="700" fill="#111827">mart v1 / v2</text>
+<text x="500" y="436" font-family="Arial" font-size="18" fill="#334155">v1: committed_mrr 중심</text>
+<text x="500" y="466" font-family="Arial" font-size="18" fill="#334155">v2: active_mrr 추가, contract 적용</text>
+<text x="500" y="496" font-family="Arial" font-size="18" fill="#334155">versions로 정의 변화를 공개 관리</text>
+
+<rect x="810" y="360" width="300" height="170" rx="18" ry="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="840" y="400" font-family="Arial" font-size="24" font-weight="700" fill="#111827">semantic surface</text>
+<text x="840" y="436" font-family="Arial" font-size="18" fill="#334155">committed_mrr / active_mrr metric</text>
+<text x="840" y="466" font-family="Arial" font-size="18" fill="#334155">BI · finance · reverse ETL 소비</text>
+<text x="840" y="496" font-family="Arial" font-size="18" fill="#334155">같은 정의를 여러 surface가 공유</text>
+</svg>

@@ -1,0 +1,3 @@
+phase,subscription_id,subscription_status,plan_id,monthly_amount,contributes_to_committed_mrr,contributes_to_active_mrr
+day1,sub_2003,trialing,plan_basic,50,true,false
+day2,sub_2003,active,plan_basic,50,true,true

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<rect width="1200" height="700" fill="#f8fafc"/>
+<text x="60" y="70" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0f172a">Subscription domain grain map</text>
+<text x="60" y="110" font-family="Arial, sans-serif" font-size="18" fill="#334155">account · plan · subscription · invoice의 grain을 먼저 구분한다</text>
+
+<rect x="70" y="180" rx="20" ry="20" width="240" height="120" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+<text x="100" y="225" font-family="Arial" font-size="26" font-weight="700" fill="#0c4a6e">accounts</text>
+<text x="100" y="262" font-family="Arial" font-size="18" fill="#0f172a">grain: account_id</text>
+<text x="100" y="289" font-family="Arial" font-size="18" fill="#0f172a">customer / region / segment</text>
+
+<rect x="470" y="120" rx="20" ry="20" width="260" height="120" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+<text x="505" y="165" font-family="Arial" font-size="26" font-weight="700" fill="#7c2d12">plans</text>
+<text x="505" y="202" font-family="Arial" font-size="18" fill="#0f172a">grain: plan_id</text>
+<text x="505" y="229" font-family="Arial" font-size="18" fill="#0f172a">tier / cadence / default price</text>
+
+<rect x="430" y="310" rx="20" ry="20" width="340" height="150" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+<text x="470" y="356" font-family="Arial" font-size="28" font-weight="700" fill="#14532d">subscriptions</text>
+<text x="470" y="394" font-family="Arial" font-size="18" fill="#0f172a">grain: subscription_id</text>
+<text x="470" y="422" font-family="Arial" font-size="18" fill="#0f172a">current status / started_at / cancelled_at</text>
+<text x="470" y="450" font-family="Arial" font-size="18" fill="#0f172a">monthly_amount / updated_at</text>
+
+<rect x="870" y="310" rx="20" ry="20" width="250" height="150" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+<text x="910" y="356" font-family="Arial" font-size="28" font-weight="700" fill="#4c1d95">invoices</text>
+<text x="910" y="394" font-family="Arial" font-size="18" fill="#0f172a">grain: invoice_id</text>
+<text x="910" y="422" font-family="Arial" font-size="18" fill="#0f172a">billing event / amount_due</text>
+<text x="910" y="450" font-family="Arial" font-size="18" fill="#0f172a">period_start / period_end</text>
+
+<path d="M310 240 C360 240, 390 240, 430 340" fill="none" stroke="#475569" stroke-width="4"/>
+<polygon points="420,333 442,344 427,360" fill="#475569"/>
+
+<path d="M730 220 C760 220, 760 260, 700 310" fill="none" stroke="#475569" stroke-width="4"/>
+<polygon points="694,297 711,317 686,322" fill="#475569"/>
+
+<path d="M770 385 C810 385, 835 385, 870 385" fill="none" stroke="#475569" stroke-width="4"/>
+<polygon points="858,374 882,385 858,396" fill="#475569"/>
+
+<rect x="70" y="525" rx="18" ry="18" width="1050" height="105" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="105" y="566" font-family="Arial" font-size="24" font-weight="700" fill="#111827">핵심 원칙</text>
+<text x="105" y="604" font-family="Arial" font-size="20" fill="#334155">• current MRR의 기본 grain은 subscription 상태에 가깝다</text>
+<text x="610" y="604" font-family="Arial" font-size="20" fill="#334155">• invoice는 billing event 검증에 가깝다</text>
+<text x="105" y="638" font-family="Arial" font-size="20" fill="#334155">• join 전에 “내 metric의 grain이 무엇인지”를 먼저 정해야 fanout을 막을 수 있다</text>
+</svg>
