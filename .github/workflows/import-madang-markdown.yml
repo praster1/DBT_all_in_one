@@ -22,7 +22,11 @@ jobs:
         with:
           fetch-depth: 0
       - name: Restore verified manuscript files into a clean worktree
-        run: python .publication-payload/import.py --root "$RUNNER_TEMP/madang-publish"
+        run: |
+          python .publication-payload/import.py --root "$RUNNER_TEMP/madang-publish"
+          # Preserve the historical v3 HTML report referenced by delivery-validation.md.
+          # This is not a claim that the current GitHub Markdown was browser-tested.
+          cp .publication-payload/reader-validation.json "$RUNNER_TEMP/madang-publish/reports/reader-validation.json"
       - name: Install isolated documentation dependencies
         run: |
           python -m venv "$RUNNER_TEMP/madang-venv"
@@ -36,7 +40,7 @@ jobs:
           PY="$RUNNER_TEMP/madang-venv/bin/python"
           "$PY" scripts/build_figures.py
           "$PY" lab/run_reference.py --verify --output reports/sql-reference-validation.json
-          CHROMIUM=$("$PY" -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()')
+          CHROMIUM=$("$PY" -c $'from playwright.sync_api import sync_playwright\nwith sync_playwright() as p:\n    print(p.chromium.executable_path)')
           "$PY" scripts/make_screenshots.py --chromium "$CHROMIUM"
       - name: Validate original preservation, Markdown, and exercises
         run: |

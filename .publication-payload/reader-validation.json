@@ -1,0 +1,150 @@
+{
+  "load_method": "Identical self-contained HTML bytes loaded with Playwright page.set_content; file URL navigation is restricted in the build environment.",
+  "browser": "Chromium 144.0.7559.96",
+  "viewports": [
+    {
+      "width": 1500,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 900
+    }
+  ],
+  "checks": [
+    {
+      "name": "79_reader_articles",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "root_article_visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "madang_brand",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unique_ids",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "internal_anchors_resolve",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "desktop_no_page_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "full_text_search",
+      "passed": true,
+      "detail": {
+        "matched_documents": 11
+      }
+    },
+    {
+      "name": "search_result_navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "116_embedded_images_decode",
+      "passed": true,
+      "detail": {
+        "decoded": 116,
+        "total": 116
+      }
+    },
+    {
+      "name": "figure_modal_opens",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "figure_zoom",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "figure_modal_closes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_modal_opens",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_brand",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_file_switch",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "dark_theme",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_reference_anchor",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "name": "mobile_menu_opens",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_chapter_no_page_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_script_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "no_external_network_requests",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "check_count": 23,
+  "passed": 23,
+  "page_errors": [],
+  "http_requests": [],
+  "capture_files": [
+    "reader-desktop.png",
+    "reader-pattern.png",
+    "reader-source.png",
+    "reader-mobile.png",
+    "reader-mobile-chapter.png"
+  ]
+}

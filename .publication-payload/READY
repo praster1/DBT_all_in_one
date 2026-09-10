@@ -1,3 +1,4 @@
 Verified source transfer ready for isolated restoration and publication validation.
 Source baseline: 15ce73ed7fc7099176f6f9ad56617d269c2e9299
 Payload SHA256: bcf5c68b7f4ab5d5cc7d4831864235f258fe4c2a4fd751a50922aef94241a961
+Attempt 2: include the referenced historical HTML validation JSON and close the browser driver cleanly.
