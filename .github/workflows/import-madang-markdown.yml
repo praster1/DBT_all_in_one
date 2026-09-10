@@ -1,0 +1,56 @@
+name: Import and validate Madang Market Markdown
+
+on:
+  push:
+    branches: [chatgpt/madang-markdown-import-20260911]
+    paths: [.publication-payload/READY]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: madang-markdown-publication-20260911
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'praster1/DBT_all_in_one'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - name: Restore verified manuscript files into a clean worktree
+        run: python .publication-payload/import.py --root "$RUNNER_TEMP/madang-publish"
+      - name: Install isolated documentation dependencies
+        run: |
+          python -m venv "$RUNNER_TEMP/madang-venv"
+          "$RUNNER_TEMP/madang-venv/bin/python" -m pip install -r "$RUNNER_TEMP/madang-publish/requirements-maintenance.txt"
+          "$RUNNER_TEMP/madang-venv/bin/python" -m playwright install --with-deps chromium
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+      - name: Reproduce SQL results and capture real result screens
+        run: |
+          cd "$RUNNER_TEMP/madang-publish"
+          PY="$RUNNER_TEMP/madang-venv/bin/python"
+          "$PY" lab/run_reference.py --verify --output reports/sql-reference-validation.json
+          CHROMIUM=$("$PY" -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()')
+          "$PY" scripts/make_screenshots.py --chromium "$CHROMIUM"
+      - name: Validate original preservation, Markdown, and exercises
+        run: |
+          cd "$RUNNER_TEMP/madang-publish"
+          PY="$RUNNER_TEMP/madang-venv/bin/python"
+          "$PY" scripts/validate_project.py
+          "$PY" scripts/build_markdown.py
+          "$PY" scripts/check_markdown_links.py
+      - name: Publish only validated content to the review branch
+        run: |
+          cd "$RUNNER_TEMP/madang-publish"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          git commit -m 'Publish Madang Market Markdown edition and preserve original manuscripts'
+          git push origin HEAD:refs/heads/chatgpt/madang-market-markdown-20260911
+          echo "Published commit: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
