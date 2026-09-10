@@ -1,0 +1,16 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="변경 SQL / 계약"];
+n1 [label="전체 파싱·정적 정책"];
+n2 [label="변경 + 영향 모델 빌드"];
+n3 [label="고정 기준선과 대사"];
+n4 [label="승인·읽기 포인터 전환"];
+n5 [label="롤백 가능한 이전 버전"];
+n0 -> n1;
+n1 -> n2;
+n2 -> n3;
+n3 -> n4;
+n4 -> n5;
+}

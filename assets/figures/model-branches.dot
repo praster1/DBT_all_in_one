@@ -1,0 +1,22 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="마당마켓 정상 현재 주문"];
+n1 [label="스타"];
+n2 [label="정규화 코어"];
+n3 [label="Wide"];
+n4 [label="Vault 단편"];
+n5 [label="Anchor 단편"];
+n6 [label="같은 주문별 결과 대사\n성능 우열 시험은 아님"];
+n0 -> n1;
+n0 -> n2;
+n0 -> n3;
+n0 -> n4;
+n0 -> n5;
+n1 -> n6;
+n2 -> n6;
+n3 -> n6;
+n4 -> n6;
+n5 -> n6;
+}

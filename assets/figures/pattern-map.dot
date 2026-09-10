@@ -1,0 +1,18 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="어떤 문제를 푸는가?"];
+n1 [label="데이터 품질 단계\nMedallion / 계층형"];
+n2 [label="전사 통합\nHub & Spoke / Bus / Vault"];
+n3 [label="시간·처리 흐름\nBatch / Lambda / Kappa"];
+n4 [label="저장·접근\nWarehouse / Lakehouse / Federation"];
+n5 [label="책임과 계약\nMesh / Data Product"];
+n6 [label="모델의 모양\nStar / Snowflake / Wide"];
+n0 -> n1;
+n0 -> n2;
+n0 -> n3;
+n0 -> n4;
+n0 -> n5;
+n0 -> n6;
+}

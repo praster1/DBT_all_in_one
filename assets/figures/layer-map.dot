@@ -1,0 +1,14 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="l0_cus\n원천 보존\nBronze"];
+n1 [label="l1_cus\n표준화\nSilver 진입"];
+n2 [label="l2_cus\n통합·검증\nSilver 심화"];
+n3 [label="l3_cus\n소비용 마트\nGold"];
+n4 [label="숫자와 색의 대응은\n조직의 설계 결정"];
+n0 -> n1;
+n1 -> n2;
+n2 -> n3;
+n4 -> n1 [label="규칙을 문서화"];
+}

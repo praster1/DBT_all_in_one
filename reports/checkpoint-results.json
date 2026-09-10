@@ -1,0 +1,396 @@
+[
+  {
+    "stage": 1,
+    "phase": 1,
+    "model": "first_orders",
+    "model_count": 1,
+    "engine": "SQLite reference, NOT dbt",
+    "rows": [
+      {
+        "order_id": 5001,
+        "status": "PLACED",
+        "amount_cents": 4200
+      },
+      {
+        "order_id": 5002,
+        "status": "SHIPPED",
+        "amount_cents": 1500
+      },
+      {
+        "order_id": 5003,
+        "status": "PLACED",
+        "amount_cents": 2900
+      },
+      {
+        "order_id": 5004,
+        "status": "DELIVERED",
+        "amount_cents": 1200
+      }
+    ]
+  },
+  {
+    "stage": 2,
+    "phase": 1,
+    "model": "stg_orders_current",
+    "model_count": 2,
+    "engine": "SQLite reference, NOT dbt",
+    "rows": [
+      {
+        "order_id": 5001,
+        "customer_id": 101,
+        "order_date": "2026-04-01",
+        "status": "placed",
+        "amount_cents": 4200,
+        "source_seq": 1
+      },
+      {
+        "order_id": 5002,
+        "customer_id": 102,
+        "order_date": "2026-04-01",
+        "status": "shipped",
+        "amount_cents": 1500,
+        "source_seq": 1
+      },
+      {
+        "order_id": 5003,
+        "customer_id": 103,
+        "order_date": "2026-04-02",
+        "status": "placed",
+        "amount_cents": 2900,
+        "source_seq": 1
+      },
+      {
+        "order_id": 5004,
+        "customer_id": 101,
+        "order_date": "2026-04-03",
+        "status": "delivered",
+        "amount_cents": 1200,
+        "source_seq": 1
+      }
+    ]
+  },
+  {
+    "stage": 3,
+    "phase": 1,
+    "model": "fct_orders",
+    "model_count": 10,
+    "engine": "SQLite reference, NOT dbt",
+    "rows": [
+      {
+        "order_id": 5001,
+        "customer_id": 101,
+        "order_date": "2026-04-01",
+        "status": "placed",
+        "amount_cents": 4200,
+        "recognized_cents": 0
+      },
+      {
+        "order_id": 5002,
+        "customer_id": 102,
+        "order_date": "2026-04-01",
+        "status": "shipped",
+        "amount_cents": 1500,
+        "recognized_cents": 1500
+      },
+      {
+        "order_id": 5003,
+        "customer_id": 103,
+        "order_date": "2026-04-02",
+        "status": "placed",
+        "amount_cents": 2900,
+        "recognized_cents": 0
+      },
+      {
+        "order_id": 5004,
+        "customer_id": 101,
+        "order_date": "2026-04-03",
+        "status": "delivered",
+        "amount_cents": 1200,
+        "recognized_cents": 1200
+      }
+    ]
+  },
+  {
+    "stage": 4,
+    "phase": 1,
+    "model": "mart_daily_sales",
+    "model_count": 11,
+    "engine": "SQLite reference, NOT dbt",
+    "rows": [
+      {
+        "order_date": "2026-04-01",
+        "order_count": 2,
+        "recognized_cents": 1500
+      },
+      {
+        "order_date": "2026-04-02",
+        "order_count": 1,
+        "recognized_cents": 0
+      },
+      {
+        "order_date": "2026-04-03",
+        "order_count": 1,
+        "recognized_cents": 1200
+      }
+    ]
+  },
+  {
+    "stage": 5,
+    "phase": 2,
+    "model": "mart_daily_sales",
+    "model_count": 11,
+    "engine": "SQLite reference, NOT dbt",
+    "rows": [
+      {
+        "order_date": "2026-04-01",
+        "order_count": 3,
+        "recognized_cents": 7700
+      },
+      {
+        "order_date": "2026-04-02",
+        "order_count": 1,
+        "recognized_cents": 2900
+      },
+      {
+        "order_date": "2026-04-03",
+        "order_count": 1,
+        "recognized_cents": 1200
+      }
+    ]
+  },
+  {
+    "stage": 6,
+    "phase": 4,
+    "model": "quarantine_orders",
+    "model_count": 11,
+    "engine": "SQLite reference, NOT dbt",
+    "rows": [
+      {
+        "order_id": 5006,
+        "customer_id": 104,
+        "order_date": "2026-04-04",
+        "status": "paid",
+        "amount_cents": 2500,
+        "source_seq": 1,
+        "segment": null,
+        "line_amount_cents": 2500,
+        "quality_status": "missing_customer"
+      },
+      {
+        "order_id": 5007,
+        "customer_id": 101,
+        "order_date": "2026-04-04",
+        "status": "paid",
+        "amount_cents": -100,
+        "source_seq": 1,
+        "segment": "standard",
+        "line_amount_cents": 1000,
+        "quality_status": "invalid_amount"
+      }
+    ]
+  },
+  {
+    "stage": 7,
+    "phase": 3,
+    "model": "fct_orders_asof_segment",
+    "model_count": 14,
+    "engine": "SQLite reference, NOT dbt",
+    "rows": [
+      {
+        "order_id": 5001,
+        "customer_id": 101,
+        "order_date": "2026-04-01",
+        "status": "delivered",
+        "amount_cents": 4200,
+        "recognized_cents": 4200,
+        "segment_at_order": "standard"
+      },
+      {
+        "order_id": 5002,
+        "customer_id": 102,
+        "order_date": "2026-04-01",
+        "status": "cancelled",
+        "amount_cents": 1500,
+        "recognized_cents": 0,
+        "segment_at_order": "standard"
+      },
+      {
+        "order_id": 5003,
+        "customer_id": 103,
+        "order_date": "2026-04-02",
+        "status": "shipped",
+        "amount_cents": 3300,
+        "recognized_cents": 3300,
+        "segment_at_order": "standard"
+      },
+      {
+        "order_id": 5004,
+        "customer_id": 101,
+        "order_date": "2026-04-03",
+        "status": "delivered",
+        "amount_cents": 1200,
+        "recognized_cents": 1200,
+        "segment_at_order": "standard"
+      },
+      {
+        "order_id": 5005,
+        "customer_id": 102,
+        "order_date": "2026-04-01",
+        "status": "paid",
+        "amount_cents": 2000,
+        "recognized_cents": 2000,
+        "segment_at_order": "standard"
+      }
+    ]
+  },
+  {
+    "stage": 8,
+    "phase": 5,
+    "model": "fct_orders",
+    "model_count": 14,
+    "engine": "SQLite reference, NOT dbt",
+    "rows": [
+      {
+        "order_id": 5001,
+        "customer_id": 101,
+        "order_date": "2026-04-01",
+        "status": "delivered",
+        "amount_cents": 4200,
+        "recognized_cents": 4200
+      },
+      {
+        "order_id": 5002,
+        "customer_id": 102,
+        "order_date": "2026-04-01",
+        "status": "cancelled",
+        "amount_cents": 1500,
+        "recognized_cents": 0
+      },
+      {
+        "order_id": 5003,
+        "customer_id": 103,
+        "order_date": "2026-04-02",
+        "status": "shipped",
+        "amount_cents": 3300,
+        "recognized_cents": 3300
+      },
+      {
+        "order_id": 5005,
+        "customer_id": 102,
+        "order_date": "2026-04-01",
+        "status": "paid",
+        "amount_cents": 2000,
+        "recognized_cents": 2000
+      },
+      {
+        "order_id": 5006,
+        "customer_id": 104,
+        "order_date": "2026-04-04",
+        "status": "paid",
+        "amount_cents": 2500,
+        "recognized_cents": 2500
+      },
+      {
+        "order_id": 5007,
+        "customer_id": 101,
+        "order_date": "2026-04-04",
+        "status": "paid",
+        "amount_cents": 1000,
+        "recognized_cents": 1000
+      }
+    ]
+  },
+  {
+    "stage": 9,
+    "phase": 5,
+    "model": "fct_orders",
+    "model_count": 14,
+    "engine": "SQLite reference, NOT dbt",
+    "rows": [
+      {
+        "order_id": 5001,
+        "customer_id": 101,
+        "order_date": "2026-04-01",
+        "status": "delivered",
+        "amount_cents": 4200,
+        "recognized_cents": 4200
+      },
+      {
+        "order_id": 5002,
+        "customer_id": 102,
+        "order_date": "2026-04-01",
+        "status": "cancelled",
+        "amount_cents": 1500,
+        "recognized_cents": 0
+      },
+      {
+        "order_id": 5003,
+        "customer_id": 103,
+        "order_date": "2026-04-02",
+        "status": "shipped",
+        "amount_cents": 3300,
+        "recognized_cents": 3300
+      },
+      {
+        "order_id": 5005,
+        "customer_id": 102,
+        "order_date": "2026-04-01",
+        "status": "paid",
+        "amount_cents": 2000,
+        "recognized_cents": 2000
+      },
+      {
+        "order_id": 5006,
+        "customer_id": 104,
+        "order_date": "2026-04-04",
+        "status": "paid",
+        "amount_cents": 2500,
+        "recognized_cents": 2500
+      },
+      {
+        "order_id": 5007,
+        "customer_id": 101,
+        "order_date": "2026-04-04",
+        "status": "paid",
+        "amount_cents": 1000,
+        "recognized_cents": 1000
+      }
+    ]
+  },
+  {
+    "stage": 10,
+    "phase": 5,
+    "model": "mart_current_mrr",
+    "model_count": 21,
+    "engine": "SQLite reference, NOT dbt",
+    "rows": [
+      {
+        "mrr_cents": 2000
+      }
+    ]
+  },
+  {
+    "stage": 11,
+    "phase": 5,
+    "model": "mart_daily_sales",
+    "model_count": 21,
+    "engine": "SQLite reference, NOT dbt",
+    "rows": [
+      {
+        "order_date": "2026-04-01",
+        "order_count": 3,
+        "recognized_cents": 6200
+      },
+      {
+        "order_date": "2026-04-02",
+        "order_count": 1,
+        "recognized_cents": 3300
+      },
+      {
+        "order_date": "2026-04-04",
+        "order_count": 2,
+        "recognized_cents": 3500
+      }
+    ]
+  }
+]

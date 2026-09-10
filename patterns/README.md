@@ -1,0 +1,32 @@
+# 설계 패턴 아틀라스
+
+[책 첫 화면](../README.md) · [전체 목차](../01_outline/master_toc.md)
+
+- [P00 · 메달리온 말고 무엇이 있는가: 설계 패턴 전체 지도](00-pattern-map.md)
+- [P01 · 메달리온: 색깔이 아니라 품질과 책임을 나누는 방법](01-medallion.md)
+- [P02 · 허브앤스포크: 중앙 통합 저장소와 종속 데이터 마트](02-hub-and-spoke.md)
+- [P03 · Kimball 버스 아키텍처: 작게 납품하고 공통 차원으로 연결하기](03-kimball-bus.md)
+- [P04 · 람다 아키텍처: 빠른 잠정값과 다시 계산한 확정값](04-lambda.md)
+- [P05 · 카파 아키텍처: 하나의 처리 경로와 로그 재생](05-kappa.md)
+- [P06 · 웨어하우스·데이터 레이크·레이크하우스와 dbt의 위치](06-lakehouse.md)
+- [P07 · 데이터 메시: 폴더가 아니라 소유권과 계약의 설계](07-data-mesh.md)
+- [P08 · 데이터 패브릭과 연합 쿼리: 복제하지 않고 연결하면 끝나는가](08-data-fabric-and-federation.md)
+- [P09 · Data Vault: 업무 키·관계·속성 이력을 분리하는 통합 모델](09-data-vault.md)
+- [P10 · dbt 계층형 DAG: 원천의 언어를 업무의 언어로 바꾸기](10-staging-and-dag.md)
+- [P11 · 스타·스노플레이크·wide table: 읽기 편의와 의미 일관성의 균형](11-star-snowflake-wide.md)
+- [P12 · 팩트 패턴: 거래·주기 스냅샷·누적 스냅샷·무측정 사실](12-fact-patterns.md)
+- [P13 · SCD와 시점 설계: 현재, 그 당시, 그때 알고 있던 사실](13-history-and-temporal.md)
+- [P14 · CDC·Outbox·이벤트 소싱·CQRS: 비슷해 보이는 변경 패턴 구별하기](14-cdc-outbox-event-sourcing.md)
+- [P15 · 증분·재처리·멱등성: 새 행만 읽는 설계의 함정](15-incremental-and-replay.md)
+- [P16 · 품질 게이트·계약·격리: 실패를 숨기지 않고 발행을 통제하기](16-quality-contract-quarantine.md)
+- [P17 · 설정 중앙화와 단일 소유자: 스키마가 바뀌어도 SQL은 유지하기](17-configuration-and-ownership.md)
+- [P18 · 컴포넌트와 통합 모델: 계산을 나누고 쓰기는 한 곳으로](18-components-and-integration.md)
+- [P19 · CI/CD·Blue–Green·Strangler: 계산 성공에서 안전한 교체까지](19-ci-cd-and-migration.md)
+- [P20 · 관측·성능·복구: 어떤 층에서 실패했는지 알아내기](20-observability-and-performance.md)
+- [P21 · 보안과 외부 제공: 모델의 끝이 데이터 책임의 끝은 아니다](21-security-and-serving.md)
+- [P22 · 패턴 선택 사례: 같은 도구, 서로 다른 정답](22-pattern-selection-case-studies.md)
+- [P23 · 설계 리뷰 워크북과 안티패턴 사전](23-design-review-workbook.md)
+- [P24 · Anchor Modeling: 속성의 시간 변화를 더 작게 분리하기](24-anchor-modeling.md)
+- [P25 · 아키텍처 비교표: 메달리온 외의 대안을 한 장에서 찾기](25-architecture-comparison-atlas.md)
+
+코드와 결과를 확인할 때는 [마당마켓 실습 프로젝트](../lab/README.md)의 데이터 버전과 검증 범위를 함께 확인한다.

@@ -1,0 +1,14 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="업무 발생\n04-01 주문 5005"];
+n1 [label="실제 수신\n04-05 도착"];
+n2 [label="수신 경계로 발견\nsource offset / ingestion"];
+n3 [label="영향받는 주문 키\n5005"];
+n4 [label="04-01 일별 마트 재계산"];
+n0 -> n1;
+n1 -> n2;
+n2 -> n3;
+n3 -> n4;
+}

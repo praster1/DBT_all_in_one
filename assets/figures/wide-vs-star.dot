@@ -1,0 +1,17 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="원천 통합"];
+n1 [label="공통 팩트·차원"];
+n2 [label="일별 요약 wide"];
+n3 [label="고객 현황 wide"];
+n4 [label="분석 목적별 파생"];
+n5 [label="원천마다 별도 wide\n정의 불일치 위험"];
+n0 -> n1;
+n1 -> n2;
+n1 -> n3;
+n2 -> n4;
+n3 -> n4;
+n0 -> n5 [label="반례"];
+}

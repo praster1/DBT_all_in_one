@@ -1,0 +1,16 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="기존 공개 버전 v1"];
+n1 [label="새 후보 버전 v2"];
+n2 [label="품질·계약·대사 검사"];
+n3 [label="읽기 포인터"];
+n4 [label="소비자"];
+n5 [label="실패 시 v1 유지"];
+n1 -> n2;
+n2 -> n3 [label="통과"];
+n0 -> n3;
+n3 -> n4;
+n2 -> n5 [label="실패"];
+}

@@ -1,0 +1,18 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="Hub Customer\n업무 키"];
+n1 [label="Link Customer Order\n관계의 키"];
+n2 [label="Hub Order\n업무 키"];
+n3 [label="Satellite Customer\n속성·관측 이력"];
+n4 [label="Satellite Order\n상태·금액 이력"];
+n5 [label="소비용 마트"];
+n0 -> n1;
+n2 -> n1;
+n0 -> n3;
+n2 -> n4;
+n3 -> n5;
+n1 -> n5;
+n4 -> n5;
+}

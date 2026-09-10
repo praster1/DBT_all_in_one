@@ -1,0 +1,72 @@
+--- previous/models/l1/stg_customers_current.sql
++++ current/models/l1/stg_customers_current.sql
+@@ -0,0 +1,5 @@
++with ranked as (
++ select *, row_number() over (partition by customer_id order by source_seq desc, ingestion_id desc) as version_rank
++ from {{ source('shop_raw', 'customer_changes') }}
++)
++select customer_id, segment from ranked where version_rank = 1
+--- previous/models/l1/stg_items_current.sql
++++ current/models/l1/stg_items_current.sql
+@@ -0,0 +1,6 @@
++with ranked as (
++ select *, row_number() over (partition by item_id order by source_seq desc, ingestion_id desc) as version_rank
++ from {{ source('shop_raw', 'item_changes') }}
++)
++select item_id, order_id, product_id, quantity, unit_price_cents
++from ranked where version_rank = 1 and op <> 'D'
+--- previous/models/l2/int_order_totals.sql
++++ current/models/l2/int_order_totals.sql
+@@ -0,0 +1,3 @@
++select order_id, sum(quantity * unit_price_cents) as line_amount_cents,
++       count(*) as line_count
++from {{ ref('stg_items_current') }} group by order_id
+--- previous/models/l2/int_orders_classified.sql
++++ current/models/l2/int_orders_classified.sql
+@@ -0,0 +1,10 @@
++select o.*, c.segment, t.line_amount_cents,
++ case when o.amount_cents is null or o.amount_cents < 0 then 'invalid_amount'
++      when o.status is null or o.status not in ('placed','paid','shipped','delivered','cancelled') then 'invalid_status'
++      when c.customer_id is null then 'missing_customer'
++      when t.order_id is null then 'missing_items'
++      when o.amount_cents <> t.line_amount_cents then 'header_line_mismatch'
++      else 'accepted' end as quality_status
++from {{ ref('stg_orders_current') }} o
++left join {{ ref('stg_customers_current') }} c on o.customer_id = c.customer_id
++left join {{ ref('int_order_totals') }} t on o.order_id = t.order_id
+--- previous/models/l2/int_orders_valid.sql
++++ current/models/l2/int_orders_valid.sql
+@@ -0,0 +1 @@
++select * from {{ ref('int_orders_classified') }} where quality_status = 'accepted'
+--- previous/models/l2/quarantine_orders.sql
++++ current/models/l2/quarantine_orders.sql
+@@ -0,0 +1 @@
++select * from {{ ref('int_orders_classified') }} where quality_status <> 'accepted'
+--- previous/models/l3/fct_order_lines.sql
++++ current/models/l3/fct_order_lines.sql
+@@ -0,0 +1,6 @@
++select i.item_id, i.order_id, o.customer_id, o.order_date, i.product_id,
++       i.quantity, i.unit_price_cents, i.quantity * i.unit_price_cents as line_amount_cents,
++       case when o.status in ('paid','shipped','delivered')
++            then i.quantity * i.unit_price_cents else 0 end as recognized_cents
++from {{ ref('stg_items_current') }} i
++join {{ ref('int_orders_valid') }} o on i.order_id = o.order_id
+--- previous/models/l3/fct_orders.sql
++++ current/models/l3/fct_orders.sql
+@@ -0,0 +1,3 @@
++select order_id, customer_id, order_date, status, amount_cents,
++       case when status in ('paid','shipped','delivered') then amount_cents else 0 end as recognized_cents
++from {{ ref('int_orders_valid') }}
+--- previous/tests/order_line_reconciliation.sql
++++ current/tests/order_line_reconciliation.sql
+@@ -0,0 +1,6 @@
++select o.order_id
++from {{ ref('fct_orders') }} o
++left join (select order_id, sum(line_amount_cents) as amount_cents
++           from {{ ref('fct_order_lines') }} group by order_id) l
++on o.order_id = l.order_id
++where l.order_id is null or o.amount_cents <> l.amount_cents
+--- previous/tests/orders_nonnegative.sql
++++ current/tests/orders_nonnegative.sql
+@@ -0,0 +1 @@
++select * from {{ ref('fct_orders') }} where amount_cents < 0 or recognized_cents < 0

@@ -1,0 +1,16 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="업무 트랜잭션\n원천 상태 + outbox"];
+n1 [label="CDC / 이벤트 전달\n중복·지연 가능"];
+n2 [label="불변 적재 기록"];
+n3 [label="업무 순서로 최신 선택"];
+n4 [label="삭제 이벤트 판정"];
+n5 [label="현재 상태"];
+n0 -> n1;
+n1 -> n2;
+n2 -> n3;
+n3 -> n4;
+n4 -> n5;
+}

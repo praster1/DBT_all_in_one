@@ -1,0 +1,25 @@
+--- previous/models/l1/stg_order_changes.sql
++++ current/models/l1/stg_order_changes.sql
+@@ -0,0 +1,8 @@
++-- 변경 이벤트 중복 제거: 재전송은 ingestion_id만 새로 생긴다.
++with ranked as (
++ select *, row_number() over (partition by change_id order by ingestion_id desc) as delivery_rank
++ from {{ source('shop_raw', 'order_changes') }}
++)
++select change_id, order_id, customer_id, order_date, lower(trim(status)) as status,
++       amount_cents, source_seq, op, ingestion_id, ingested_at
++from ranked where delivery_rank = 1
+--- previous/models/l1/stg_orders_current.sql
++++ current/models/l1/stg_orders_current.sql
+@@ -0,0 +1,7 @@
++-- 삭제를 먼저 거르면 과거 행이 되살아난다. 최신 행 선택 후 삭제를 적용한다.
++with ranked as (
++ select *, row_number() over (partition by order_id order by source_seq desc, ingestion_id desc) as version_rank
++ from {{ ref('stg_order_changes') }}
++)
++select order_id, customer_id, order_date, status, amount_cents, source_seq
++from ranked where version_rank = 1 and op <> 'D'
+--- previous/models/l3/first_orders.sql
++++ current/models/l3/first_orders.sql
+@@ -1 +0,0 @@
+-select order_id, status, amount_cents from {{ source('shop_raw', 'order_changes') }}

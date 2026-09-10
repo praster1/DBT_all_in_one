@@ -1,0 +1,18 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="POS"];
+n1 [label="온라인 주문"];
+n2 [label="CRM"];
+n3 [label="통합 핵심 저장소\n고객 식별·정합성"];
+n4 [label="영업 마트"];
+n5 [label="재무 마트"];
+n6 [label="마케팅 마트"];
+n0 -> n3;
+n1 -> n3;
+n2 -> n3;
+n3 -> n4;
+n3 -> n5;
+n3 -> n6;
+}

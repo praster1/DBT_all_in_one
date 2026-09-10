@@ -1,0 +1,11 @@
+version: 2
+sources:
+  - name: shop_raw
+    schema: "{{ var('raw_schema') }}"
+    description: "교육용 원천. bootstrap이 생성하고 dbt는 source로 읽는다."
+    tables:
+      - name: order_changes
+      - name: item_changes
+      - name: customer_changes
+      - name: events
+      - name: subscriptions

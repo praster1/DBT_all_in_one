@@ -1,0 +1,14 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="업무 유효시간\n언제 실제로 유효했나?"];
+n1 [label="시스템 관측시간\n언제 알게 되었나?"];
+n2 [label="4월 2일 주문 당시 사실"];
+n3 [label="4월 3일 보고서가 알던 사실"];
+n4 [label="4월 5일 정정 후 재작성"];
+n0 -> n2;
+n1 -> n3;
+n0 -> n4;
+n1 -> n4;
+}

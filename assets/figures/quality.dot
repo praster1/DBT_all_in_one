@@ -1,0 +1,16 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="현재 원천 행 6개"];
+n1 [label="판정 규칙\n키·상태·금액·대사"];
+n2 [label="허용 4개\n발행 후보"];
+n3 [label="격리 2개\n누락 고객·음수"];
+n4 [label="원천 정정 / 고객 도착"];
+n5 [label="재판정 후 허용 6개"];
+n0 -> n1;
+n1 -> n2;
+n1 -> n3;
+n3 -> n4;
+n4 -> n5;
+}

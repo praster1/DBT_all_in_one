@@ -1,0 +1,86 @@
+[
+  {
+    "image": "assets/screenshots/01-baseline.png",
+    "title": "01 / 네 주문에서 출발하기",
+    "kind": "actual Chromium capture of local SQL-results viewer, not dbt UI",
+    "source": "reports/viewer/01-baseline.html",
+    "data": "reports/sql-reference-validation.json"
+  },
+  {
+    "image": "assets/screenshots/02-deduplication.png",
+    "title": "02 / 같은 변경이 두 번 도착했습니다",
+    "kind": "actual Chromium capture of local SQL-results viewer, not dbt UI",
+    "source": "reports/viewer/02-deduplication.html",
+    "data": "reports/sql-reference-validation.json"
+  },
+  {
+    "image": "assets/screenshots/03-grain.png",
+    "title": "03 / SQL은 성공했지만 합계가 틀렸습니다",
+    "kind": "actual Chromium capture of local SQL-results viewer, not dbt UI",
+    "source": "reports/viewer/03-grain.html",
+    "data": "reports/sql-reference-validation.json"
+  },
+  {
+    "image": "assets/screenshots/04-late-arrival.png",
+    "title": "04 / 지난 날짜의 매출이 달라졌습니다",
+    "kind": "actual Chromium capture of local SQL-results viewer, not dbt UI",
+    "source": "reports/viewer/04-late-arrival.html",
+    "data": "reports/sql-reference-validation.json"
+  },
+  {
+    "image": "assets/screenshots/05-correction.png",
+    "title": "05 / 같은 주문의 정정과 다른 주문의 취소",
+    "kind": "actual Chromium capture of local SQL-results viewer, not dbt UI",
+    "source": "reports/viewer/05-correction.html",
+    "data": "reports/sql-reference-validation.json"
+  },
+  {
+    "image": "assets/screenshots/06-delete.png",
+    "title": "06 / 삭제 이후 옛 주문을 되살리지 않기",
+    "kind": "actual Chromium capture of local SQL-results viewer, not dbt UI",
+    "source": "reports/viewer/06-delete.html",
+    "data": "reports/sql-reference-validation.json"
+  },
+  {
+    "image": "assets/screenshots/07-history.png",
+    "title": "07 / 오늘의 등급과 주문 당시의 등급",
+    "kind": "actual Chromium capture of local SQL-results viewer, not dbt UI",
+    "source": "reports/viewer/07-history.html",
+    "data": "reports/sql-reference-validation.json"
+  },
+  {
+    "image": "assets/screenshots/08-quarantine.png",
+    "title": "08 / 사라진 행을 이유와 함께 남깁니다",
+    "kind": "actual Chromium capture of local SQL-results viewer, not dbt UI",
+    "source": "reports/viewer/08-quarantine.html",
+    "data": "reports/sql-reference-validation.json"
+  },
+  {
+    "image": "assets/screenshots/09-repair.png",
+    "title": "09 / 원천 정정 후 정상 경로로 돌아옵니다",
+    "kind": "actual Chromium capture of local SQL-results viewer, not dbt UI",
+    "source": "reports/viewer/09-repair.html",
+    "data": "reports/sql-reference-validation.json"
+  },
+  {
+    "image": "assets/screenshots/10-incremental.png",
+    "title": "10 / 증분은 전체 계산과 같은 결과를 내는가",
+    "kind": "actual Chromium capture of local SQL-results viewer, not dbt UI",
+    "source": "reports/viewer/10-incremental.html",
+    "data": "reports/sql-reference-validation.json"
+  },
+  {
+    "image": "assets/screenshots/11-routing.png",
+    "title": "11 / 논리 모델과 물리 이름을 구분합니다",
+    "kind": "actual Chromium capture of local SQL-results viewer, not dbt UI",
+    "source": "reports/viewer/11-routing.html",
+    "data": "reports/sql-reference-validation.json"
+  },
+  {
+    "image": "assets/screenshots/12-final.png",
+    "title": "12 / 결과를 재현하고 검증 범위를 설명합니다",
+    "kind": "actual Chromium capture of local SQL-results viewer, not dbt UI",
+    "source": "reports/viewer/12-final.html",
+    "data": "reports/sql-reference-validation.json"
+  }
+]

@@ -1,0 +1,37 @@
+# 설계 문서. dbt 내장 설정이 아니며 자동 강제되지 않는다.
+case_name: 마당마켓
+project_name: madang_market
+data_classification: synthetic_educational
+layers:
+  l0:
+    schema_variable: raw_schema
+    example_schema: l0_cus
+    responsibility: immutable_ingestion_records_with_lineage
+    owner_role: ingestion_team
+    gate: batch_completeness_and_parseability
+  l1:
+    schema_variable: schema_l1
+    example_schema: l1_cus
+    responsibility: standardized_latest_state
+    owner_role: source_domain_team
+    gate: business_key_order_and_tombstone_semantics
+  l2:
+    schema_variable: schema_l2
+    example_schema: l2_cus
+    responsibility: integration_quality_and_temporal_intervals
+    owner_role: transformation_team
+    gate: accepted_plus_quarantine_equals_current
+  l3:
+    schema_variable: schema_l3
+    example_schema: l3_cus
+    responsibility: facts_dimensions_and_consumption_metrics
+    owner_role: data_product_team
+    gate: grain_contract_and_metric_reconciliation
+publication:
+  if_quarantine_nonzero: hold_for_review
+  candidate_required: true
+  keep_previous_published_version: true
+safety:
+  training_loader_root: lab/.local
+  production_credentials_in_repository: forbidden
+  ddl_policy: review_adapter_behavior_and_enforce_database_permissions

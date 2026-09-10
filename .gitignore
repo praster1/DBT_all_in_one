@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+.local/
+target/
+dbt_packages/
+logs/
+*.duckdb
+*.duckdb.wal
+*.sqlite
+*.sqlite3
+DBT_all_in_one_Madang_Market.html
+docs/index.html
+reports/viewer/
+reports/reader-*.png
+archive/original-upload.zip

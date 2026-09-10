@@ -1,0 +1,16 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="source: 주문 변경"];
+n1 [label="stg_order_changes\n전달 중복 제거"];
+n2 [label="stg_orders_current\n최신 업무 상태"];
+n3 [label="int_orders_classified\n업무 품질 판정"];
+n4 [label="fct_orders\n주문 grain"];
+n5 [label="mart_daily_sales\n일 grain"];
+n0 -> n1;
+n1 -> n2;
+n2 -> n3;
+n3 -> n4;
+n4 -> n5;
+}

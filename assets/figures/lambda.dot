@@ -1,0 +1,15 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="불변 입력 기록"];
+n1 [label="배치 재계산\n확정값"];
+n2 [label="저지연 경로\n최근·잠정값"];
+n3 [label="결과 경계 선택\n중복 영역 제거"];
+n4 [label="조회 API / 대시보드"];
+n0 -> n1;
+n0 -> n2;
+n1 -> n3 [label="확정 경계까지"];
+n2 -> n3 [label="경계 이후"];
+n3 -> n4;
+}

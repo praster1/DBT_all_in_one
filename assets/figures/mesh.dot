@@ -1,0 +1,20 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="주문 도메인\n소유자 + 공개 데이터"];
+n1 [label="고객 도메인\n소유자 + 공개 데이터"];
+n2 [label="구독 도메인\n소유자 + 공개 데이터"];
+n3 [label="공통 셀프서비스 플랫폼\n배포·관측·권한"];
+n4 [label="연합 거버넌스\n공통 키·정책·호환성"];
+n5 [label="분석 소비자"];
+n3 -> n0;
+n3 -> n1;
+n3 -> n2;
+n4 -> n0;
+n4 -> n1;
+n4 -> n2;
+n0 -> n5;
+n1 -> n5;
+n2 -> n5;
+}

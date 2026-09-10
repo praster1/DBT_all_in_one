@@ -1,0 +1,14 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="dim_customer\n고객"];
+n1 [label="dim_product\n상품"];
+n2 [label="fct_order_lines\n주문 상세 한 행"];
+n3 [label="dim_date\n날짜"];
+n4 [label="dim_channel\n채널"];
+n0 -> n2;
+n1 -> n2;
+n3 -> n2;
+n4 -> n2;
+}

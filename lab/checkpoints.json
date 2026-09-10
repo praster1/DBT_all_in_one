@@ -1,0 +1,242 @@
+[
+  {
+    "stage": 1,
+    "slug": "first-query",
+    "phase": 1,
+    "models": [
+      "first_orders"
+    ],
+    "result_model": "first_orders",
+    "note": "원천 네 주문의 상태와 금액을 직접 읽는다.",
+    "path": "checkpoints/01-first-query"
+  },
+  {
+    "stage": 2,
+    "slug": "staging",
+    "phase": 1,
+    "models": [
+      "stg_order_changes",
+      "stg_orders_current"
+    ],
+    "result_model": "stg_orders_current",
+    "note": "전달 중복과 최신 업무 상태를 분리한다. first_orders는 교육을 마치고 제거한다.",
+    "path": "checkpoints/02-staging"
+  },
+  {
+    "stage": 3,
+    "slug": "grain-and-quality",
+    "phase": 1,
+    "models": [
+      "stg_order_changes",
+      "stg_orders_current",
+      "stg_items_current",
+      "stg_customers_current",
+      "int_order_totals",
+      "int_orders_classified",
+      "quarantine_orders",
+      "int_orders_valid",
+      "fct_orders",
+      "fct_order_lines"
+    ],
+    "result_model": "fct_orders",
+    "note": "고객·상세를 결합하고 품질을 판정한 뒤 주문과 상세 grain을 분리한다.",
+    "path": "checkpoints/03-grain-and-quality"
+  },
+  {
+    "stage": 4,
+    "slug": "daily-mart",
+    "phase": 1,
+    "models": [
+      "stg_order_changes",
+      "stg_orders_current",
+      "stg_items_current",
+      "stg_customers_current",
+      "int_order_totals",
+      "int_orders_classified",
+      "quarantine_orders",
+      "int_orders_valid",
+      "fct_orders",
+      "fct_order_lines",
+      "mart_daily_sales"
+    ],
+    "result_model": "mart_daily_sales",
+    "note": "주문 결과를 일 grain으로 집계한다.",
+    "path": "checkpoints/04-daily-mart"
+  },
+  {
+    "stage": 5,
+    "slug": "late-arrival",
+    "phase": 2,
+    "models": [
+      "stg_order_changes",
+      "stg_orders_current",
+      "stg_items_current",
+      "stg_customers_current",
+      "int_order_totals",
+      "int_orders_classified",
+      "quarantine_orders",
+      "int_orders_valid",
+      "fct_orders",
+      "fct_order_lines",
+      "mart_daily_sales"
+    ],
+    "result_model": "mart_daily_sales",
+    "note": "동일 코드를 유지하며 지연 도착·중복 재전송 입력을 적용한다.",
+    "path": "checkpoints/05-late-arrival"
+  },
+  {
+    "stage": 6,
+    "slug": "correction-delete",
+    "phase": 4,
+    "models": [
+      "stg_order_changes",
+      "stg_orders_current",
+      "stg_items_current",
+      "stg_customers_current",
+      "int_order_totals",
+      "int_orders_classified",
+      "quarantine_orders",
+      "int_orders_valid",
+      "fct_orders",
+      "fct_order_lines",
+      "mart_daily_sales"
+    ],
+    "result_model": "quarantine_orders",
+    "note": "금액 정정·취소·삭제·품질 오류가 발생한 입력까지 재계산한다.",
+    "path": "checkpoints/06-correction-delete"
+  },
+  {
+    "stage": 7,
+    "slug": "history",
+    "phase": 3,
+    "models": [
+      "stg_order_changes",
+      "stg_orders_current",
+      "stg_items_current",
+      "stg_customers_current",
+      "int_order_totals",
+      "int_orders_classified",
+      "quarantine_orders",
+      "int_orders_valid",
+      "fct_orders",
+      "fct_order_lines",
+      "mart_daily_sales",
+      "int_customer_history",
+      "dim_customer_history",
+      "fct_orders_asof_segment"
+    ],
+    "result_model": "fct_orders_asof_segment",
+    "note": "새 이력 모델과 주문 당시 차원 조인을 추가한다. 이 체크포인트는 시간 학습을 위해 P3를 다시 본다.",
+    "path": "checkpoints/07-history"
+  },
+  {
+    "stage": 8,
+    "slug": "repair",
+    "phase": 5,
+    "models": [
+      "stg_order_changes",
+      "stg_orders_current",
+      "stg_items_current",
+      "stg_customers_current",
+      "int_order_totals",
+      "int_orders_classified",
+      "quarantine_orders",
+      "int_orders_valid",
+      "fct_orders",
+      "fct_order_lines",
+      "mart_daily_sales",
+      "int_customer_history",
+      "dim_customer_history",
+      "fct_orders_asof_segment"
+    ],
+    "result_model": "fct_orders",
+    "note": "고객 도착·금액 정정으로 격리 행이 정상으로 재진입한다.",
+    "path": "checkpoints/08-repair"
+  },
+  {
+    "stage": 9,
+    "slug": "incremental-proof",
+    "phase": 5,
+    "models": [
+      "stg_order_changes",
+      "stg_orders_current",
+      "stg_items_current",
+      "stg_customers_current",
+      "int_order_totals",
+      "int_orders_classified",
+      "quarantine_orders",
+      "int_orders_valid",
+      "fct_orders",
+      "fct_order_lines",
+      "mart_daily_sales",
+      "int_customer_history",
+      "dim_customer_history",
+      "fct_orders_asof_segment"
+    ],
+    "result_model": "fct_orders",
+    "note": "동일 SQL의 전체 결과를 기준으로 별도 변경 키 갱신의 동등성을 검사한다.",
+    "path": "checkpoints/09-incremental-proof"
+  },
+  {
+    "stage": 10,
+    "slug": "three-domains",
+    "phase": 5,
+    "models": [
+      "stg_order_changes",
+      "stg_orders_current",
+      "stg_items_current",
+      "stg_customers_current",
+      "stg_events",
+      "stg_subscriptions_current",
+      "int_order_totals",
+      "int_orders_classified",
+      "quarantine_orders",
+      "int_orders_valid",
+      "int_customer_history",
+      "dim_customers",
+      "dim_customer_history",
+      "fct_orders",
+      "fct_order_lines",
+      "fct_orders_asof_segment",
+      "mart_daily_sales",
+      "mart_customer_value",
+      "mart_daily_active_users",
+      "mart_current_mrr",
+      "mart_quality_summary"
+    ],
+    "result_model": "mart_current_mrr",
+    "note": "웹 이벤트와 구독을 더하되 매출·활성 사용자·MRR의 단위를 섞지 않는다.",
+    "path": "checkpoints/10-three-domains"
+  },
+  {
+    "stage": 11,
+    "slug": "final",
+    "phase": 5,
+    "models": [
+      "stg_order_changes",
+      "stg_orders_current",
+      "stg_items_current",
+      "stg_customers_current",
+      "stg_events",
+      "stg_subscriptions_current",
+      "int_order_totals",
+      "int_orders_classified",
+      "quarantine_orders",
+      "int_orders_valid",
+      "int_customer_history",
+      "dim_customers",
+      "dim_customer_history",
+      "fct_orders",
+      "fct_order_lines",
+      "fct_orders_asof_segment",
+      "mart_daily_sales",
+      "mart_customer_value",
+      "mart_daily_active_users",
+      "mart_current_mrr",
+      "mart_quality_summary"
+    ],
+    "result_model": "mart_daily_sales",
+    "note": "최종 모델·검증·문서·발행 설계를 정리한다.",
+    "path": "checkpoints/11-final"
+  }
+]

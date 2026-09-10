@@ -1,0 +1,6 @@
+REFERENCE SQL: 92/92 checks passed (SQLite 3.46.1; NOT dbt)
+phase 1 {"current_orders": 4, "valid_orders": 4, "quarantined": 0, "recognized_cents": 2700, "mrr_cents": 1000, "events": 3, "order5003_cents": 2900}
+phase 2 {"current_orders": 5, "valid_orders": 5, "quarantined": 0, "recognized_cents": 11800, "mrr_cents": 3000, "events": 4, "order5003_cents": 2900}
+phase 3 {"current_orders": 5, "valid_orders": 5, "quarantined": 0, "recognized_cents": 10700, "mrr_cents": 2000, "events": 5, "order5003_cents": 3300}
+phase 4 {"current_orders": 6, "valid_orders": 4, "quarantined": 2, "recognized_cents": 9500, "mrr_cents": 2000, "events": 5, "order5003_cents": 3300}
+phase 5 {"current_orders": 6, "valid_orders": 6, "quarantined": 0, "recognized_cents": 13000, "mrr_cents": 2000, "events": 5, "order5003_cents": 3300}

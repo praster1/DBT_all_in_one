@@ -1,0 +1,33 @@
+{
+  "source_archive": "DBT_all_in_one_v3_Madang_Market.zip",
+  "publication_version": "3.1.0",
+  "path_changes": {
+    "chapters/05-debugging-artifacts-runbook-and-anti-patterns.md": "chapters/reference-v3/05-debugging-artifacts-runbook-and-anti-patterns.md",
+    "chapters/14-platform-playbook-postgresql.md": "chapters/reference-v3/14-platform-playbook-postgresql.md",
+    "chapters/12-platform-playbook-duckdb.md": "chapters/reference-v3/12-platform-playbook-duckdb.md",
+    "chapters/appendix-d-troubleshooting-decision-guides-glossary-and-support-matrix.md": "chapters/reference-v3/appendix-d-troubleshooting-decision-guides-glossary-and-support-matrix.md",
+    "chapters/02-development-environment-project-structure-commands-and-jinja.md": "chapters/reference-v3/02-development-environment-project-structure-commands-and-jinja.md",
+    "chapters/04-tests-seeds-snapshots-documentation-macros-and-packages.md": "chapters/reference-v3/04-tests-seeds-snapshots-documentation-macros-and-packages.md",
+    "chapters/13-platform-playbook-mysql.md": "chapters/reference-v3/13-platform-playbook-mysql.md",
+    "chapters/07-governance-contracts-versions-grants-quality-and-metadata.md": "chapters/reference-v3/07-governance-contracts-versions-grants-quality-and-metadata.md",
+    "chapters/15-platform-playbook-bigquery.md": "chapters/reference-v3/15-platform-playbook-bigquery.md",
+    "chapters/appendix-a-companion-pack-bootstrap-and-answer-keys.md": "chapters/reference-v3/appendix-a-companion-pack-bootstrap-and-answer-keys.md",
+    "chapters/09-casebook-retail-orders.md": "chapters/reference-v3/09-casebook-retail-orders.md",
+    "chapters/11-casebook-subscription-billing.md": "chapters/reference-v3/11-casebook-subscription-billing.md",
+    "chapters/16-platform-playbook-clickhouse.md": "chapters/reference-v3/16-platform-playbook-clickhouse.md",
+    "chapters/appendix-b-dbt-command-reference.md": "chapters/reference-v3/appendix-b-dbt-command-reference.md",
+    "chapters/20-platform-playbook-databricks.md": "chapters/reference-v3/20-platform-playbook-databricks.md",
+    "chapters/18-platform-playbook-trino.md": "chapters/reference-v3/18-platform-playbook-trino.md",
+    "chapters/10-casebook-event-stream.md": "chapters/reference-v3/10-casebook-event-stream.md",
+    "chapters/06-operations-cicd-state-defer-clone-vars-env-hooks-and-upgrades.md": "chapters/reference-v3/06-operations-cicd-state-defer-clone-vars-env-hooks-and-upgrades.md",
+    "chapters/appendix-c-jinja-macro-and-extensibility-reference.md": "chapters/reference-v3/appendix-c-jinja-macro-and-extensibility-reference.md",
+    "chapters/17-platform-playbook-snowflake.md": "chapters/reference-v3/17-platform-playbook-snowflake.md",
+    "chapters/00-introduction-and-reading-guide.md": "chapters/reference-v3/00-introduction-and-reading-guide.md",
+    "chapters/08-semantic-layer-python-udf-mesh-performance-platform-and-ai.md": "chapters/reference-v3/08-semantic-layer-python-udf-mesh-performance-platform-and-ai.md",
+    "chapters/01-dbt-overview-and-three-example-tracks.md": "chapters/reference-v3/01-dbt-overview-and-three-example-tracks.md",
+    "chapters/19-platform-playbook-nosql-sql-layer.md": "chapters/reference-v3/19-platform-playbook-nosql-sql-layer.md",
+    "chapters/03-source-ref-selectors-layered-modeling-grain-and-materializations.md": "chapters/reference-v3/03-source-ref-selectors-layered-modeling-grain-and-materializations.md",
+    "00_meta/book_charter.md": "00_meta/madang_book_charter.md"
+  },
+  "preserved_original_commit": "15ce73ed7fc7099176f6f9ad56617d269c2e9299"
+}

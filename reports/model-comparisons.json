@@ -1,0 +1,1317 @@
+{
+  "engine": "SQLite reference; NOT dbt",
+  "scope": "Five modeling fragments + bus aggregation; P3/P4/P5; not certified Vault/Anchor, production architectures, or benchmark",
+  "check_count": 36,
+  "passed": 36,
+  "checks": [
+    {
+      "name": "P3.star.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5004,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1200
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5004,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1200
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P3.star.unique_grain",
+      "actual": 5,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "name": "P3.core.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5004,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1200
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5004,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1200
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P3.core.unique_grain",
+      "actual": 5,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "name": "P3.wide.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5004,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1200
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5004,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1200
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P3.wide.unique_grain",
+      "actual": 5,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "name": "P3.vault.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5004,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1200
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5004,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1200
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P3.vault.unique_grain",
+      "actual": 5,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "name": "P3.anchor.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5004,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1200
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5004,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1200
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P3.anchor.unique_grain",
+      "actual": 5,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "name": "P3.bus.sales_conservation",
+      "actual": 10700,
+      "expected": 10700,
+      "passed": true
+    },
+    {
+      "name": "P3.bus.mrr_conservation",
+      "actual": 2000,
+      "expected": 2000,
+      "passed": true
+    },
+    {
+      "name": "P4.star.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P4.star.unique_grain",
+      "actual": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "P4.core.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P4.core.unique_grain",
+      "actual": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "P4.wide.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P4.wide.unique_grain",
+      "actual": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "P4.vault.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P4.vault.unique_grain",
+      "actual": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "P4.anchor.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P4.anchor.unique_grain",
+      "actual": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "P4.bus.sales_conservation",
+      "actual": 9500,
+      "expected": 9500,
+      "passed": true
+    },
+    {
+      "name": "P4.bus.mrr_conservation",
+      "actual": 2000,
+      "expected": 2000,
+      "passed": true
+    },
+    {
+      "name": "P5.star.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        },
+        {
+          "order_id": 5006,
+          "customer_id": 104,
+          "segment": "standard",
+          "recognized_cents": 2500
+        },
+        {
+          "order_id": 5007,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        },
+        {
+          "order_id": 5006,
+          "customer_id": 104,
+          "segment": "standard",
+          "recognized_cents": 2500
+        },
+        {
+          "order_id": 5007,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P5.star.unique_grain",
+      "actual": 6,
+      "expected": 6,
+      "passed": true
+    },
+    {
+      "name": "P5.core.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        },
+        {
+          "order_id": 5006,
+          "customer_id": 104,
+          "segment": "standard",
+          "recognized_cents": 2500
+        },
+        {
+          "order_id": 5007,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        },
+        {
+          "order_id": 5006,
+          "customer_id": 104,
+          "segment": "standard",
+          "recognized_cents": 2500
+        },
+        {
+          "order_id": 5007,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P5.core.unique_grain",
+      "actual": 6,
+      "expected": 6,
+      "passed": true
+    },
+    {
+      "name": "P5.wide.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        },
+        {
+          "order_id": 5006,
+          "customer_id": 104,
+          "segment": "standard",
+          "recognized_cents": 2500
+        },
+        {
+          "order_id": 5007,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        },
+        {
+          "order_id": 5006,
+          "customer_id": 104,
+          "segment": "standard",
+          "recognized_cents": 2500
+        },
+        {
+          "order_id": 5007,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P5.wide.unique_grain",
+      "actual": 6,
+      "expected": 6,
+      "passed": true
+    },
+    {
+      "name": "P5.vault.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        },
+        {
+          "order_id": 5006,
+          "customer_id": 104,
+          "segment": "standard",
+          "recognized_cents": 2500
+        },
+        {
+          "order_id": 5007,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        },
+        {
+          "order_id": 5006,
+          "customer_id": 104,
+          "segment": "standard",
+          "recognized_cents": 2500
+        },
+        {
+          "order_id": 5007,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P5.vault.unique_grain",
+      "actual": 6,
+      "expected": 6,
+      "passed": true
+    },
+    {
+      "name": "P5.anchor.row_equivalence",
+      "actual": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        },
+        {
+          "order_id": 5006,
+          "customer_id": 104,
+          "segment": "standard",
+          "recognized_cents": 2500
+        },
+        {
+          "order_id": 5007,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1000
+        }
+      ],
+      "expected": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        },
+        {
+          "order_id": 5006,
+          "customer_id": 104,
+          "segment": "standard",
+          "recognized_cents": 2500
+        },
+        {
+          "order_id": 5007,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "P5.anchor.unique_grain",
+      "actual": 6,
+      "expected": 6,
+      "passed": true
+    },
+    {
+      "name": "P5.bus.sales_conservation",
+      "actual": 13000,
+      "expected": 13000,
+      "passed": true
+    },
+    {
+      "name": "P5.bus.mrr_conservation",
+      "actual": 2000,
+      "expected": 2000,
+      "passed": true
+    }
+  ],
+  "outputs": [
+    {
+      "phase": 3,
+      "order_results": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5004,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1200
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "bus_customer_results": [
+        {
+          "customer_id": 101,
+          "sales_cents": 5400,
+          "mrr_cents": 0
+        },
+        {
+          "customer_id": 102,
+          "sales_cents": 2000,
+          "mrr_cents": 2000
+        },
+        {
+          "customer_id": 103,
+          "sales_cents": 3300,
+          "mrr_cents": 0
+        }
+      ]
+    },
+    {
+      "phase": 4,
+      "order_results": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        }
+      ],
+      "bus_customer_results": [
+        {
+          "customer_id": 101,
+          "sales_cents": 4200,
+          "mrr_cents": 0
+        },
+        {
+          "customer_id": 102,
+          "sales_cents": 2000,
+          "mrr_cents": 2000
+        },
+        {
+          "customer_id": 103,
+          "sales_cents": 3300,
+          "mrr_cents": 0
+        }
+      ]
+    },
+    {
+      "phase": 5,
+      "order_results": [
+        {
+          "order_id": 5001,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 4200
+        },
+        {
+          "order_id": 5002,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 0
+        },
+        {
+          "order_id": 5003,
+          "customer_id": 103,
+          "segment": "vip",
+          "recognized_cents": 3300
+        },
+        {
+          "order_id": 5005,
+          "customer_id": 102,
+          "segment": "standard",
+          "recognized_cents": 2000
+        },
+        {
+          "order_id": 5006,
+          "customer_id": 104,
+          "segment": "standard",
+          "recognized_cents": 2500
+        },
+        {
+          "order_id": 5007,
+          "customer_id": 101,
+          "segment": "standard",
+          "recognized_cents": 1000
+        }
+      ],
+      "bus_customer_results": [
+        {
+          "customer_id": 101,
+          "sales_cents": 5200,
+          "mrr_cents": 0
+        },
+        {
+          "customer_id": 102,
+          "sales_cents": 2000,
+          "mrr_cents": 2000
+        },
+        {
+          "customer_id": 103,
+          "sales_cents": 3300,
+          "mrr_cents": 0
+        },
+        {
+          "customer_id": 104,
+          "sales_cents": 2500,
+          "mrr_cents": 0
+        }
+      ]
+    }
+  ]
+}

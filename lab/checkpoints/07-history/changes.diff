@@ -1,0 +1,28 @@
+--- previous/models/l2/int_customer_history.sql
++++ current/models/l2/int_customer_history.sql
+@@ -0,0 +1,4 @@
++-- 이미 관측한 원천의 업무 유효시간으로 구간을 만든 교육용 SCD2. dbt snapshot 실행이 아니다.
++select customer_id, segment, effective_from as valid_from,
++       lead(effective_from) over (partition by customer_id order by effective_from, source_seq) as valid_to
++from {{ source('shop_raw', 'customer_changes') }}
+--- previous/models/l3/dim_customer_history.sql
++++ current/models/l3/dim_customer_history.sql
+@@ -0,0 +1 @@
++select * from {{ ref('int_customer_history') }}
+--- previous/models/l3/fct_orders_asof_segment.sql
++++ current/models/l3/fct_orders_asof_segment.sql
+@@ -0,0 +1,6 @@
++select f.*, d.segment as segment_at_order
++from {{ ref('fct_orders') }} f
++left join {{ ref('dim_customer_history') }} d
++ on f.customer_id = d.customer_id
++ and (f.order_date || ' 00:00:00') >= d.valid_from
++ and ((f.order_date || ' 00:00:00') < d.valid_to or d.valid_to is null)
+--- previous/tests/customer_history_overlap.sql
++++ current/tests/customer_history_overlap.sql
+@@ -0,0 +1,5 @@
++select a.customer_id
++from {{ ref('dim_customer_history') }} a
++join {{ ref('dim_customer_history') }} b
++ on a.customer_id = b.customer_id and a.valid_from < b.valid_from
++where a.valid_to is null or a.valid_to > b.valid_from

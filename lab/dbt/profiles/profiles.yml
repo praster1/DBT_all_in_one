@@ -1,0 +1,8 @@
+madang_market:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('BOOK_DB_PATH') }}"
+      schema: book_dev
+      threads: 1

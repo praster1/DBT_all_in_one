@@ -1,0 +1,20 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="주문 팩트"];
+n1 [label="환불 팩트"];
+n2 [label="구독 팩트"];
+n3 [label="공통 고객 차원"];
+n4 [label="공통 날짜 차원"];
+n5 [label="같은 차원 수준으로 집계\n그 뒤 지표 결합"];
+n3 -> n0;
+n3 -> n1;
+n3 -> n2;
+n4 -> n0;
+n4 -> n1;
+n4 -> n2;
+n0 -> n5;
+n1 -> n5;
+n2 -> n5;
+}

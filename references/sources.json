@@ -1,0 +1,247 @@
+[
+  {
+    "id": "S01",
+    "title": "Databricks — Medallion architecture",
+    "url": "https://docs.databricks.com/aws/en/lakehouse/medallion",
+    "scope": "메달리온의 세 품질 구역. 최초 발명자를 단정하지 않는다.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S02",
+    "title": "dbt — How we structure our dbt projects",
+    "url": "https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview",
+    "scope": "staging, intermediate, marts는 권장 구조이지 강제 스키마 규격이 아니다.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S03",
+    "title": "Kimball Group — Enterprise DW Bus Architecture",
+    "url": "https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/kimball-data-warehouse-bus-architecture/",
+    "scope": "업무 프로세스와 적합 차원의 전사 통합.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S04",
+    "title": "Nathan Marz — How to beat the CAP theorem",
+    "url": "https://nathanmarz.com/blog/how-to-beat-the-cap-theorem.html",
+    "scope": "배치·저지연 경로 논의의 원문. 제목을 CAP 정리의 수학적 반박으로 해석하지 않는다.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S05",
+    "title": "Jay Kreps — Questioning the Lambda Architecture (2014-07-02)",
+    "url": "https://www.oreilly.com/radar/questioning-the-lambda-architecture/",
+    "scope": "중복 처리 로직 문제와 로그 재생 접근의 논의.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S06",
+    "title": "Microsoft — Big data architectures",
+    "url": "https://learn.microsoft.com/en-us/azure/architecture/databases/guide/big-data-architectures",
+    "scope": "Lambda, Kappa, lakehouse의 구성과 적용 범위.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S07",
+    "title": "Zhamak Dehghani — Data Mesh Principles and Logical Architecture (2020-12-03)",
+    "url": "https://martinfowler.com/articles/data-mesh-principles.html",
+    "scope": "도메인 소유권·제품·셀프서비스·연합 거버넌스.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S08",
+    "title": "IBM — What is a data fabric?",
+    "url": "https://www.ibm.com/think/topics/data-fabric",
+    "scope": "공급업체 관점의 통합·메타데이터 설명. 보편 단일 표준으로 간주하지 않는다.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S09",
+    "title": "Rocha et al. — Kimball and Inmon architecture comparison (2026)",
+    "url": "https://arxiv.org/abs/2606.27571",
+    "scope": "Hub-and-spoke와 bus 비교 연구. 실행 성능의 보편 우열을 증명하지 않는다.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S10",
+    "title": "AutomateDV — Hubs",
+    "url": "https://automate-dv.readthedocs.io/en/latest/tutorial/tut_hubs/",
+    "scope": "업무 키·적재 시각·원천의 역할.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S11",
+    "title": "AutomateDV — Satellites",
+    "url": "https://automate-dv.readthedocs.io/en/latest/tutorial/tut_satellites/",
+    "scope": "속성 이력과 유효시간·적재시간 구분.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S12",
+    "title": "Kimball Group — Dimensional modeling techniques",
+    "url": "https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/",
+    "scope": "팩트·차원·SCD·bridge 기술의 분류.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S13",
+    "title": "dbt — Incremental models",
+    "url": "https://docs.getdbt.com/docs/build/incremental-models",
+    "scope": "is_incremental, unique_key, 필터와 재실행 조건.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S14",
+    "title": "dbt — Incremental strategy",
+    "url": "https://docs.getdbt.com/docs/build/incremental-strategy",
+    "scope": "전략별 어댑터 지원 확인이 필요하다.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S15",
+    "title": "dbt — Snapshots",
+    "url": "https://docs.getdbt.com/docs/build/snapshots",
+    "scope": "관측 시점 이력 기록. 원천 CDC 전체 역사를 자동 복원하지 않는다.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S16",
+    "title": "dbt — Custom schemas",
+    "url": "https://docs.getdbt.com/docs/build/custom-schemas",
+    "scope": "기본 target schema 접두어와 개발자 격리.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S17",
+    "title": "dbt — Node selection syntax",
+    "url": "https://docs.getdbt.com/reference/node-selection/syntax",
+    "scope": "선택 구문과 그래프 연산자.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S18",
+    "title": "dbt — State comparison caveats",
+    "url": "https://docs.getdbt.com/reference/node-selection/state-comparison-caveats",
+    "scope": "상태 비교의 경계와 기준 manifest 보존.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S19",
+    "title": "dbt — Model contracts",
+    "url": "https://docs.getdbt.com/docs/mesh/govern/model-contracts",
+    "scope": "구조 계약과 지원 조건.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S20",
+    "title": "dbt — Unit tests",
+    "url": "https://docs.getdbt.com/docs/build/unit-tests",
+    "scope": "고정 입력과 예상 결과에 대한 논리 검증.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S21",
+    "title": "Debezium — Outbox event router",
+    "url": "https://debezium.io/documentation/reference/stable/transformations/outbox-event-router.html",
+    "scope": "outbox 이벤트 구조와 전달.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S22",
+    "title": "Martin Fowler — Event sourcing",
+    "url": "https://martinfowler.com/eaaDev/EventSourcing.html",
+    "scope": "이벤트로 상태 변화를 표현하는 접근.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S23",
+    "title": "Microsoft — CQRS",
+    "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs",
+    "scope": "쓰기·읽기 모델 책임 분리와 복잡성.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S24",
+    "title": "Trino — Concepts",
+    "url": "https://trino.io/docs/current/overview/concepts.html",
+    "scope": "쿼리 엔진·카탈로그·스키마 개념.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S25",
+    "title": "Trino — Iceberg connector",
+    "url": "https://trino.io/docs/current/connector/iceberg.html",
+    "scope": "커넥터 기능과 운영 제약은 실제 버전에서 확인.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S26",
+    "title": "AutomateDV — Staging",
+    "url": "https://automate-dv.readthedocs.io/en/latest/tutorial/tut_staging/",
+    "scope": "Vault 입력 준비·해시·메타데이터.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S27",
+    "title": "Databricks — What is Medallion Architecture?",
+    "url": "https://www.databricks.com/blog/what-is-medallion-architecture",
+    "scope": "Bronze/Silver/Gold와 다른 모델링 방식의 조합.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S28",
+    "title": "Anchor Modeling — official project",
+    "url": "https://www.anchormodeling.com/",
+    "scope": "속성·키·관계·시간의 분리. 교재 구현은 축소 단편.",
+    "checked": "2026-09-10"
+  },
+  {
+    "id": "S29",
+    "title": "dbt — Materializations",
+    "url": "https://docs.getdbt.com/docs/build/materializations",
+    "scope": "view・table・ephemeral의 차이와 CTE로 결합되는 ephemeral의 동작.",
+    "checked": "2026-09-11"
+  },
+  {
+    "id": "S30",
+    "title": "dbt — About dbt artifacts",
+    "url": "https://docs.getdbt.com/reference/artifacts/dbt-artifacts",
+    "scope": "manifest・run_results 등 산출물의 종류와 스키마 버전.",
+    "checked": "2026-09-11"
+  },
+  {
+    "id": "S31",
+    "title": "dbt — Defer",
+    "url": "https://docs.getdbt.com/reference/node-selection/defer",
+    "scope": "상태 기준선과 다른 환경의 relation을 참조할 때의 조건.",
+    "checked": "2026-09-11"
+  },
+  {
+    "id": "S32",
+    "title": "Trino — SELECT / WITH clause",
+    "url": "https://trino.io/docs/current/sql/select.html",
+    "scope": "WITH 정의가 사용 위치에 인라인되는 동작과 반복 참조의 경계.",
+    "checked": "2026-09-11"
+  },
+  {
+    "id": "S33",
+    "title": "dbt — Source freshness",
+    "url": "https://docs.getdbt.com/docs/deploy/source-freshness",
+    "scope": "원천 신선도 평가와 실행・설정의 범위.",
+    "checked": "2026-09-11"
+  },
+  {
+    "id": "S34",
+    "title": "dbt — Data tests",
+    "url": "https://docs.getdbt.com/docs/build/data-tests",
+    "scope": "데이터에 대한 가정과 위반 행을 확인하는 테스트의 역할.",
+    "checked": "2026-09-11"
+  },
+  {
+    "id": "S35",
+    "title": "Martin Fowler — Strangler Fig",
+    "url": "https://martinfowler.com/bliki/StranglerFigApplication.html",
+    "scope": "기존 시스템을 단계적으로 대체하는 이행 접근.",
+    "checked": "2026-09-11"
+  }
+]

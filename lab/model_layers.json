@@ -1,0 +1,23 @@
+{
+  "stg_order_changes": "l1",
+  "stg_orders_current": "l1",
+  "stg_items_current": "l1",
+  "stg_customers_current": "l1",
+  "stg_events": "l1",
+  "stg_subscriptions_current": "l1",
+  "int_order_totals": "l2",
+  "int_orders_classified": "l2",
+  "quarantine_orders": "l2",
+  "int_orders_valid": "l2",
+  "int_customer_history": "l2",
+  "dim_customers": "l3",
+  "dim_customer_history": "l3",
+  "fct_orders": "l3",
+  "fct_order_lines": "l3",
+  "fct_orders_asof_segment": "l3",
+  "mart_daily_sales": "l3",
+  "mart_customer_value": "l3",
+  "mart_daily_active_users": "l3",
+  "mart_current_mrr": "l3",
+  "mart_quality_summary": "l3"
+}

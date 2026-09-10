@@ -1,0 +1,17 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="보존된 이벤트 로그"];
+n1 [label="단일 스트림 로직"];
+n2 [label="현재 투영 v1"];
+n3 [label="재생용 동일 로직\n새 소비자·상태"];
+n4 [label="후보 투영 v2"];
+n5 [label="대사 후 읽기 전환"];
+n0 -> n1;
+n1 -> n2;
+n0 -> n3 [label="replay"];
+n3 -> n4;
+n2 -> n5;
+n4 -> n5;
+}

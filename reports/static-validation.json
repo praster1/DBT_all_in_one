@@ -1,0 +1,27 @@
+{
+  "book_chapters": 68,
+  "journey_chapters": 17,
+  "pattern_chapters": 26,
+  "reference_chapters": 25,
+  "sql_models": 21,
+  "data_phases": 5,
+  "sql_reference_checks": 92,
+  "sql_reference_passed": 92,
+  "comparison_checks": 36,
+  "comparison_passed": 36,
+  "checkpoints_executed": 11,
+  "python_files_parsed": 11,
+  "yaml_files_parsed": 36,
+  "svg_files_parsed": 104,
+  "new_concept_figures": 34,
+  "original_figures": 70,
+  "actual_viewer_screenshots": 12,
+  "old_brand_occurrences": 0,
+  "original_zip_sha256": "9bbda76aa560c5c906c83b90d97c7ad4a2b57032c0d0679f8cd8644012f48e6c",
+  "versions": {
+    "python": "3.12.3",
+    "sqlite": "3.45.1",
+    "dbt": "NOT EXECUTED",
+    "duckdb": "NOT EXECUTED"
+  }
+}

@@ -1,0 +1,4 @@
+--- previous/models/l3/first_orders.sql
++++ current/models/l3/first_orders.sql
+@@ -0,0 +1 @@
++select order_id, status, amount_cents from {{ source('shop_raw', 'order_changes') }}

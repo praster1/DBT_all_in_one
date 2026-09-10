@@ -1,0 +1,16 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="컴포넌트 A\n명시된 출력 계약"];
+n1 [label="컴포넌트 B\nresult_mode 있음"];
+n2 [label="컴포넌트 C\n고정 연산 메타데이터"];
+n3 [label="정규화·중복 키 검사"];
+n4 [label="통합 계산 결과"];
+n5 [label="단일 owner\n쓰기·커밋·로그"];
+n0 -> n3;
+n1 -> n3;
+n2 -> n3;
+n3 -> n4;
+n4 -> n5;
+}

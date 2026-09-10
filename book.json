@@ -1,0 +1,123 @@
+{
+  "title": "DBT All In One — 통계마당 · 마당마켓 에디션",
+  "case_name": "마당마켓",
+  "case_name_en": "Madang Market",
+  "version": "3.1.0",
+  "date": "2026-09-11",
+  "sections": [
+    {
+      "title": "시작하기",
+      "files": [
+        "README.md"
+      ]
+    },
+    {
+      "title": "마당마켓 연속 실습",
+      "files": [
+        "journey/00-madang-market.md",
+        "journey/01-setup.md",
+        "journey/02-first-query.md",
+        "journey/03-staging.md",
+        "journey/04-grain.md",
+        "journey/05-layers.md",
+        "journey/06-marts.md",
+        "journey/07-late-data.md",
+        "journey/08-correction-delete.md",
+        "journey/09-history.md",
+        "journey/10-quarantine-repair.md",
+        "journey/11-incremental.md",
+        "journey/12-three-domains.md",
+        "journey/13-architecture-alternatives.md",
+        "journey/14-configuration.md",
+        "journey/15-release.md",
+        "journey/16-workbook.md"
+      ]
+    },
+    {
+      "title": "설계 패턴 아틀라스",
+      "files": [
+        "patterns/00-pattern-map.md",
+        "patterns/01-medallion.md",
+        "patterns/02-hub-and-spoke.md",
+        "patterns/03-kimball-bus.md",
+        "patterns/04-lambda.md",
+        "patterns/05-kappa.md",
+        "patterns/06-lakehouse.md",
+        "patterns/07-data-mesh.md",
+        "patterns/08-data-fabric-and-federation.md",
+        "patterns/09-data-vault.md",
+        "patterns/10-staging-and-dag.md",
+        "patterns/11-star-snowflake-wide.md",
+        "patterns/12-fact-patterns.md",
+        "patterns/13-history-and-temporal.md",
+        "patterns/14-cdc-outbox-event-sourcing.md",
+        "patterns/15-incremental-and-replay.md",
+        "patterns/16-quality-contract-quarantine.md",
+        "patterns/17-configuration-and-ownership.md",
+        "patterns/18-components-and-integration.md",
+        "patterns/19-ci-cd-and-migration.md",
+        "patterns/20-observability-and-performance.md",
+        "patterns/21-security-and-serving.md",
+        "patterns/22-pattern-selection-case-studies.md",
+        "patterns/23-design-review-workbook.md",
+        "patterns/24-anchor-modeling.md",
+        "patterns/25-architecture-comparison-atlas.md"
+      ]
+    },
+    {
+      "title": "dbt 기초·플랫폼 참고",
+      "files": [
+        "chapters/reference-v3/00-introduction-and-reading-guide.md",
+        "chapters/reference-v3/01-dbt-overview-and-three-example-tracks.md",
+        "chapters/reference-v3/02-development-environment-project-structure-commands-and-jinja.md",
+        "chapters/reference-v3/03-source-ref-selectors-layered-modeling-grain-and-materializations.md",
+        "chapters/reference-v3/04-tests-seeds-snapshots-documentation-macros-and-packages.md",
+        "chapters/reference-v3/05-debugging-artifacts-runbook-and-anti-patterns.md",
+        "chapters/reference-v3/06-operations-cicd-state-defer-clone-vars-env-hooks-and-upgrades.md",
+        "chapters/reference-v3/07-governance-contracts-versions-grants-quality-and-metadata.md",
+        "chapters/reference-v3/08-semantic-layer-python-udf-mesh-performance-platform-and-ai.md",
+        "chapters/reference-v3/09-casebook-retail-orders.md",
+        "chapters/reference-v3/10-casebook-event-stream.md",
+        "chapters/reference-v3/11-casebook-subscription-billing.md",
+        "chapters/reference-v3/12-platform-playbook-duckdb.md",
+        "chapters/reference-v3/13-platform-playbook-mysql.md",
+        "chapters/reference-v3/14-platform-playbook-postgresql.md",
+        "chapters/reference-v3/15-platform-playbook-bigquery.md",
+        "chapters/reference-v3/16-platform-playbook-clickhouse.md",
+        "chapters/reference-v3/17-platform-playbook-snowflake.md",
+        "chapters/reference-v3/18-platform-playbook-trino.md",
+        "chapters/reference-v3/19-platform-playbook-nosql-sql-layer.md",
+        "chapters/reference-v3/20-platform-playbook-databricks.md"
+      ]
+    },
+    {
+      "title": "명령·문제해결 부록",
+      "files": [
+        "chapters/reference-v3/appendix-a-companion-pack-bootstrap-and-answer-keys.md",
+        "chapters/reference-v3/appendix-b-dbt-command-reference.md",
+        "chapters/reference-v3/appendix-c-jinja-macro-and-extensibility-reference.md",
+        "chapters/reference-v3/appendix-d-troubleshooting-decision-guides-glossary-and-support-matrix.md"
+      ]
+    },
+    {
+      "title": "설계·운영 문서",
+      "files": [
+        "governance/README.md",
+        "governance/adr-001-architecture.md",
+        "governance/data-contract.md",
+        "governance/bus-matrix.md",
+        "governance/operations-runbook.md",
+        "governance/change-policy.md",
+        "governance/capability-matrix.md"
+      ]
+    },
+    {
+      "title": "실습·출처·검증",
+      "files": [
+        "lab/README.md",
+        "references/README.md",
+        "reports/delivery-validation.md"
+      ]
+    }
+  ]
+}

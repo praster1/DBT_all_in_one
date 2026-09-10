@@ -1,0 +1,18 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="원천 접근 제한"];
+n1 [label="최소화·가명화"];
+n2 [label="분석용 모델"];
+n3 [label="공개 마트"];
+n4 [label="삭제 요청·보존 정책"];
+n5 [label="복제·백업·과거 버전 점검"];
+n0 -> n1;
+n1 -> n2;
+n2 -> n3;
+n4 -> n0;
+n4 -> n2;
+n4 -> n3;
+n4 -> n5;
+}

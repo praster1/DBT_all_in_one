@@ -1,0 +1,11 @@
+{
+  "scope": "Local Markdown paths, explicit/heading anchors, image targets, original manuscript hashes; external URLs and remote GitHub rendering are not tested.",
+  "documents": 148,
+  "local_links": 1454,
+  "image_links": 317,
+  "local_anchors": 315,
+  "external_links_skipped": 112,
+  "original_manuscripts_verified": 25,
+  "error_count": 0,
+  "errors": []
+}

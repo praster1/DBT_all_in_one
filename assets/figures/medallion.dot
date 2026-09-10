@@ -1,0 +1,14 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="원천·파일·CDC"];
+n1 [label="Bronze\n원천 보존 + 적재 메타데이터"];
+n2 [label="Silver\n중복·타입·키·업무 엔터티"];
+n3 [label="Gold\n인정 매출·분석용 데이터"];
+n4 [label="검역 공간\n이유 + 원천 추적"];
+n0 -> n1;
+n1 -> n2;
+n2 -> n3;
+n2 -> n4;
+}

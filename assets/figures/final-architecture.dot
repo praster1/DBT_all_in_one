@@ -1,0 +1,22 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="원천 변경·웹 이벤트·구독"];
+n1 [label="L0 원본 및 수신 메타데이터"];
+n2 [label="L1 표준화·최신 상태"];
+n3 [label="L2 통합·검증·시간 구간"];
+n4 [label="L3 팩트·차원·업무 지표"];
+n5 [label="공개 계약 + 문서 + 테스트"];
+n6 [label="BI / 운영 전달"];
+n7 [label="오케스트레이터\n재시도·배치 경계·발행"];
+n0 -> n1;
+n1 -> n2;
+n2 -> n3;
+n3 -> n4;
+n4 -> n5;
+n5 -> n6;
+n7 -> n1;
+n7 -> n4;
+n7 -> n5;
+}

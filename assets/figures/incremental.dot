@@ -1,0 +1,18 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="이번 배치 주문 변경"];
+n1 [label="상세 변경"];
+n2 [label="고객 변경"];
+n3 [label="영향받는 주문 키의 합집합"];
+n4 [label="최신 원천으로 재계산"];
+n5 [label="트랜잭션 안에서 키 교체"];
+n6 [label="전체 재계산과 동등성 대사"];
+n0 -> n3;
+n1 -> n3;
+n2 -> n3;
+n3 -> n4;
+n4 -> n5;
+n5 -> n6;
+}

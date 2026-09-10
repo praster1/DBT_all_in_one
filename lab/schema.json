@@ -1,0 +1,51 @@
+{
+  "order_changes": {
+    "ingestion_id": "INTEGER",
+    "phase": "INTEGER",
+    "change_id": "TEXT",
+    "order_id": "INTEGER",
+    "customer_id": "INTEGER",
+    "order_date": "TEXT",
+    "status": "TEXT",
+    "amount_cents": "INTEGER",
+    "source_seq": "INTEGER",
+    "op": "TEXT",
+    "ingested_at": "TEXT"
+  },
+  "item_changes": {
+    "ingestion_id": "INTEGER",
+    "phase": "INTEGER",
+    "item_id": "INTEGER",
+    "order_id": "INTEGER",
+    "product_id": "INTEGER",
+    "quantity": "INTEGER",
+    "unit_price_cents": "INTEGER",
+    "source_seq": "INTEGER",
+    "op": "TEXT"
+  },
+  "customer_changes": {
+    "ingestion_id": "INTEGER",
+    "phase": "INTEGER",
+    "customer_id": "INTEGER",
+    "segment": "TEXT",
+    "effective_from": "TEXT",
+    "source_seq": "INTEGER"
+  },
+  "events": {
+    "ingestion_id": "INTEGER",
+    "phase": "INTEGER",
+    "event_id": "TEXT",
+    "customer_id": "INTEGER",
+    "event_time": "TEXT",
+    "event_type": "TEXT"
+  },
+  "subscriptions": {
+    "ingestion_id": "INTEGER",
+    "phase": "INTEGER",
+    "subscription_id": "TEXT",
+    "customer_id": "INTEGER",
+    "status": "TEXT",
+    "monthly_cents": "INTEGER",
+    "source_seq": "INTEGER"
+  }
+}

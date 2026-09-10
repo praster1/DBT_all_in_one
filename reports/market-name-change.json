@@ -1,0 +1,8 @@
+{
+  "name_ko": "마당마켓",
+  "name_en": "Madang Market",
+  "company": "통계마당",
+  "dbt_project": "madang_market",
+  "scope": "fictional educational case; not actual company transactions",
+  "files_changed": 44
+}

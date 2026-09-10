@@ -1,0 +1,16 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="원천 A"];
+n1 [label="원천 B"];
+n2 [label="연합 쿼리 계층\n접근을 통합"];
+n3 [label="메타데이터·정책·계보\n관리와 자동화"];
+n4 [label="반복 조회 결과를\n선별 실물화"];
+n5 [label="dbt 마트"];
+n0 -> n2;
+n1 -> n2;
+n3 -> n2;
+n2 -> n4;
+n4 -> n5;
+}

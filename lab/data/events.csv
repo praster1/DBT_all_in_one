@@ -1,0 +1,7 @@
+ingestion_id,phase,event_id,customer_id,event_time,event_type
+1,1,e1,101,2026-04-01 10:00:00,page_view
+2,1,e2,102,2026-04-01 11:00:00,purchase
+3,1,e3,103,2026-04-02 10:00:00,page_view
+4,2,e2,102,2026-04-01 11:00:00,purchase
+5,2,e4,103,2026-04-01 23:59:00,page_view
+6,3,e5,101,2026-04-03 09:00:00,page_view

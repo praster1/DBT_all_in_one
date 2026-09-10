@@ -1,0 +1,25 @@
+name: madang_market
+version: '3.0.0'
+config-version: 2
+profile: madang_market
+model-paths: [models]
+test-paths: [tests]
+macro-paths: [macros]
+clean-targets: [target, dbt_packages]
+vars:
+  raw_schema: l0_cus
+  schema_l1: l1_cus
+  schema_l2: l2_cus
+  schema_l3: l3_cus
+models:
+  madang_market:
+    +materialized: table
+    l1:
+      +schema: "{{ var('schema_l1') }}"
+      +tags: [l1]
+    l2:
+      +schema: "{{ var('schema_l2') }}"
+      +tags: [l2]
+    l3:
+      +schema: "{{ var('schema_l3') }}"
+      +tags: [l3]

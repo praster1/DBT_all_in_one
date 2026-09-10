@@ -1,0 +1,14 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="SQL\nref / source"];
+n1 [label="논리 계층\nl0 / l1 / l2 / l3"];
+n2 [label="중앙 매핑\n스키마·카탈로그"];
+n3 [label="환경 네임스페이스\ndev_A / dev_B / prod"];
+n4 [label="물리 relation\n단일 쓰기 소유자"];
+n0 -> n1;
+n1 -> n2;
+n2 -> n3;
+n3 -> n4;
+}

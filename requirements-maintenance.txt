@@ -1,0 +1,5 @@
+-r requirements-book.txt
+PyYAML>=6,<7
+Pillow>=10
+playwright>=1.45
+# Graphviz and a Chromium executable are OS packages; no fonts are distributed.

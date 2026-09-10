@@ -1,0 +1,16 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="객체 저장소\n데이터 파일"];
+n1 [label="테이블 메타데이터\n스냅샷·스키마"];
+n2 [label="카탈로그\n위치·권한·이름"];
+n3 [label="쿼리 엔진\nTrino / Spark 등"];
+n4 [label="dbt\nSQL 변환·테스트"];
+n5 [label="소비자\nBI / ML"];
+n0 -> n1;
+n1 -> n2;
+n2 -> n3;
+n4 -> n3 [label="SQL 요청"];
+n3 -> n5;
+}

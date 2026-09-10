@@ -1,0 +1,14 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#ffffff", pad="0.3", nodesep="0.4", ranksep="0.55", fontname="Noto Sans CJK KR"];
+node [shape=box, style="rounded,filled", fillcolor="#edf5f7", color="#267882", fontcolor="#14343b", fontname="Noto Sans CJK KR", fontsize=14, margin="0.2,0.15"];
+edge [color="#58717a", fontname="Noto Sans CJK KR", fontsize=11, arrowsize=0.75];
+n0 [label="고객 103\nstandard\n01-01 ≤ t < 04-03"];
+n1 [label="고객 103\nvip\n04-03 ≤ t"];
+n2 [label="주문 5003\n04-02 00:00"];
+n3 [label="현재 고객 보고서\nvip"];
+n4 [label="주문 당시 보고서\nstandard"];
+n0 -> n1 [label="유효 경계"];
+n2 -> n0 [label="as-of 조인"];
+n1 -> n3;
+n0 -> n4;
+}

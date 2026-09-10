@@ -1,0 +1,33 @@
+{
+  "repository": "praster1/DBT_all_in_one",
+  "base_commit": "15ce73ed7fc7099176f6f9ad56617d269c2e9299",
+  "base_tree": "90a1e124c56ff0125f02fc677f5961fda7470a4d",
+  "original_manuscripts": {
+    "chapters/00-introduction-and-reading-guide.md": "758d887fe068aeff52721bb50b30a8f6eaee7fee146d0051dcdde3ee50469633",
+    "chapters/01-dbt-overview-and-three-example-tracks.md": "7c02b1f8d66893c6925c3e2f01b2da4a1865a491718ad59f4f0a2271fcd303e4",
+    "chapters/02-development-environment-project-structure-commands-and-jinja.md": "66cae2424f136c48eb8318fb0eb35e226157e8a71cb623faec58c3b11bc41b90",
+    "chapters/03-source-ref-selectors-layered-modeling-grain-and-materializations.md": "e8dff96ce3bb90d32a4348c7b88f324b01df700f5d273b9745c38cc7cd8eb694",
+    "chapters/04-tests-seeds-snapshots-documentation-macros-and-packages.md": "f476a5056c7d12048f0291ca30d595a822327b2f34f852037123404c889b7f5c",
+    "chapters/05-debugging-artifacts-runbook-and-anti-patterns.md": "c6e17896c505e74e1fc9ca430ba464cc10761e15f90b27206700c039704d6a97",
+    "chapters/06-operations-cicd-state-defer-clone-vars-env-hooks-and-upgrades.md": "6c733583eeb2406b000a6f2f808548ba5206d5e532180c84d0519816db6bc821",
+    "chapters/07-governance-contracts-versions-grants-quality-and-metadata.md": "be1dc512b2d289642af4624b445804480b830dca020e9aee0d10327ac2578fbf",
+    "chapters/08-semantic-layer-python-udf-mesh-performance-platform-and-ai.md": "82c9da68b36f49e701db26cc114e4973520b185942c2dcd9aa2ab5e98adbe92f",
+    "chapters/09-casebook-retail-orders.md": "e4d20e94b58cdf898b7593f94353eae16b0f3ba810d81b3030abbc79d632836d",
+    "chapters/10-casebook-event-stream.md": "4df4ee80ec9956c215f06f00bdfc60501ef5eaf62d9429bd2843e02337a16446",
+    "chapters/11-casebook-subscription-billing.md": "e02da9331c8a4c2075c9a06b0d9a49651980202accc34f86172f29566417d51b",
+    "chapters/12-platform-playbook-duckdb.md": "c94d7bc0c9d801b7681e732f762e59f844dae67cfbc47d01f1afbfc4830f4270",
+    "chapters/13-platform-playbook-mysql.md": "bad7b1d2630c7d5f684b980ad413e4a4bf2f4a08060cfafbbfe55c2b6c8854ec",
+    "chapters/14-platform-playbook-postgresql.md": "dc163a40f1f39daf93424df4a87d3e596b9f88f97b726ee8c60c317b575d99fd",
+    "chapters/15-platform-playbook-bigquery.md": "1a848ff2a1e7caca043420ea9fb477a7b3ec3c3710ce1cb4686d6d3bd982ebef",
+    "chapters/16-platform-playbook-clickhouse.md": "6b6257b51e6afed44a97a132d3cbed784377f0c138bcaef028bf296216ac8c78",
+    "chapters/17-platform-playbook-snowflake.md": "d421155c160e547fc019abb4079a56839bcee1e6b63196949cfa9747e48abee1",
+    "chapters/18-platform-playbook-trino.md": "e2c14bf70649f7f5b4b12b3cb4785eb65afc0a332a82bbbb52cd30871230c0b7",
+    "chapters/19-platform-playbook-nosql-sql-layer.md": "cff18a061f6d43ca79bf542fbd8cc15855a6f3473090a78515fa31d835a2dfa2",
+    "chapters/20-platform-playbook-databricks.md": "57a8913c683f6fe007798a32364e8aeab35c5ec81a96e976c3c34f0bf4efc3bd",
+    "chapters/appendix-a-companion-pack-bootstrap-and-answer-keys.md": "531f721bbad42f5722d2d376ded536590c7cced9468f9bf37e59b342e77ab773",
+    "chapters/appendix-b-dbt-command-reference.md": "8dc0bbcb59b1a2053b6c7305e32324c89487f07ea27a5db039ef5ee019c675ce",
+    "chapters/appendix-c-jinja-macro-and-extensibility-reference.md": "c2bdf6b8d2e6ddd7fdc6527d913ea121735ccf892ac27261357fdc0b844cdb79",
+    "chapters/appendix-d-troubleshooting-decision-guides-glossary-and-support-matrix.md": "44344ea4f879892ae6a6fde0bfe0e008cfd964f733dc2033246931970b696b79"
+  },
+  "policy": "Original chapter manuscript paths and bytes are preserved. Revised reference chapters are separate under chapters/reference-v3/."
+}
