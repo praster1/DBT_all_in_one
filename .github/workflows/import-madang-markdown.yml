@@ -29,11 +29,12 @@ jobs:
           "$RUNNER_TEMP/madang-venv/bin/python" -m pip install -r "$RUNNER_TEMP/madang-publish/requirements-maintenance.txt"
           "$RUNNER_TEMP/madang-venv/bin/python" -m playwright install --with-deps chromium
           sudo apt-get update
-          sudo apt-get install -y fonts-noto-cjk
+          sudo apt-get install -y fonts-noto-cjk graphviz
       - name: Reproduce SQL results and capture real result screens
         run: |
           cd "$RUNNER_TEMP/madang-publish"
           PY="$RUNNER_TEMP/madang-venv/bin/python"
+          "$PY" scripts/build_figures.py
           "$PY" lab/run_reference.py --verify --output reports/sql-reference-validation.json
           CHROMIUM=$("$PY" -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()')
           "$PY" scripts/make_screenshots.py --chromium "$CHROMIUM"
@@ -50,7 +51,6 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          git diff --cached --check
           git commit -m 'Publish Madang Market Markdown edition and preserve original manuscripts'
           git push origin HEAD:refs/heads/chatgpt/madang-market-markdown-20260911
           echo "Published commit: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
